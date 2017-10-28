@@ -17,7 +17,7 @@ namespace Stardust.Xml
     /// <code>StardustElement.parseXML()</code> method.
     /// </para>
     /// </summary>
-    public class XMLBuilder
+    public class XmlBuilder
     {
         //XML building
         //------------------------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ namespace Stardust.Xml
         private Dictionary<string, Type> elementClasses;
         private Dictionary<string, StardustElement> elements;
 
-        public XMLBuilder()
+        public XmlBuilder()
         {
             elementClasses = new Dictionary<string, Type>();
             elements = new Dictionary<string, StardustElement>();
@@ -181,7 +181,7 @@ namespace Stardust.Xml
         /// <code>GetElementByName()</code> or the GetElementByClass() methods.</para>
         /// </summary>
         /// <exception cref="NotSupportedException">When an XML tag cannot be resolved</exception>
-        /// <exception cref="InvalidOperationException">When multiple tags have the same name</exception>
+        /// <exception cref="InvalidOperationException">When multiple tags have the same name or one has no name</exception>
         public void BuildFromXml(XElement xml)
         {
             elements = new Dictionary<string, StardustElement>();

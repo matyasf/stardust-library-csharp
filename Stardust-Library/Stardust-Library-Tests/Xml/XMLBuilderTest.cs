@@ -19,14 +19,14 @@ namespace Stardust_Library_Tests.Xml
         [Test]
         public void RegisterClass_WrongType()
         {
-            XMLBuilder builder = new XMLBuilder();
+            XmlBuilder builder = new XmlBuilder();
             Assert.Throws<InvalidOperationException>(() => builder.RegisterClass(typeof(PlainClass)));
         }
         
         [Test]
         public void RegisterClass_Duplicate()
         {
-            XMLBuilder builder = new XMLBuilder();
+            XmlBuilder builder = new XmlBuilder();
             builder.RegisterClass(typeof(StardustClass));
             Assert.Throws<InvalidOperationException>(() => builder.RegisterClass(typeof(StardustClass)));
         }
@@ -34,7 +34,7 @@ namespace Stardust_Library_Tests.Xml
         [Test]
         public void BuildXml()
         {
-            XMLBuilder builder = new XMLBuilder();
+            XmlBuilder builder = new XmlBuilder();
             builder.RegisterClass(typeof(StardustClass));
             builder.BuildFromXml(XDocument.Parse(_XmlGood).Root);
         }
@@ -42,7 +42,7 @@ namespace Stardust_Library_Tests.Xml
         [Test]
         public void BuildXml_NoClassRegistered()
         {
-            XMLBuilder builder = new XMLBuilder();            
+            XmlBuilder builder = new XmlBuilder();            
             Assert.Throws<NotSupportedException>(() => builder.BuildFromXml(XDocument.Parse(_XmlGood).Root));
         }
         
@@ -54,7 +54,7 @@ namespace Stardust_Library_Tests.Xml
                                             <StardustElement/>
                                         </actions>
                                     </StardustParticleSystem>";
-            XMLBuilder builder = new XMLBuilder();
+            XmlBuilder builder = new XmlBuilder();
             builder.RegisterClass(typeof(StardustClass));
             Assert.Throws<InvalidOperationException>(() => builder.BuildFromXml(XDocument.Parse(xmlNoName).Root));
         }
@@ -68,7 +68,7 @@ namespace Stardust_Library_Tests.Xml
                                                     <StardustElement name='sde'/>
                                                 </actions>
                                             </StardustParticleSystem>";
-            XMLBuilder builder = new XMLBuilder();
+            XmlBuilder builder = new XmlBuilder();
             builder.RegisterClass(typeof(StardustClass));
             Assert.Throws<InvalidOperationException>(() => builder.BuildFromXml(XDocument.Parse(xmlDuplicateName).Root));
         }
@@ -77,6 +77,6 @@ namespace Stardust_Library_Tests.Xml
     internal class PlainClass{}
 
     internal class StardustClass : StardustElement{
-        public override void ParseXml(XElement xml, XMLBuilder builder = null) {}
+        public override void ParseXml(XElement xml, XmlBuilder builder = null) {}
     }
 }

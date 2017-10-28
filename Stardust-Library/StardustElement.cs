@@ -77,7 +77,7 @@ namespace Stardust
         /// <summary>
         /// Reconstructs the element from XML representations.
         /// </summary>
-        public abstract void ParseXml(XElement xml, XMLBuilder builder = null);
+        public abstract void ParseXml(XElement xml, XmlBuilder builder = null);
     
         /// <summary>
         /// This is called when the whole simulation's XML parsing is complete
