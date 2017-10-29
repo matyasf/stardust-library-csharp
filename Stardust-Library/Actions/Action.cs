@@ -1,5 +1,7 @@
-﻿using System;
+﻿
 using System.Xml.Linq;
+using Stardust.Emitters;
+using Stardust.Particles;
 using Stardust.Xml;
 
 namespace Stardust.Actions
@@ -16,7 +18,7 @@ namespace Stardust.Actions
     ///
     /// <para>Default priority = 0;</para>
     /// </summary>
-    public class Action : StardustElement
+    public abstract class Action : StardustElement
     {
         
         /// <summary>
@@ -24,37 +26,90 @@ namespace Stardust.Actions
         /// </summary>
         public bool Active;
 
-        protected int Priority;
+        protected int _priority;
 
-        public Action()
+        protected Action()
         {
-            Priority = 0;
+            _priority = 0;
             Active = true;
         }
         
-        /**
-         * [Template Method] This method is called once upon each <code>Emitter.step()</code> method call,
-         * before the <code>update()</code> calls with each particles in the emitter.
-         *
-         * <p>
-         * All setup operations before the <code>update()</code> calls should be done here.
-         * </p>
-         * @param    emitter        The associated emitter.
-         * @param    time        The timespan of each emitter's step.
-         */
         /// <summary>
-        /// 
+        /// [Template Method] This method is called once upon each <code>Emitter.Step()</code> method call,
+        /// before the <code>update()</code> calls with each particles in the emitter.
+        ///
+        /// <para>
+        /// All setup operations before the <code>Update()</code> calls should be done here.
+        /// </para>
         /// </summary>
-        /// <param name="???"></param>
-        /// <returns></returns>
-        public function preUpdate(emitter : Emitter, time : Number) : void
+        /// <param name="emitter">The associated emitter.</param>
+        /// <param name="time">The timespan of each emitter's step.</param>
+        public virtual void PreUpdate(Emitter emitter, float time) {}
+
+        /// <summary>
+        /// [Template Method] Acts on all particles upon each <code>Emitter.step()</code> method call.
+        ///
+        /// <para>
+        /// Override this method to create custom actions.
+        /// </para>
+        /// </summary>
+        /// <param name="emitter">The associated emitter.</param>
+        /// <param name="particle">The associated particle.</param>
+        /// <param name="timeDelta">The timespan of each emitter's step.</param>
+        /// <param name="currentTime">The total time from the first Emitter.Step() call.</param>
+        public abstract void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime);
+        
+        /// <summary>
+        /// [Template Method] This method is called once after each <code>Emitter.Step()</code> method call,
+        /// after the <code>Update()</code> calls with each particles in the emitter.
+        ///
+        /// <para>
+        /// All setup operations after the <code>Update()</code> calls should be done here.
+        /// </para>
+        /// </summary>
+        /// <param name="emitter">The associated emitter.</param>
+        /// <param name="time">The timespan of each emitter's step.</param>
+        public virtual void PostUpdate(Emitter emitter, float time) {}
+
+        public int Priority
         {
-            //abstract method
+            get { return _priority; }
+            set
+            {
+                _priority = value;
+                // + dispatch event
+            }
+        }
+
+        /// <summary>
+        /// Tells the emitter whether this action requires that particles must be sorted before the <code>update()</code> calls.
+        ///
+        /// <para>
+        /// For instance, the <code>Collide</code> action needs all particles to be sorted in X positions.
+        /// </para>
+        /// </summary>
+        public virtual bool NeedsSortedParticles
+        {
+            get { return false; }
+        }
+        
+        #region XML
+
+        public override string GetXmlTagName()
+        {
+            return GetType().Name;
+        }
+
+        public override XElement GetElementTypeXmlTag()
+        {
+            return new XElement("elements");
         }
         
         public override void ParseXml(XElement xml, XmlBuilder builder = null)
         {
             Active = bool.Parse(xml.Attribute("name").Value);
         }
+        
+        #endregion
     }
 }
