@@ -24,10 +24,9 @@ namespace Stardust
             }
             Name = str + "_" + ElementCounter[str];
         }
-    
-        //XML
-        //------------------------------------------------------------------------------------------------
-    
+
+        #region XML
+        
         /// <summary>
         /// Returns the related objects of the element.
         /// <para>
@@ -39,14 +38,11 @@ namespace Stardust
         {
             return new List<StardustElement>();
         }
-    
+
         /// <summary>
         /// Returns the name of the root node of the element's XML representation.
         /// </summary>
-        public virtual string GetXmlTagName()
-        {
-            return "StardustElement";
-        }
+        public abstract string GetXmlTagName();
     
         /// <summary>
         /// Returns the root tag of the XML representation.
@@ -57,14 +53,11 @@ namespace Stardust
             xml.SetAttributeValue("name", Name);
             return xml;
         }
-    
+
         /// <summary>
         /// Returns the tag for containing elements of the same type.
         /// </summary>
-        public virtual XElement GetElementTypeXmlTag()
-        {
-            return new XElement("elements");
-        }
+        public abstract XElement GetElementTypeXmlTag();
     
         /// <summary>
         /// Generates XML representation.
@@ -84,7 +77,6 @@ namespace Stardust
         /// </summary>
         public virtual void OnXmlInitComplete() {}
     
-        //------------------------------------------------------------------------------------------------
-        //end of XML
+        #endregion
     }
 }

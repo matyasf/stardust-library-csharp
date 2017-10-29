@@ -10,8 +10,8 @@ namespace Stardust.Actions
     /// An action is used to continuously update a particle's property.
     ///
     /// <para>
-    /// An action is associated with an emitter. On each <code>Emitter.step()</code> method call,
-    /// the action's <code>update()</code> method is called with each particles in the emitter passed in as parameter.
+    /// An action is associated with an emitter. On each <code>Emitter.Step()</code> method call,
+    /// the action's <code>Update()</code> method is called with each particles in the emitter passed in as parameter.
     /// This method updates a particles property, such as changing the particle's position according to its velocity,
     /// or modifying the particle's velocity based on gravity fields.
     /// </para>
@@ -20,6 +20,11 @@ namespace Stardust.Actions
     /// </summary>
     public abstract class Action : StardustElement
     {
+       
+        public delegate void ActionHandler(Action action);
+        public static event ActionHandler Added;
+        public static event ActionHandler Removed;
+        public static event ActionHandler PriorityChange;
         
         /// <summary>
         /// Denotes if the action is active, true by default.
@@ -77,7 +82,7 @@ namespace Stardust.Actions
             set
             {
                 _priority = value;
-                // + dispatch event
+                PriorityChange?.Invoke(this);
             }
         }
 
@@ -104,10 +109,17 @@ namespace Stardust.Actions
         {
             return new XElement("elements");
         }
-        
+
+        public override XElement ToXml()
+        {
+            XElement xml = base.ToXml();
+            xml.SetAttributeValue("active", Active);
+            return xml;
+        }
+
         public override void ParseXml(XElement xml, XmlBuilder builder = null)
         {
-            Active = bool.Parse(xml.Attribute("name").Value);
+            Active = bool.Parse(xml.Attribute("active").Value);
         }
         
         #endregion

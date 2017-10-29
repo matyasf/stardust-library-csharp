@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0333dbb7-ba9f-4afa-94fa-e835577b124f" name="Default" comment="" />
+    <list default="true" id="0333dbb7-ba9f-4afa-94fa-e835577b124f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Clocks/Clock.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Clocks/SteadyClock.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Math/RandomBase.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Math/UniformRandom.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.Stardust-Library/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.Stardust-Library/.idea/contentModel.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.Stardust-Library/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.Stardust-Library/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Actions/Action.cs" afterPath="$PROJECT_DIR$/Actions/Action.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Initializers/Initializer.cs" afterPath="$PROJECT_DIR$/Initializers/Initializer.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Stardust-Library.csproj" afterPath="$PROJECT_DIR$/Stardust-Library.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StardustElement.cs" afterPath="$PROJECT_DIR$/StardustElement.cs" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,59 +21,118 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6155203">
+    <splitter split-orientation="horizontal" split-proportion="0.5258567">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="XMLBuilderTest.cs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Stardust-Library-Tests/Xml/XMLBuilderTest.cs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="Action.cs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Actions/Action.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="850">
-                  <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+                <state relative-caret-position="1854">
+                  <caret line="121" column="53" lean-forward="false" selection-start-line="121" selection-start-column="53" selection-end-line="121" selection-end-column="53" />
                   <folding>
-                    <marker date="1509216025336" expanded="false" signature="7:94" ph="..." />
-                    <marker date="1509216025336" expanded="true" signature="122:4053" ph="{...}" />
-                    <marker date="1509216025336" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
-                    <marker date="1509216025336" expanded="true" signature="779:4051" ph="{...}" />
-                    <marker date="1509216025336" expanded="true" signature="803:901" ph="/// Denotes if the action is active, true by default. ... " />
-                    <marker date="1509216025336" expanded="true" signature="991:1065" ph="{...}" />
-                    <marker date="1509216025336" expanded="true" signature="1083:1600" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-                    <marker date="1509216025336" expanded="true" signature="1680:2241" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
-                    <marker date="1509216025336" expanded="true" signature="2368:2884" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-                    <marker date="1509216025336" expanded="true" signature="2984:3157" ph="{...}" />
-                    <marker date="1509216025336" expanded="true" signature="3048:3147" ph="{...}" />
-                    <marker date="1509216025336" expanded="true" signature="3167:3490" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
-                    <marker date="1509216025336" expanded="true" signature="3539:3593" ph="{...}" />
-                    <marker date="1509216025336" expanded="true" signature="3611:4045" ph="XML" />
-                    <marker date="1509216025336" expanded="true" signature="3670:3725" ph="{...}" />
-                    <marker date="1509216025336" expanded="true" signature="3782:3847" ph="{...}" />
-                    <marker date="1509216025336" expanded="true" signature="3935:4017" ph="{...}" />
+                    <marker date="1509285134454" expanded="false" signature="7:94" ph="..." />
+                    <marker date="1509285134454" expanded="true" signature="122:4462" ph="{...}" />
+                    <marker date="1509285134454" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
+                    <marker date="1509285134454" expanded="true" signature="779:4460" ph="{...}" />
+                    <marker date="1509285134454" expanded="true" signature="1028:1126" ph="/// Denotes if the action is active, true by default. ... " />
+                    <marker date="1509285134454" expanded="true" signature="1216:1290" ph="{...}" />
+                    <marker date="1509285134454" expanded="true" signature="1308:1825" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+                    <marker date="1509285134454" expanded="true" signature="1905:2466" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
+                    <marker date="1509285134454" expanded="true" signature="2593:3109" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+                    <marker date="1509285134454" expanded="true" signature="3209:3392" ph="{...}" />
+                    <marker date="1509285134454" expanded="true" signature="3273:3382" ph="{...}" />
+                    <marker date="1509285134454" expanded="true" signature="3402:3725" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
+                    <marker date="1509285134454" expanded="true" signature="3774:3828" ph="{...}" />
+                    <marker date="1509285134454" expanded="true" signature="3846:4454" ph="XML" />
+                    <marker date="1509285134454" expanded="true" signature="3905:3960" ph="{...}" />
+                    <marker date="1509285134454" expanded="true" signature="4017:4082" ph="{...}" />
+                    <marker date="1509285134454" expanded="true" signature="4124:4262" ph="{...}" />
+                    <marker date="1509285134454" expanded="true" signature="4342:4426" ph="{...}" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Initializer.cs" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Initializer.cs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Initializers/Initializer.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+                <state relative-caret-position="437">
+                  <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
                   <folding>
-                    <marker date="1509219352852" expanded="true" signature="6:42" ph="..." />
-                    <marker date="1509219352852" expanded="true" signature="75:671" ph="{...}" />
-                    <marker date="1509219352852" expanded="true" signature="82:421" ph="/// An initializer is used to alter just once (i.e. initialize) a particle's properties upon the particle's birth ... " />
-                    <marker date="1509219352852" expanded="true" signature="468:669" ph="{...}" />
-                    <marker date="1509219352852" expanded="true" signature="510:662" ph="XML" />
-                    <marker date="1509219352852" expanded="true" signature="601:634" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="6:102" ph="..." />
+                    <marker date="1509285134480" expanded="true" signature="135:2931" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="142:481" ph="/// An initializer is used to alter just once (i.e. initialize) a particle's properties upon the particle's birth ... " />
+                    <marker date="1509285134480" expanded="true" signature="528:2929" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="808:911" ph="/// Denotes if the initializer is active, true by default. ... " />
+                    <marker date="1509285134480" expanded="true" signature="1001:1075" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="1161:1368" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="1195:1358" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="1266:1344" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="1378:1591" ph="/// [Template Method] This is the method that alters a particle's properties. ... " />
+                    <marker date="1509285134480" expanded="true" signature="1649:1682" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="1692:2099" ph="/// Initializers will be sorted according to their priorities. ... " />
+                    <marker date="1509285134480" expanded="true" signature="2127:2310" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="2191:2300" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="2320:2922" ph="XML" />
+                    <marker date="1509285134480" expanded="true" signature="2379:2433" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="2490:2559" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="2601:2739" ph="{...}" />
+                    <marker date="1509285134480" expanded="true" signature="2819:2903" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="stardustEmitter_0.xml" pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Downloads/stardustEmitter_0.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="794">
+                  <caret line="63" column="31" lean-forward="false" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SteadyClock.cs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Clocks/SteadyClock.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="410">
+                  <caret line="52" column="9" lean-forward="false" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+                  <folding>
+                    <marker date="1509296033698" expanded="true" signature="6:63" ph="..." />
+                    <marker date="1509296033698" expanded="true" signature="90:2067" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="97:194" ph="/// Causes the emitter to create particles at a steady rate. ... " />
+                    <marker date="1509296033698" expanded="true" signature="231:2065" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="247:461" ph="/// How many particles to create in each second. ... " />
+                    <marker date="1509296033698" expanded="true" signature="707:889" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="929:1116" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="997:1106" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="1174:1398" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="1268:1366" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="1481:1568" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="1615:1736" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="1754:2059" ph="XML" />
+                    <marker date="1509296033698" expanded="true" signature="1821:1875" ph="{...}" />
+                    <marker date="1509296033698" expanded="true" signature="1955:2031" ph="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UniformRandom.cs" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Math/UniformRandom.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="114">
+                  <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+                  <folding>
+                    <marker date="1509296033657" expanded="true" signature="6:76" ph="..." />
+                    <marker date="1509296033657" expanded="true" signature="101:804" ph="{...}" />
+                    <marker date="1509296033657" expanded="true" signature="147:802" ph="{...}" />
+                    <marker date="1509296033657" expanded="true" signature="201:234" ph="{...}" />
+                    <marker date="1509296033657" expanded="true" signature="322:398" ph="{...}" />
+                    <marker date="1509296033657" expanded="true" signature="438:514" ph="{...}" />
+                    <marker date="1509296033657" expanded="true" signature="589:665" ph="{...}" />
+                    <marker date="1509296033657" expanded="true" signature="720:796" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -72,66 +142,23 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="XMLBuilder.cs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Xml/XMLBuilder.cs">
+          <file leaf-file-name="SteadyClock.as" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/clocks/SteadyClock.as">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="338">
-                  <caret line="220" column="30" lean-forward="false" selection-start-line="220" selection-start-column="30" selection-end-line="220" selection-end-column="69" />
+                <state relative-caret-position="281">
+                  <caret line="57" column="49" lean-forward="true" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="49" />
                   <folding>
-                    <marker date="1509212408003" expanded="false" signature="6:113" ph="..." />
-                    <marker date="1509212408003" expanded="true" signature="137:9432" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
-                    <marker date="1509212408003" expanded="true" signature="678:9430" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="693:814" ph="/* XML building ... */" />
-                    <marker date="1509212408003" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
-                    <marker date="1509212408003" expanded="true" signature="1127:2170" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="1638:1707" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="1822:2134" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="1985:2060" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="2256:2532" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="2670:3236" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="2782:3001" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="2846:2987" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="3151:3226" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
-                    <marker date="1509212408003" expanded="true" signature="3532:3679" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
-                    <marker date="1509212408003" expanded="true" signature="4473:5151" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="4605:4754" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="4931:5089" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
-                    <marker date="1509212408003" expanded="true" signature="5298:5426" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="5351:5416" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
-                    <marker date="1509212408003" expanded="true" signature="5639:5715" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
-                    <marker date="1509212408003" expanded="true" signature="5860:5921" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
-                    <marker date="1509212408003" expanded="true" signature="6191:6246" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="6317:6625" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="6424:6591" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="6493:6573" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
-                    <marker date="1509212408003" expanded="true" signature="7209:9424" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="7421:8967" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="7503:8953" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="7546:7735" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="7784:8150" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="8206:8493" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="8569:8865" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="9030:9285" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="9112:9271" ph="{...}" />
-                    <marker date="1509212408003" expanded="true" signature="9340:9414" ph="{...}" />
+                    <element signature="e#45#95#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Initializer.as" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/initializers/Initializer.as">
+          <file leaf-file-name="Random.as" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/math/Random.as">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="58" selection-end-column="32" />
+                <state relative-caret-position="206">
+                  <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
                   <folding />
                 </state>
               </provider>
@@ -150,16 +177,27 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Particles/Particle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Actions/Action.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/StardustElement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Stardust-Library-Tests/Xml/XMLBuilderTest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/StardustInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Xml/XMLBuilder.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Xml/ClassPackage.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Initializers/Initializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Emitters/Emitter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF164B2F-AEAB-427E-87F5-D0FA76EAD9FC/27/c9c4b8e9/Extensions.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Actions/Action.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF164B2F-AEAB-427E-87F5-D0FA76EAD9FC/b9/c611dda9/XElement.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7EDA6945-225D-4F3E-82C5-F31F305A504F/0b/a07050c2/RuntimeType.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7EDA6945-225D-4F3E-82C5-F31F305A504F/c2/3662d72f/IEnumerable.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/StardustElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Math/UniformRandom.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7EDA6945-225D-4F3E-82C5-F31F305A504F/e2/af658c9f/IEnumerable`1.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Xml/ClassPackage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Math/RandomBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Stardust-Library-Tests/Xml/XMLBuilderTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Clocks/SteadyClock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7EDA6945-225D-4F3E-82C5-F31F305A504F/a3/e0fdae8b/Activator.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Clocks/Clock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7EDA6945-225D-4F3E-82C5-F31F305A504F/bb/1fbef106/List`1.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/StardustInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Xml/XMLBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Particles/Particle.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -171,7 +209,6 @@
         <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7EDA6945-225D-4F3E-82C5-F31F305A504F/bb/1fbef106/List`1.cs" />
         <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7EDA6945-225D-4F3E-82C5-F31F305A504F/e2/af658c9f/IEnumerable`1.cs" />
         <option value="$PROJECT_DIR$/Xml/ClassPackage.cs" />
-        <option value="$PROJECT_DIR$/StardustElement.cs" />
         <option value="$PROJECT_DIR$/Stardust-Library-Tests/Tests.cs" />
         <option value="$PROJECT_DIR$/Stardust-Library-Tests/Xml/XMLBuilderTest.cs" />
         <option value="$PROJECT_DIR$/Stardust-Library-Tests/Actions/Action.cs" />
@@ -179,9 +216,16 @@
         <option value="$PROJECT_DIR$/Xml/XMLBuilder.cs" />
         <option value="$PROJECT_DIR$/Emitters/Emitter.cs" />
         <option value="$PROJECT_DIR$/Particles/Particle.cs" />
-        <option value="$PROJECT_DIR$/Actions/Action.cs" />
         <option value="$PROJECT_DIR$/Initializers/Initializers.cs" />
         <option value="$PROJECT_DIR$/Initializers/Initializer.cs" />
+        <option value="$PROJECT_DIR$/Actions/Action.cs" />
+        <option value="$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/math/Random.as" />
+        <option value="$PROJECT_DIR$/StardustElement.cs" />
+        <option value="$PROJECT_DIR$/Math/Random.cs" />
+        <option value="$PROJECT_DIR$/Math/RandomBase.cs" />
+        <option value="$PROJECT_DIR$/Clocks/SteadyClock.cs" />
+        <option value="$PROJECT_DIR$/Clocks/Clock.cs" />
+        <option value="$PROJECT_DIR$/Math/UniformRandom.cs" />
       </list>
     </option>
   </component>
@@ -192,8 +236,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="757" />
-    <option name="width" value="1171" />
+    <option name="x" value="-8" />
+    <option name="width" value="1274" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -228,7 +272,19 @@
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="Stardust-Library (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="Stardust-Library" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Clocks" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Stardust-Library (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Stardust-Library" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="Initializers" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Stardust-Library (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Stardust-Library" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Math" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
           </expand>
           <select />
@@ -241,6 +297,122 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.idesettings.quicklists" />
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/.idea.Stardust-Library/.idea/contentModel.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/.idea.Stardust-Library/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Actions/Action.cs</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Stardust-Library.csproj</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Emitters/Emitter.cs</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Initializers/Initializer.cs</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Particles/Particle.cs</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -296,12 +468,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14674735" sideWeight="0.49417636" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14017186" sideWeight="0.49417636" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258427" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.521978" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -311,13 +484,25 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22986037" sideWeight="0.5058236" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48826817" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3258427" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.521978" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48826817" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14674735" sideWeight="0.49417636" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4258427" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22986037" sideWeight="0.5058236" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,36 +518,29 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Stardust-Library-Tests/Xml/XMLBuilderTest.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Actions/Action.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1632">
           <caret line="99" column="19" lean-forward="false" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
           <folding>
-            <marker date="1509216025336" expanded="false" signature="7:94" ph="..." />
-            <marker date="1509216025336" expanded="true" signature="122:4053" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
-            <marker date="1509216025336" expanded="true" signature="779:4051" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="803:901" ph="/// Denotes if the action is active, true by default. ... " />
-            <marker date="1509216025336" expanded="true" signature="991:1065" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="1083:1600" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-            <marker date="1509216025336" expanded="true" signature="1680:2241" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
-            <marker date="1509216025336" expanded="true" signature="2368:2884" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-            <marker date="1509216025336" expanded="true" signature="2984:3157" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3048:3147" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3167:3490" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
-            <marker date="1509216025336" expanded="true" signature="3539:3593" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3611:4045" ph="XML" />
-            <marker date="1509216025336" expanded="true" signature="3670:3725" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3782:3847" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3935:4017" ph="{...}" />
+            <marker date="1509285134454" expanded="false" signature="7:94" ph="..." />
+            <marker date="1509285134454" expanded="true" signature="122:4462" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
+            <marker date="1509285134454" expanded="true" signature="779:4460" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="1028:1126" ph="/// Denotes if the action is active, true by default. ... " />
+            <marker date="1509285134454" expanded="true" signature="1216:1290" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="1308:1825" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+            <marker date="1509285134454" expanded="true" signature="1905:2466" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
+            <marker date="1509285134454" expanded="true" signature="2593:3109" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+            <marker date="1509285134454" expanded="true" signature="3209:3392" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3273:3382" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3402:3725" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
+            <marker date="1509285134454" expanded="true" signature="3774:3828" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3846:4454" ph="XML" />
+            <marker date="1509285134454" expanded="true" signature="3905:3960" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4017:4082" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4124:4262" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4342:4426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -372,50 +550,49 @@
         <state relative-caret-position="3672">
           <caret line="220" column="30" lean-forward="false" selection-start-line="220" selection-start-column="30" selection-end-line="220" selection-end-column="69" />
           <folding>
-            <marker date="1509212408003" expanded="false" signature="6:113" ph="..." />
-            <marker date="1509212408003" expanded="true" signature="137:9432" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
-            <marker date="1509212408003" expanded="true" signature="678:9430" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="693:814" ph="/* XML building ... */" />
-            <marker date="1509212408003" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
-            <marker date="1509212408003" expanded="true" signature="1127:2170" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1638:1707" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1822:2134" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1985:2060" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2256:2532" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2670:3236" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2782:3001" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2846:2987" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3151:3226" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
-            <marker date="1509212408003" expanded="true" signature="3532:3679" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
-            <marker date="1509212408003" expanded="true" signature="4473:5151" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4605:4754" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4931:5089" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
-            <marker date="1509212408003" expanded="true" signature="5298:5426" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5351:5416" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
-            <marker date="1509212408003" expanded="true" signature="5639:5715" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
-            <marker date="1509212408003" expanded="true" signature="5860:5921" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
-            <marker date="1509212408003" expanded="true" signature="6191:6246" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6317:6625" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6424:6591" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6493:6573" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
-            <marker date="1509212408003" expanded="true" signature="7209:9424" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7421:8967" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7503:8953" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7546:7735" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7784:8150" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8206:8493" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8569:8865" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9030:9285" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9112:9271" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9340:9414" ph="{...}" />
+            <marker date="1509201654339" expanded="false" signature="6:113" ph="..." />
+            <marker date="1509201654339" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
+            <marker date="1509201654339" expanded="true" signature="678:9430" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="693:814" ph="/* XML building ... */" />
+            <marker date="1509201654339" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
+            <marker date="1509201654339" expanded="true" signature="1127:2170" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1638:1707" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1822:2134" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1985:2060" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2256:2532" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2670:3236" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2782:3001" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2846:2987" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3151:3226" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
+            <marker date="1509201654339" expanded="true" signature="3532:3679" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
+            <marker date="1509201654339" expanded="true" signature="4473:5151" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4605:4754" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4931:5089" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
+            <marker date="1509201654339" expanded="true" signature="5298:5426" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5351:5416" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
+            <marker date="1509201654339" expanded="true" signature="5639:5715" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
+            <marker date="1509201654339" expanded="true" signature="5860:5921" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
+            <marker date="1509201654339" expanded="true" signature="6191:6246" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6317:6625" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6424:6591" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6493:6573" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
+            <marker date="1509201654339" expanded="true" signature="7209:9424" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7421:8967" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7503:8953" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7546:7735" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7784:8150" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8206:8493" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8569:8865" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9030:9285" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9112:9271" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9340:9414" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -424,7 +601,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2567">
           <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#46#82#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -432,7 +611,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-          <folding />
+          <folding>
+            <marker date="1509201654363" expanded="false" signature="6:95" ph="..." />
+            <marker date="1509201654363" expanded="true" signature="133:3046" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="176:2870" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="497:671" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="741:976" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1031:1226" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1299:1492" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1554:2105" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2175:2864" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2955:3044" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -441,23 +631,24 @@
         <state relative-caret-position="1037">
           <caret line="62" column="8" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
           <folding>
-            <marker date="1509216025336" expanded="false" signature="7:94" ph="..." />
-            <marker date="1509216025336" expanded="true" signature="122:4053" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
-            <marker date="1509216025336" expanded="true" signature="779:4051" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="803:901" ph="/// Denotes if the action is active, true by default. ... " />
-            <marker date="1509216025336" expanded="true" signature="991:1065" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="1083:1600" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-            <marker date="1509216025336" expanded="true" signature="1680:2241" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
-            <marker date="1509216025336" expanded="true" signature="2368:2884" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-            <marker date="1509216025336" expanded="true" signature="2984:3157" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3048:3147" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3167:3490" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
-            <marker date="1509216025336" expanded="true" signature="3539:3593" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3611:4045" ph="XML" />
-            <marker date="1509216025336" expanded="true" signature="3670:3725" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3782:3847" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3935:4017" ph="{...}" />
+            <marker date="1509285134454" expanded="false" signature="7:94" ph="..." />
+            <marker date="1509285134454" expanded="true" signature="122:4462" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
+            <marker date="1509285134454" expanded="true" signature="779:4460" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="1028:1126" ph="/// Denotes if the action is active, true by default. ... " />
+            <marker date="1509285134454" expanded="true" signature="1216:1290" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="1308:1825" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+            <marker date="1509285134454" expanded="true" signature="1905:2466" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
+            <marker date="1509285134454" expanded="true" signature="2593:3109" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+            <marker date="1509285134454" expanded="true" signature="3209:3392" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3273:3382" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3402:3725" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
+            <marker date="1509285134454" expanded="true" signature="3774:3828" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3846:4454" ph="XML" />
+            <marker date="1509285134454" expanded="true" signature="3905:3960" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4017:4082" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4124:4262" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4342:4426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -467,50 +658,49 @@
         <state relative-caret-position="3672">
           <caret line="220" column="30" lean-forward="false" selection-start-line="220" selection-start-column="30" selection-end-line="220" selection-end-column="69" />
           <folding>
-            <marker date="1509212408003" expanded="false" signature="6:113" ph="..." />
-            <marker date="1509212408003" expanded="true" signature="137:9432" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
-            <marker date="1509212408003" expanded="true" signature="678:9430" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="693:814" ph="/* XML building ... */" />
-            <marker date="1509212408003" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
-            <marker date="1509212408003" expanded="true" signature="1127:2170" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1638:1707" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1822:2134" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1985:2060" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2256:2532" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2670:3236" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2782:3001" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2846:2987" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3151:3226" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
-            <marker date="1509212408003" expanded="true" signature="3532:3679" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
-            <marker date="1509212408003" expanded="true" signature="4473:5151" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4605:4754" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4931:5089" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
-            <marker date="1509212408003" expanded="true" signature="5298:5426" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5351:5416" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
-            <marker date="1509212408003" expanded="true" signature="5639:5715" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
-            <marker date="1509212408003" expanded="true" signature="5860:5921" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
-            <marker date="1509212408003" expanded="true" signature="6191:6246" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6317:6625" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6424:6591" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6493:6573" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
-            <marker date="1509212408003" expanded="true" signature="7209:9424" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7421:8967" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7503:8953" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7546:7735" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7784:8150" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8206:8493" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8569:8865" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9030:9285" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9112:9271" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9340:9414" ph="{...}" />
+            <marker date="1509201654339" expanded="false" signature="6:113" ph="..." />
+            <marker date="1509201654339" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
+            <marker date="1509201654339" expanded="true" signature="678:9430" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="693:814" ph="/* XML building ... */" />
+            <marker date="1509201654339" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
+            <marker date="1509201654339" expanded="true" signature="1127:2170" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1638:1707" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1822:2134" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1985:2060" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2256:2532" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2670:3236" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2782:3001" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2846:2987" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3151:3226" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
+            <marker date="1509201654339" expanded="true" signature="3532:3679" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
+            <marker date="1509201654339" expanded="true" signature="4473:5151" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4605:4754" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4931:5089" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
+            <marker date="1509201654339" expanded="true" signature="5298:5426" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5351:5416" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
+            <marker date="1509201654339" expanded="true" signature="5639:5715" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
+            <marker date="1509201654339" expanded="true" signature="5860:5921" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
+            <marker date="1509201654339" expanded="true" signature="6191:6246" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6317:6625" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6424:6591" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6493:6573" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
+            <marker date="1509201654339" expanded="true" signature="7209:9424" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7421:8967" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7503:8953" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7546:7735" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7784:8150" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8206:8493" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8569:8865" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9030:9285" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9112:9271" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9340:9414" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -519,7 +709,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1343">
           <caret line="79" column="25" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="101" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#46#82#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -534,7 +726,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-          <folding />
+          <folding>
+            <marker date="1509201654363" expanded="false" signature="6:95" ph="..." />
+            <marker date="1509201654363" expanded="true" signature="133:3046" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="176:2870" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="497:671" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="741:976" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1031:1226" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1299:1492" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1554:2105" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2175:2864" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2955:3044" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -543,23 +746,24 @@
         <state relative-caret-position="765">
           <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
           <folding>
-            <marker date="1509216025336" expanded="false" signature="7:94" ph="..." />
-            <marker date="1509216025336" expanded="true" signature="122:4053" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
-            <marker date="1509216025336" expanded="true" signature="779:4051" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="803:901" ph="/// Denotes if the action is active, true by default. ... " />
-            <marker date="1509216025336" expanded="true" signature="991:1065" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="1083:1600" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-            <marker date="1509216025336" expanded="true" signature="1680:2241" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
-            <marker date="1509216025336" expanded="true" signature="2368:2884" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-            <marker date="1509216025336" expanded="true" signature="2984:3157" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3048:3147" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3167:3490" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
-            <marker date="1509216025336" expanded="true" signature="3539:3593" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3611:4045" ph="XML" />
-            <marker date="1509216025336" expanded="true" signature="3670:3725" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3782:3847" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3935:4017" ph="{...}" />
+            <marker date="1509285134454" expanded="false" signature="7:94" ph="..." />
+            <marker date="1509285134454" expanded="true" signature="122:4462" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
+            <marker date="1509285134454" expanded="true" signature="779:4460" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="1028:1126" ph="/// Denotes if the action is active, true by default. ... " />
+            <marker date="1509285134454" expanded="true" signature="1216:1290" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="1308:1825" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+            <marker date="1509285134454" expanded="true" signature="1905:2466" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
+            <marker date="1509285134454" expanded="true" signature="2593:3109" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+            <marker date="1509285134454" expanded="true" signature="3209:3392" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3273:3382" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3402:3725" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
+            <marker date="1509285134454" expanded="true" signature="3774:3828" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3846:4454" ph="XML" />
+            <marker date="1509285134454" expanded="true" signature="3905:3960" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4017:4082" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4124:4262" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4342:4426" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -569,50 +773,49 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1509212408003" expanded="false" signature="6:113" ph="..." />
-            <marker date="1509212408003" expanded="true" signature="137:9432" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
-            <marker date="1509212408003" expanded="true" signature="678:9430" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="693:814" ph="/* XML building ... */" />
-            <marker date="1509212408003" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
-            <marker date="1509212408003" expanded="true" signature="1127:2170" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1638:1707" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1822:2134" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1985:2060" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2256:2532" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2670:3236" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2782:3001" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2846:2987" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3151:3226" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
-            <marker date="1509212408003" expanded="true" signature="3532:3679" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
-            <marker date="1509212408003" expanded="true" signature="4473:5151" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4605:4754" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4931:5089" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
-            <marker date="1509212408003" expanded="true" signature="5298:5426" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5351:5416" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
-            <marker date="1509212408003" expanded="true" signature="5639:5715" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
-            <marker date="1509212408003" expanded="true" signature="5860:5921" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
-            <marker date="1509212408003" expanded="true" signature="6191:6246" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6317:6625" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6424:6591" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6493:6573" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
-            <marker date="1509212408003" expanded="true" signature="7209:9424" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7421:8967" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7503:8953" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7546:7735" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7784:8150" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8206:8493" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8569:8865" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9030:9285" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9112:9271" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9340:9414" ph="{...}" />
+            <marker date="1509201654339" expanded="false" signature="6:113" ph="..." />
+            <marker date="1509201654339" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
+            <marker date="1509201654339" expanded="true" signature="678:9430" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="693:814" ph="/* XML building ... */" />
+            <marker date="1509201654339" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
+            <marker date="1509201654339" expanded="true" signature="1127:2170" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1638:1707" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1822:2134" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1985:2060" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2256:2532" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2670:3236" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2782:3001" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2846:2987" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3151:3226" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
+            <marker date="1509201654339" expanded="true" signature="3532:3679" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
+            <marker date="1509201654339" expanded="true" signature="4473:5151" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4605:4754" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4931:5089" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
+            <marker date="1509201654339" expanded="true" signature="5298:5426" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5351:5416" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
+            <marker date="1509201654339" expanded="true" signature="5639:5715" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
+            <marker date="1509201654339" expanded="true" signature="5860:5921" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
+            <marker date="1509201654339" expanded="true" signature="6191:6246" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6317:6625" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6424:6591" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6493:6573" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
+            <marker date="1509201654339" expanded="true" signature="7209:9424" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7421:8967" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7503:8953" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7546:7735" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7784:8150" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8206:8493" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8569:8865" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9030:9285" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9112:9271" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9340:9414" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -621,7 +824,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1509201654363" expanded="false" signature="6:95" ph="..." />
+            <marker date="1509201654363" expanded="true" signature="133:3046" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="176:2870" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="497:671" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="741:976" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1031:1226" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1299:1492" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1554:2105" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2175:2864" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2955:3044" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -632,50 +846,49 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1509212408003" expanded="false" signature="6:113" ph="..." />
-            <marker date="1509212408003" expanded="true" signature="137:9432" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
-            <marker date="1509212408003" expanded="true" signature="678:9430" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="693:814" ph="/* XML building ... */" />
-            <marker date="1509212408003" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
-            <marker date="1509212408003" expanded="true" signature="1127:2170" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1638:1707" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1822:2134" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1985:2060" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2256:2532" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2670:3236" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2782:3001" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2846:2987" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3151:3226" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
-            <marker date="1509212408003" expanded="true" signature="3532:3679" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
-            <marker date="1509212408003" expanded="true" signature="4473:5151" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4605:4754" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4931:5089" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
-            <marker date="1509212408003" expanded="true" signature="5298:5426" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5351:5416" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
-            <marker date="1509212408003" expanded="true" signature="5639:5715" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
-            <marker date="1509212408003" expanded="true" signature="5860:5921" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
-            <marker date="1509212408003" expanded="true" signature="6191:6246" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6317:6625" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6424:6591" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6493:6573" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
-            <marker date="1509212408003" expanded="true" signature="7209:9424" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7421:8967" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7503:8953" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7546:7735" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7784:8150" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8206:8493" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8569:8865" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9030:9285" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9112:9271" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9340:9414" ph="{...}" />
+            <marker date="1509201654339" expanded="false" signature="6:113" ph="..." />
+            <marker date="1509201654339" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
+            <marker date="1509201654339" expanded="true" signature="678:9430" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="693:814" ph="/* XML building ... */" />
+            <marker date="1509201654339" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
+            <marker date="1509201654339" expanded="true" signature="1127:2170" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1638:1707" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1822:2134" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1985:2060" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2256:2532" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2670:3236" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2782:3001" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2846:2987" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3151:3226" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
+            <marker date="1509201654339" expanded="true" signature="3532:3679" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
+            <marker date="1509201654339" expanded="true" signature="4473:5151" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4605:4754" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4931:5089" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
+            <marker date="1509201654339" expanded="true" signature="5298:5426" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5351:5416" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
+            <marker date="1509201654339" expanded="true" signature="5639:5715" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
+            <marker date="1509201654339" expanded="true" signature="5860:5921" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
+            <marker date="1509201654339" expanded="true" signature="6191:6246" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6317:6625" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6424:6591" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6493:6573" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
+            <marker date="1509201654339" expanded="true" signature="7209:9424" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7421:8967" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7503:8953" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7546:7735" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7784:8150" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8206:8493" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8569:8865" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9030:9285" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9112:9271" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9340:9414" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -684,7 +897,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="836">
           <caret line="44" column="8" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-          <folding />
+          <folding>
+            <marker date="1509201654363" expanded="false" signature="6:95" ph="..." />
+            <marker date="1509201654363" expanded="true" signature="133:3046" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="176:2870" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="497:671" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="741:976" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1031:1226" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1299:1492" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1554:2105" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2175:2864" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2955:3044" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -694,50 +918,49 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1509212408003" expanded="false" signature="6:113" ph="..." />
-            <marker date="1509212408003" expanded="true" signature="137:9432" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
-            <marker date="1509212408003" expanded="true" signature="678:9430" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="693:814" ph="/* XML building ... */" />
-            <marker date="1509212408003" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
-            <marker date="1509212408003" expanded="true" signature="1127:2170" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1638:1707" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1822:2134" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1985:2060" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2256:2532" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2670:3236" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2782:3001" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2846:2987" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3151:3226" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
-            <marker date="1509212408003" expanded="true" signature="3532:3679" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
-            <marker date="1509212408003" expanded="true" signature="4473:5151" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4605:4754" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4931:5089" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
-            <marker date="1509212408003" expanded="true" signature="5298:5426" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5351:5416" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
-            <marker date="1509212408003" expanded="true" signature="5639:5715" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
-            <marker date="1509212408003" expanded="true" signature="5860:5921" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
-            <marker date="1509212408003" expanded="true" signature="6191:6246" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6317:6625" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6424:6591" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6493:6573" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
-            <marker date="1509212408003" expanded="true" signature="7209:9424" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7421:8967" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7503:8953" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7546:7735" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7784:8150" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8206:8493" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8569:8865" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9030:9285" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9112:9271" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9340:9414" ph="{...}" />
+            <marker date="1509201654339" expanded="false" signature="6:113" ph="..." />
+            <marker date="1509201654339" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
+            <marker date="1509201654339" expanded="true" signature="678:9430" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="693:814" ph="/* XML building ... */" />
+            <marker date="1509201654339" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
+            <marker date="1509201654339" expanded="true" signature="1127:2170" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1638:1707" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1822:2134" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1985:2060" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2256:2532" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2670:3236" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2782:3001" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2846:2987" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3151:3226" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
+            <marker date="1509201654339" expanded="true" signature="3532:3679" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
+            <marker date="1509201654339" expanded="true" signature="4473:5151" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4605:4754" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4931:5089" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
+            <marker date="1509201654339" expanded="true" signature="5298:5426" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5351:5416" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
+            <marker date="1509201654339" expanded="true" signature="5639:5715" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
+            <marker date="1509201654339" expanded="true" signature="5860:5921" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
+            <marker date="1509201654339" expanded="true" signature="6191:6246" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6317:6625" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6424:6591" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6493:6573" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
+            <marker date="1509201654339" expanded="true" signature="7209:9424" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7421:8967" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7503:8953" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7546:7735" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7784:8150" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8206:8493" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8569:8865" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9030:9285" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9112:9271" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9340:9414" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -754,50 +977,49 @@
         <state relative-caret-position="3154">
           <caret line="166" column="33" lean-forward="false" selection-start-line="166" selection-start-column="33" selection-end-line="166" selection-end-column="33" />
           <folding>
-            <marker date="1509212408003" expanded="false" signature="6:113" ph="..." />
-            <marker date="1509212408003" expanded="true" signature="137:9432" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
-            <marker date="1509212408003" expanded="true" signature="678:9430" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="693:814" ph="/* XML building ... */" />
-            <marker date="1509212408003" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
-            <marker date="1509212408003" expanded="true" signature="1127:2170" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1638:1707" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1822:2134" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1985:2060" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2256:2532" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2670:3236" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2782:3001" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2846:2987" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3151:3226" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
-            <marker date="1509212408003" expanded="true" signature="3532:3679" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
-            <marker date="1509212408003" expanded="true" signature="4473:5151" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4605:4754" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4931:5089" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
-            <marker date="1509212408003" expanded="true" signature="5298:5426" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5351:5416" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
-            <marker date="1509212408003" expanded="true" signature="5639:5715" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
-            <marker date="1509212408003" expanded="true" signature="5860:5921" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
-            <marker date="1509212408003" expanded="true" signature="6191:6246" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6317:6625" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6424:6591" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6493:6573" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
-            <marker date="1509212408003" expanded="true" signature="7209:9424" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7421:8967" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7503:8953" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7546:7735" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7784:8150" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8206:8493" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8569:8865" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9030:9285" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9112:9271" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9340:9414" ph="{...}" />
+            <marker date="1509201654339" expanded="false" signature="6:113" ph="..." />
+            <marker date="1509201654339" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
+            <marker date="1509201654339" expanded="true" signature="678:9430" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="693:814" ph="/* XML building ... */" />
+            <marker date="1509201654339" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
+            <marker date="1509201654339" expanded="true" signature="1127:2170" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1638:1707" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1822:2134" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1985:2060" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2256:2532" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2670:3236" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2782:3001" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2846:2987" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3151:3226" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
+            <marker date="1509201654339" expanded="true" signature="3532:3679" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
+            <marker date="1509201654339" expanded="true" signature="4473:5151" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4605:4754" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4931:5089" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
+            <marker date="1509201654339" expanded="true" signature="5298:5426" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5351:5416" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
+            <marker date="1509201654339" expanded="true" signature="5639:5715" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
+            <marker date="1509201654339" expanded="true" signature="5860:5921" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
+            <marker date="1509201654339" expanded="true" signature="6191:6246" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6317:6625" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6424:6591" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6493:6573" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
+            <marker date="1509201654339" expanded="true" signature="7209:9424" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7421:8967" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7503:8953" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7546:7735" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7784:8150" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8206:8493" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8569:8865" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9030:9285" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9112:9271" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9340:9414" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -830,17 +1052,15 @@
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF164B2F-AEAB-427E-87F5-D0FA76EAD9FC/27/c9c4b8e9/Extensions.cs" />
-    <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/xml/XMLBuilder.as" />
-    <entry file="file://$USER_HOME$/Downloads/stardustEmitter_0.xml" />
-    <entry file="file://$PROJECT_DIR$/Stardust-Library-Tests/Actions/Action.cs" />
-    <entry file="file://$PROJECT_DIR$/Stardust-Library-Tests/Xml/XMLBuilderTest.cs">
+    <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/xml/XMLBuilder.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        <state relative-caret-position="3819">
+          <caret line="205" column="57" lean-forward="false" selection-start-line="205" selection-start-column="47" selection-end-line="205" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Stardust-Library-Tests/Actions/Action.cs" />
     <entry file="file://$PROJECT_DIR$/Emitters/Emitter.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -862,143 +1082,292 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/actions/Action.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="180" column="1" lean-forward="false" selection-start-line="180" selection-start-column="1" selection-end-line="180" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StardustElement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="65" column="44" lean-forward="true" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="44" />
-          <folding>
-            <marker date="1509212407976" expanded="false" signature="7:77" ph="..." />
-            <marker date="1509212407976" expanded="true" signature="97:2744" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="104:196" ph="/// All Stardust elements are subclasses of this class. ... " />
-            <marker date="1509212407976" expanded="true" signature="238:2742" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="410:703" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="513:569" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="569:641" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="717:829" ph="/* XML ... */" />
-            <marker date="1509212407976" expanded="true" signature="843:1124" ph="/// Returns the related objects of the element. ... " />
-            <marker date="1509212407976" expanded="true" signature="1189:1257" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="1271:1390" ph="/// Returns the name of the root node of the element's XML representation. ... " />
-            <marker date="1509212407976" expanded="true" signature="1436:1494" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="1508:1604" ph="/// Returns the root tag of the XML representation. ... " />
-            <marker date="1509212407976" expanded="true" signature="1640:1806" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="1820:1926" ph="/// Returns the tag for containing elements of the same type. ... " />
-            <marker date="1509212407976" expanded="true" signature="1981:2046" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="2060:2138" ph="/// Generates XML representation. ... " />
-            <marker date="1509212407976" expanded="true" signature="2178:2230" ph="{...}" />
-            <marker date="1509212407976" expanded="true" signature="2244:2343" ph="/// Reconstructs the element from XML representations. ... " />
-            <marker date="1509212407976" expanded="true" signature="2437:2552" ph="/// This is called when the whole simulation's XML parsing is complete ... " />
-            <marker date="1509212407976" expanded="true" signature="2617:2736" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Actions/Action.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-          <folding>
-            <marker date="1509216025336" expanded="false" signature="7:94" ph="..." />
-            <marker date="1509216025336" expanded="true" signature="122:4053" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
-            <marker date="1509216025336" expanded="true" signature="779:4051" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="803:901" ph="/// Denotes if the action is active, true by default. ... " />
-            <marker date="1509216025336" expanded="true" signature="991:1065" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="1083:1600" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-            <marker date="1509216025336" expanded="true" signature="1680:2241" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
-            <marker date="1509216025336" expanded="true" signature="2368:2884" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
-            <marker date="1509216025336" expanded="true" signature="2984:3157" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3048:3147" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3167:3490" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
-            <marker date="1509216025336" expanded="true" signature="3539:3593" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3611:4045" ph="XML" />
-            <marker date="1509216025336" expanded="true" signature="3670:3725" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3782:3847" ph="{...}" />
-            <marker date="1509216025336" expanded="true" signature="3935:4017" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Xml/XMLBuilder.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
+        <state relative-caret-position="4104">
           <caret line="220" column="30" lean-forward="false" selection-start-line="220" selection-start-column="30" selection-end-line="220" selection-end-column="69" />
           <folding>
-            <marker date="1509212408003" expanded="false" signature="6:113" ph="..." />
-            <marker date="1509212408003" expanded="true" signature="137:9432" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
-            <marker date="1509212408003" expanded="true" signature="678:9430" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="693:814" ph="/* XML building ... */" />
-            <marker date="1509212408003" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
-            <marker date="1509212408003" expanded="true" signature="1127:2170" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1638:1707" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1822:2134" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="1985:2060" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2256:2532" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2670:3236" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2782:3001" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="2846:2987" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3151:3226" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
-            <marker date="1509212408003" expanded="true" signature="3532:3679" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
-            <marker date="1509212408003" expanded="true" signature="4473:5151" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4605:4754" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="4931:5089" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
-            <marker date="1509212408003" expanded="true" signature="5298:5426" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5351:5416" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
-            <marker date="1509212408003" expanded="true" signature="5639:5715" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
-            <marker date="1509212408003" expanded="true" signature="5860:5921" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
-            <marker date="1509212408003" expanded="true" signature="6191:6246" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6317:6625" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6424:6591" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6493:6573" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
-            <marker date="1509212408003" expanded="true" signature="7209:9424" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7421:8967" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7503:8953" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7546:7735" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="7784:8150" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8206:8493" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="8569:8865" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9030:9285" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9112:9271" ph="{...}" />
-            <marker date="1509212408003" expanded="true" signature="9340:9414" ph="{...}" />
+            <marker date="1509201654339" expanded="false" signature="6:113" ph="..." />
+            <marker date="1509201654339" expanded="true" signature="144:650" ph="/// &lt;code&gt;XMLBuilder&lt;/code&gt; can generate Stardust elements' XML representations and reconstruct  ... " />
+            <marker date="1509201654339" expanded="true" signature="678:9430" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="693:814" ph="/* XML building ... */" />
+            <marker date="1509201654339" expanded="true" signature="824:1058" ph="/// Generate the XML representation of an Stardust element. ... " />
+            <marker date="1509201654339" expanded="true" signature="1127:2170" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1638:1707" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1822:2134" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="1985:2060" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2256:2532" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2670:3236" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2782:3001" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="2846:2987" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3151:3226" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3254:3382" ph="/* ------------------------------------------------------------------------------------------------ ... */" />
+            <marker date="1509201654339" expanded="true" signature="3532:3679" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="3697:4420" ph="/// To use &lt;code&gt;XMLBuilder&lt;/code&gt; with your custom subclasses of Stardust elements, ... " />
+            <marker date="1509201654339" expanded="true" signature="4473:5151" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4605:4754" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="4931:5089" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5161:5235" ph="/// Register multiple classes ... " />
+            <marker date="1509201654339" expanded="true" signature="5298:5426" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5351:5416" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5444:5560" ph="/// Registers multiple classes from a &lt;code&gt;ClassPackage&lt;/code&gt; object. ... " />
+            <marker date="1509201654339" expanded="true" signature="5639:5715" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5725:5811" ph="/// Deletes the XML tag name registration ... " />
+            <marker date="1509201654339" expanded="true" signature="5860:5921" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="5931:6130" ph="/// After reconstructing elements through the &lt;code&gt;BuildFromXML()&lt;/code&gt; method, ... " />
+            <marker date="1509201654339" expanded="true" signature="6191:6246" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6317:6625" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6424:6591" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6493:6573" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="6635:7162" ph="/// Reconstructs elements from XML representations. ... " />
+            <marker date="1509201654339" expanded="true" signature="7209:9424" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7421:8967" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7503:8953" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7546:7735" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="7784:8150" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8206:8493" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="8569:8865" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9030:9285" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9112:9271" ph="{...}" />
+            <marker date="1509201654339" expanded="true" signature="9340:9414" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Initializers/Initializer.cs">
+    <entry file="file://$PROJECT_DIR$/Stardust-Library-Tests/Xml/XMLBuilderTest.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
           <folding>
-            <marker date="1509219352852" expanded="true" signature="6:42" ph="..." />
-            <marker date="1509219352852" expanded="true" signature="75:671" ph="{...}" />
-            <marker date="1509219352852" expanded="true" signature="82:421" ph="/// An initializer is used to alter just once (i.e. initialize) a particle's properties upon the particle's birth ... " />
-            <marker date="1509219352852" expanded="true" signature="468:669" ph="{...}" />
-            <marker date="1509219352852" expanded="true" signature="510:662" ph="XML" />
-            <marker date="1509219352852" expanded="true" signature="601:634" ph="{...}" />
+            <marker date="1509201654363" expanded="false" signature="6:95" ph="..." />
+            <marker date="1509201654363" expanded="true" signature="133:3046" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="176:2870" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="497:671" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="741:976" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1031:1226" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1299:1492" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="1554:2105" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2175:2864" ph="{...}" />
+            <marker date="1509201654363" expanded="true" signature="2955:3044" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/initializers/Initializer.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="58" selection-end-column="32" />
+        <state relative-caret-position="19">
+          <caret line="73" column="27" lean-forward="false" selection-start-line="123" selection-start-column="16" selection-end-line="123" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/actions/Action.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="135" column="16" lean-forward="false" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="16" />
+          <folding>
+            <element signature="e#46#82#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Actions/Action.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1854">
+          <caret line="121" column="53" lean-forward="false" selection-start-line="121" selection-start-column="53" selection-end-line="121" selection-end-column="53" />
+          <folding>
+            <marker date="1509285134454" expanded="false" signature="7:94" ph="..." />
+            <marker date="1509285134454" expanded="true" signature="122:4462" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="129:728" ph="/// An action is used to continuously update a particle's property. ... " />
+            <marker date="1509285134454" expanded="true" signature="779:4460" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="1028:1126" ph="/// Denotes if the action is active, true by default. ... " />
+            <marker date="1509285134454" expanded="true" signature="1216:1290" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="1308:1825" ph="/// [Template Method] This method is called once upon each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+            <marker date="1509285134454" expanded="true" signature="1905:2466" ph="/// [Template Method] Acts on all particles upon each &lt;code&gt;Emitter.step()&lt;/code&gt; method call. ... " />
+            <marker date="1509285134454" expanded="true" signature="2593:3109" ph="/// [Template Method] This method is called once after each &lt;code&gt;Emitter.Step()&lt;/code&gt; method call, ... " />
+            <marker date="1509285134454" expanded="true" signature="3209:3392" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3273:3382" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3402:3725" ph="/// Tells the emitter whether this action requires that particles must be sorted before the &lt;code&gt;update()&lt;/code&gt; ... " />
+            <marker date="1509285134454" expanded="true" signature="3774:3828" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="3846:4454" ph="XML" />
+            <marker date="1509285134454" expanded="true" signature="3905:3960" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4017:4082" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4124:4262" ph="{...}" />
+            <marker date="1509285134454" expanded="true" signature="4342:4426" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/clocks/Clock.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="21" column="58" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/clocks/ImpulseClock.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/math/Random.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StardustElement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="59" column="56" lean-forward="false" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+          <folding>
+            <marker date="1509293910326" expanded="false" signature="7:77" ph="..." />
+            <marker date="1509293910326" expanded="true" signature="97:2407" ph="{...}" />
+            <marker date="1509293910326" expanded="true" signature="104:196" ph="/// All Stardust elements are subclasses of this class. ... " />
+            <marker date="1509293910326" expanded="true" signature="238:2405" ph="{...}" />
+            <marker date="1509293910326" expanded="true" signature="410:703" ph="{...}" />
+            <marker date="1509293910326" expanded="true" signature="513:569" ph="{...}" />
+            <marker date="1509293910326" expanded="true" signature="569:641" ph="{...}" />
+            <marker date="1509293910326" expanded="true" signature="713:2399" ph="XML" />
+            <marker date="1509293910326" expanded="true" signature="742:1023" ph="/// Returns the related objects of the element. ... " />
+            <marker date="1509293910326" expanded="true" signature="1088:1156" ph="{...}" />
+            <marker date="1509293910326" expanded="true" signature="1166:1285" ph="/// Returns the name of the root node of the element's XML representation. ... " />
+            <marker date="1509293910326" expanded="true" signature="1347:1443" ph="/// Returns the root tag of the XML representation. ... " />
+            <marker date="1509293910326" expanded="true" signature="1479:1645" ph="{...}" />
+            <marker date="1509293910326" expanded="true" signature="1655:1761" ph="/// Returns the tag for containing elements of the same type. ... " />
+            <marker date="1509293910326" expanded="true" signature="1832:1910" ph="/// Generates XML representation. ... " />
+            <marker date="1509293910326" expanded="true" signature="1950:2002" ph="{...}" />
+            <marker date="1509293910326" expanded="true" signature="2016:2115" ph="/// Reconstructs the element from XML representations. ... " />
+            <marker date="1509293910326" expanded="true" signature="2209:2324" ph="/// This is called when the whole simulation's XML parsing is complete ... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Initializers/Initializer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding>
+            <marker date="1509285134480" expanded="true" signature="6:102" ph="..." />
+            <marker date="1509285134480" expanded="true" signature="135:2931" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="142:481" ph="/// An initializer is used to alter just once (i.e. initialize) a particle's properties upon the particle's birth ... " />
+            <marker date="1509285134480" expanded="true" signature="528:2929" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="808:911" ph="/// Denotes if the initializer is active, true by default. ... " />
+            <marker date="1509285134480" expanded="true" signature="1001:1075" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="1161:1368" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="1195:1358" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="1266:1344" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="1378:1591" ph="/// [Template Method] This is the method that alters a particle's properties. ... " />
+            <marker date="1509285134480" expanded="true" signature="1649:1682" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="1692:2099" ph="/// Initializers will be sorted according to their priorities. ... " />
+            <marker date="1509285134480" expanded="true" signature="2127:2310" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="2191:2300" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="2320:2922" ph="XML" />
+            <marker date="1509285134480" expanded="true" signature="2379:2433" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="2490:2559" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="2601:2739" ph="{...}" />
+            <marker date="1509285134480" expanded="true" signature="2819:2903" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/stardustEmitter_0.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="794">
+          <caret line="63" column="31" lean-forward="false" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Math/RandomBase.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <marker date="1509294726330" expanded="false" signature="6:56" ph="..." />
+            <marker date="1509294726330" expanded="true" signature="81:985" ph="{...}" />
+            <marker date="1509294726330" expanded="true" signature="88:166" ph="/// This class generates a random number. ... " />
+            <marker date="1509294726330" expanded="true" signature="221:983" ph="{...}" />
+            <marker date="1509294726330" expanded="true" signature="237:312" ph="/// Generates a random number. ... " />
+            <marker date="1509294726330" expanded="true" signature="362:442" ph="/// Sets the random number's range. ... " />
+            <marker date="1509294726330" expanded="true" signature="527:610" ph="/// Returns the random number's range. ... " />
+            <marker date="1509294726330" expanded="true" signature="719:968" ph="XML" />
+            <marker date="1509294726330" expanded="true" signature="778:827" ph="{...}" />
+            <marker date="1509294726330" expanded="true" signature="884:948" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Clocks/SteadyClock.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="52" column="9" lean-forward="false" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding>
+            <marker date="1509296033698" expanded="true" signature="6:63" ph="..." />
+            <marker date="1509296033698" expanded="true" signature="90:2067" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="97:194" ph="/// Causes the emitter to create particles at a steady rate. ... " />
+            <marker date="1509296033698" expanded="true" signature="231:2065" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="247:461" ph="/// How many particles to create in each second. ... " />
+            <marker date="1509296033698" expanded="true" signature="707:889" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="929:1116" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="997:1106" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="1174:1398" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="1268:1366" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="1481:1568" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="1615:1736" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="1754:2059" ph="XML" />
+            <marker date="1509296033698" expanded="true" signature="1821:1875" ph="{...}" />
+            <marker date="1509296033698" expanded="true" signature="1955:2031" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../stardust-library-plumbee/src/main/flex/idv/cjcat/stardustextended/clocks/SteadyClock.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="57" column="49" lean-forward="true" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="49" />
+          <folding>
+            <element signature="e#45#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Clocks/Clock.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="55" lean-forward="false" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+          <folding>
+            <marker date="1509294728065" expanded="true" signature="49:897" ph="{...}" />
+            <marker date="1509294728065" expanded="true" signature="56:177" ph="/// A clock is used by an emitter to determine how frequently particles are created. ... " />
+            <marker date="1509294728065" expanded="true" signature="227:895" ph="{...}" />
+            <marker date="1509294728065" expanded="true" signature="243:522" ph="/// On each &lt;code&gt;Emitter.Step()&lt;/code&gt; call, this method is called. ... " />
+            <marker date="1509294728065" expanded="true" signature="582:674" ph="/// Resets the clock and randomizes all values. ... " />
+            <marker date="1509294728065" expanded="true" signature="722:889" ph="XML" />
+            <marker date="1509294728065" expanded="true" signature="798:861" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Math/UniformRandom.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+          <folding>
+            <marker date="1509296033657" expanded="true" signature="6:76" ph="..." />
+            <marker date="1509296033657" expanded="true" signature="101:804" ph="{...}" />
+            <marker date="1509296033657" expanded="true" signature="147:802" ph="{...}" />
+            <marker date="1509296033657" expanded="true" signature="201:234" ph="{...}" />
+            <marker date="1509296033657" expanded="true" signature="322:398" ph="{...}" />
+            <marker date="1509296033657" expanded="true" signature="438:514" ph="{...}" />
+            <marker date="1509296033657" expanded="true" signature="589:665" ph="{...}" />
+            <marker date="1509296033657" expanded="true" signature="720:796" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
