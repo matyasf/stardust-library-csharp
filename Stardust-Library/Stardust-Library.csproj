@@ -44,8 +44,12 @@
     <Compile Include="Clocks\Clock.cs" />
     <Compile Include="Clocks\SteadyClock.cs" />
     <Compile Include="Emitters\Emitter.cs" />
+    <Compile Include="Fields\Field.cs" />
+    <Compile Include="Geom\Vec2D.cs" />
     <Compile Include="Initializers\Initializer.cs" />
+    <Compile Include="Math\ObjectPool.cs" />
     <Compile Include="Math\RandomBase.cs" />
+    <Compile Include="Math\StardustMath.cs" />
     <Compile Include="Math\UniformRandom.cs" />
     <Compile Include="Particles\Particle.cs" />
     <Compile Include="StardustElement.cs" />

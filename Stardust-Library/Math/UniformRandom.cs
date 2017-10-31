@@ -1,35 +1,79 @@
-﻿using System.Collections.Generic;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 using Stardust.Xml;
 
 namespace Stardust.Math
 {
+    /// <summary>
+    /// This class generates uniformly distributed random numbers.
+    /// </summary>
     public class UniformRandom : RandomBase
     {
+        /// <summary>
+        /// The expected value of the random number.
+        /// </summary>
+        public float Center;
 
-        public UniformRandom(float a, float b)
+        /// <summary>
+        /// The variation of the random number.
+        ///
+        /// <para>
+        /// The range of the generated random number is [center - radius, center + radius].
+        /// </para>
+        /// </summary>
+        public float Radius;
+
+        
+        public UniformRandom(float center, float radius)
         {
-            
+            Center = center;
+            Radius = radius;
         }
         
-        public override void ParseXml(XElement xml, XmlBuilder builder = null)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public override float Random()
         {
-            throw new System.NotImplementedException();
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            if (Radius != 0f)
+            {
+                return (float)(Radius * 2 * (RandomGen.NextDouble() - 0.5) + Center);
+            }
+            return Center;
         }
-
+        
         public override void SetRange(float lowerBound, float upperBound)
         {
-            throw new System.NotImplementedException();
+            float diameter = upperBound - lowerBound;
+            Radius = 0.5f * diameter;
+            Center = lowerBound + Radius;
         }
 
-        public override IEnumerable<float> GetRange()
+        public override float[] GetRange()
         {
-            throw new System.NotImplementedException();
+            return new[]{Center - Radius, Center + Radius};
         }
+
+        #region XML
+
+        public override string GetXmlTagName()
+        {
+            return "UniformRandom";
+        }
+
+        public override XElement ToXml()
+        {
+            XElement xml = base.ToXml();
+            xml.SetAttributeValue("center", Center);
+            xml.SetAttributeValue("radius", Radius);
+            return xml;
+        }
+
+        public override void ParseXml(XElement xml, XmlBuilder builder = null)
+        {
+            Center = float.Parse(xml.Attribute("center").Value);
+            Radius = float.Parse(xml.Attribute("radius").Value);
+        }
+
+        #endregion
+        
+
     }
 }

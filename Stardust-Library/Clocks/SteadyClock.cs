@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿
+using System.Xml.Linq;
 using Stardust.Math;
 using Stardust.Xml;
 
@@ -70,7 +71,8 @@ namespace Stardust.Clocks
 
         public override void ParseXml(XElement xml, XmlBuilder builder = null)
         {
-            throw new System.NotImplementedException();
+            TicksPerCall = float.Parse(xml.Attribute("ticksPerCall").Value);
+            _initialDelay = builder.GetElementByName(xml.Attribute("initialDelay").Value) as RandomBase;
         }
         
         #endregion

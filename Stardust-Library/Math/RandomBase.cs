@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Xml.Linq;
 
 namespace Stardust.Math
@@ -9,6 +9,7 @@ namespace Stardust.Math
     public abstract class RandomBase : StardustElement
     {
 
+        protected static readonly Random RandomGen = new Random();
         /// <summary>
         /// Generates a random number.
         /// </summary>
@@ -22,14 +23,9 @@ namespace Stardust.Math
         /// <summary>
         /// Returns the random number's range.
         /// </summary>
-        public abstract IEnumerable<float> GetRange(); // TODO might be better as primitive array?
+        public abstract float[] GetRange();
 
         #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "Random";
-        }
 
         public override XElement GetElementTypeXmlTag()
         {
