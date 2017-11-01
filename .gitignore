@@ -1,0 +1,8 @@
+.idea/*
+bin/*
+obj/*
+packages/*
+Stardust-Library-Tests/bin/*
+Stardust-Library-Tests/obj/*
+TestApp/bin/*
+TestApp/obj/*
