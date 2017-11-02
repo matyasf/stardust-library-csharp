@@ -5,6 +5,7 @@ namespace Stardust.Math
     public class StardustMath
     {
         public const float TwoPi = (float)(2 * System.Math.PI);
+        public const float Pi = (float)System.Math.PI;
         public const float DegreeToRadian = (float) (System.Math.PI / 180);
         public const float RadianToDegree = (float) (180 / System.Math.PI);
         private static readonly Random RandomGen = new Random();

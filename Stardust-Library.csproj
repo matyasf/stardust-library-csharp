@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Actions\Action.cs" />
     <Compile Include="Actions\Age.cs" />
+    <Compile Include="Actions\DeathLife.cs" />
+    <Compile Include="Actions\Move.cs" />
     <Compile Include="Clocks\Clock.cs" />
     <Compile Include="Clocks\SteadyClock.cs" />
     <Compile Include="Collections\SortableCollection.cs" />
@@ -49,9 +51,13 @@
     <Compile Include="Fields\Field.cs" />
     <Compile Include="Geom\Vec2D.cs" />
     <Compile Include="Handlers\ParticleHandler.cs" />
-    <Compile Include="Handlers\StarlingHandler.cs" />
+    <Compile Include="Handlers\Sparrow\Frame.cs" />
+    <Compile Include="Handlers\Sparrow\SparrowHandler.cs" />
+    <Compile Include="Handlers\Sparrow\SparrowParticleBuffers.cs" />
+    <Compile Include="Handlers\Sparrow\StardustStarlingRenderer.cs" />
     <Compile Include="Initializers\Initializer.cs" />
     <Compile Include="Initializers\Life.cs" />
+    <Compile Include="Initializers\Velocity.cs" />
     <Compile Include="Math\RandomBase.cs" />
     <Compile Include="Math\StardustMath.cs" />
     <Compile Include="Math\UniformRandom.cs" />
@@ -64,9 +70,13 @@
     <Compile Include="StardustInfo.cs" />
     <Compile Include="Xml\ClassPackage.cs" />
     <Compile Include="Xml\XMLBuilder.cs" />
+    <Compile Include="Zones\Contour.cs" />
+    <Compile Include="Zones\SinglePoint.cs" />
     <Compile Include="Zones\Zone.cs" />
+    <Compile Include="Zones\ZoneCollection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\sparrow-sharp\SparrowShared\SparrowShared.projitems" Label="Shared" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

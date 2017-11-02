@@ -11,6 +11,9 @@ using Stardust.Xml;
 
 namespace Stardust.Emitters
 {
+    /// <summary>
+    /// This class takes charge of the actual particle simulation of the Stardust particle system.
+    /// </summary>
     public class Emitter : StardustElement
     {
         
@@ -22,7 +25,7 @@ namespace Stardust.Emitters
 
         /// <summary>
         /// Returns every managed particle for custom parameter manipulation.
-        /// The returned Vector is not a copy.
+        /// The returned List is not a copy.
         /// </summary>
         public IReadOnlyList<Particle> Particles
         {
@@ -335,7 +338,6 @@ namespace Stardust.Emitters
         }
 
         #endregion
-        // TODO
         
         #region XML
 

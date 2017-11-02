@@ -83,7 +83,10 @@ namespace Stardust.Particles
         public float Vy;
         public float Rotation;
         public float Omega;
-
+        
+        // Use PooledParticleFactory to instantiate Particles!
+        internal Particle() {}
+        
         /// <summary>
         /// Initializes properties to default values.
         /// </summary>

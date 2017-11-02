@@ -28,7 +28,7 @@ namespace TestApp
             builder.RegisterClass(typeof(UniformRandom));
             builder.RegisterClass(typeof(SteadyClock));
             builder.RegisterClass(typeof(Emitter));
-            builder.RegisterClass(typeof(StarlingHandler));
+            builder.RegisterClass(typeof(SparrowHandler));
             builder.BuildFromXml(elem);
             var result = builder.GetElementByName("0");
             Emitter em = (Emitter) result;

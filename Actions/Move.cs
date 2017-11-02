@@ -6,49 +6,54 @@ using Stardust.Xml;
 namespace Stardust.Actions
 {
     /// <summary>
-    /// Causes a particle's life to change (usually decrease).
+    ///  Causes a particle's position to change according to its velocity.
+    ///
+    /// <para>
+    /// Default priority = -4;
+    /// </para>
     /// </summary>
-    public class Age : Action
+    public class Move : Action
     {
-        
         /// <summary>
-        /// The multiplier of aging, 1 by default.
+        /// The multiplier of movement, 1 by default.
         ///
-        /// <para>
-        /// For instance, a multiplier value of 2 causes a particle to age twice as fast as normal.
-        /// </para>
-        ///
-        /// <para>
-        /// Alternatively, you can assign a negative value to the multiplier.
-        /// This causes a particle's age to "increase".
-        /// You can then use this increasing value with <code>LifeTrigger</code> and other custom actions to create various effects.
-        /// </para>
+        /// <p>
+        /// For instance, a multiplier value of 2 causes a particle to move twice as fast as normal.
+        /// </p>
         /// </summary>
         public float Multiplier;
 
-        public Age() : this(1) {}
+        private float factor;
         
-        public Age(float multiplier)
+        public Move() : this(1) {}
+        
+        public Move(float multiplier)
         {
+            _priority = -4;
             Multiplier = multiplier;
         }
-        
+
+        public override void PreUpdate(Emitter emitter, float time)
+        {
+            factor = time * Multiplier;
+        }
+
         public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
         {
-            particle.Life -= timeDelta * Multiplier;
-            if (particle.Life < 0) particle.Life = 0;
+            particle.X += particle.Vx * factor;
+            particle.Y += particle.Vy * factor;
         }
 
         #region XML
 
         public override string GetXmlTagName()
         {
-            return "Age";
+            return "Move";
         }
 
         public override XElement ToXml()
         {
-            var xml = base.ToXml();
+            XElement xml = base.ToXml();
             xml.SetAttributeValue("multiplier", Multiplier);
             return xml;
         }

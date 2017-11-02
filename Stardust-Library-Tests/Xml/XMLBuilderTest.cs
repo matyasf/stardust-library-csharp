@@ -1,7 +1,12 @@
 ﻿using System;
+using System.IO;
+using System.Text;
+using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using NUnit.Framework;
 using Stardust;
+using Stardust.Math;
 using Stardust.Xml;
 
 namespace Stardust_Library_Tests.Xml
@@ -72,6 +77,28 @@ namespace Stardust_Library_Tests.Xml
             builder.RegisterClass(typeof(StardustClass));
             Assert.Throws<InvalidOperationException>(() => builder.BuildFromXml(XDocument.Parse(xmlDuplicateName).Root));
         }
+        
+        /*
+        [Test]
+        public void XmlSerializerTest()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(UniformRandom));
+            UniformRandom ur = new UniformRandom(2, 0.3456f);
+            
+            Stream str = new MemoryStream(9999);
+            serializer.Serialize(str, ur);
+            StreamReader reader = new StreamReader(str);
+            str.Seek(0, SeekOrigin.Begin);
+            string result1 = reader.ReadToEnd();
+            
+            StringBuilder sb = new StringBuilder();
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.NewLineC
+            var xmlWriter = XmlWriter.Create(sb);
+            serializer.Serialize(xmlWriter, ur);
+            string result2 = sb.ToString();
+        }*/
     }
 
     internal class PlainClass{}

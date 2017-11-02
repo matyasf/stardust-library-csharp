@@ -13,12 +13,12 @@ namespace Stardust.Handlers
         /// <summary>
         /// Invoked when each emitter step begins.
         /// </summary>
-        public abstract void StepBegin(Emitter emitter, IEnumerable<Particle> particles, float time);
+        public virtual void StepBegin(Emitter emitter, IList<Particle> particles, float time) {}
 
         /// <summary>
         /// Invoked when each emitter step ends.
         /// </summary>
-        public abstract void StepEnd(Emitter emitter, IEnumerable<Particle> particles, float time);
+        public abstract void StepEnd(Emitter emitter, IList<Particle> particles, float time);
 
         /// <summary>
         /// Invoked for each particle added.

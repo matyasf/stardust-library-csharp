@@ -41,7 +41,7 @@ namespace Stardust.Zones
         /// <summary>
         /// Determines if a point is contained in the zone, true if contained.
         /// </summary>
-        protected abstract bool Contains(float x, float y);
+        public abstract bool Contains(float x, float y);
 
         public Vec2D GetPoint()
         {
@@ -103,11 +103,6 @@ namespace Stardust.Zones
         }
 
         #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "Zone";
-        }
 
         public override XElement GetElementTypeXmlTag()
         {

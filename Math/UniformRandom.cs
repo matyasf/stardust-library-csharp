@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Xml;
 
 namespace Stardust.Math
@@ -11,6 +12,7 @@ namespace Stardust.Math
         /// <summary>
         /// The expected value of the random number.
         /// </summary>
+        //[XmlAttribute("center")]
         public float Center;
 
         /// <summary>
@@ -20,6 +22,7 @@ namespace Stardust.Math
         /// The range of the generated random number is [center - radius, center + radius].
         /// </para>
         /// </summary>
+        //[XmlAttribute("radius")]
         public float Radius;
 
         public UniformRandom() : this(0.5f, 0) {}
@@ -75,6 +78,5 @@ namespace Stardust.Math
 
         #endregion
         
-
     }
 }

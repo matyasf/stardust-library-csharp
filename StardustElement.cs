@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Xml;
 
 namespace Stardust
@@ -11,6 +12,7 @@ namespace Stardust
     public abstract class StardustElement
     {
         private static readonly Dictionary<string, int> ElementCounter = new Dictionary<string, int>();
+        [XmlAttribute("name")]
         public string Name;
 
         public StardustElement()
