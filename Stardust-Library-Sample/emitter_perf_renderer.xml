@@ -6,6 +6,7 @@
   </actions>
   <initializers>
     <Life name="Life_2" active="true" random="UniformRandom_59"/>
+    <Alpha name="Alpha_2" active="true" random="UniformRandom_60"/>
     <Velocity name="Velocity_1" active="true">
           <zones>
               <SinglePoint name="SinglePoint_3"/>
@@ -22,6 +23,7 @@
       <initializers>
         <Life name="Life_2"/>
         <Velocity name="Velocity_1"/>
+        <Alpha name="Alpha_2"/>
       </initializers>
     </Emitter2D>
   </emitters>
@@ -39,5 +41,6 @@
   <randoms>
     <UniformRandom name="UniformRandom_58" center="0" radius="0"/>
     <UniformRandom name="UniformRandom_59" center="3" radius="0"/>
+    <UniformRandom name="UniformRandom_60" center="0.6" radius="0.2"/>
   </randoms>
 </StardustParticleSystem>

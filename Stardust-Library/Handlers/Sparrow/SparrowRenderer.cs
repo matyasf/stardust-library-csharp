@@ -316,9 +316,6 @@ namespace Stardust.Handlers.Sparrow
             var program = ParticleProgram.GetProgram();
             program.Activate();
               
-            //context.setProgramConstantsFromVector(Context3DProgramType.VERTEX, 0, renderAlpha, 1);
-            //context.setProgramConstantsFromMatrix(Context3DProgramType.VERTEX, 1, painter.State.MvpMatrix3D, true);
-            
             int uAlpha = program.Uniforms["uAlpha"];
             Gl.Uniform4(uAlpha, renderAlpha[0], renderAlpha[1], renderAlpha[2], renderAlpha[3]);
             
@@ -327,10 +324,6 @@ namespace Stardust.Handlers.Sparrow
             
             //context.setTextureAt(0, mTexture.Base);
 
-            //SparrowParticleBuffers.VertexBuffer.UploadFromVector(vertexes, 0, System.Math.Min(maxParticles * 4, vertexes.Count / 8));
-            //context.setVertexBufferAt(0, SparrowParticleBuffers.VertexBuffer, POSITION_OFFSET, Context3DVertexBufferFormat.FLOAT_2);
-            //context.setVertexBufferAt(1, SparrowParticleBuffers.VertexBuffer, COLOR_OFFSET, Context3DVertexBufferFormat.FLOAT_4);
-            //context.setVertexBufferAt(2, SparrowParticleBuffers.VertexBuffer, TEXCOORD_OFFSET, Context3DVertexBufferFormat.FLOAT_2);
             Gl.BindBuffer(BufferTarget.ArrayBuffer, SparrowParticleBuffers.VertexBuffer);
             Gl.BufferData(BufferTarget.ArrayBuffer, (uint)(vertexes.Length * sizeof(float)), vertexes, BufferUsage.DynamicDraw);
             
@@ -348,14 +341,15 @@ namespace Stardust.Handlers.Sparrow
             Gl.ActiveTexture(TextureUnit.Texture0);       
             RenderUtil.SetSamplerStateAt(mTexture.Base, mTexture.NumMipMaps > 0, TexSmoothing);
             
+            Gl.BindBuffer(BufferTarget.ElementArrayBuffer, SparrowParticleBuffers.IndexBuffer);
             
-            //context.drawTriangles(SparrowParticleBuffers.IndexBuffer, 0, (System.Math.Min(maxParticles, mNumParticles + mNumBatchedParticles)) * 2);
-            Gl.DrawElements(PrimitiveType.Triangles, (mNumParticles + mNumBatchedParticles) * 3, DrawElementsType.UnsignedShort, IntPtr.Zero);
+            // TODO limit max number of particles
+            Gl.DrawElements(PrimitiveType.Triangles, (mNumParticles + mNumBatchedParticles) * 6, DrawElementsType.UnsignedShort, IntPtr.Zero);
 
-            //context.setVertexBufferAt(0, null);
-            //context.setVertexBufferAt(1, null);
-            //context.setVertexBufferAt(2, null);
-            //context.setTextureAt(0, null);
+            Gl.DisableVertexAttribArray(attribPosition);
+            Gl.DisableVertexAttribArray(attribColor);
+            Gl.DisableVertexAttribArray(aTexCoords);
+            Gl.BindTexture(TextureTarget.Texture2d, 0);
         }
 
         public override FragmentFilter Filter

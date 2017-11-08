@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using OpenGL;
 
 namespace Stardust.Handlers.Sparrow
@@ -8,7 +8,7 @@ namespace Stardust.Handlers.Sparrow
 
         public static uint IndexBuffer;
         protected static uint[] VertexBuffers;
-        private static int[] _indices;
+        private static ushort[] _indices;
         protected static int SNumberOfVertexBuffers;
         private static int _vertexBufferIdx = -1;
         
@@ -33,42 +33,29 @@ namespace Stardust.Handlers.Sparrow
             VertexBuffers = new uint[SNumberOfVertexBuffers];
             for (int i = 0; i < SNumberOfVertexBuffers; ++i) 
             {
-                //vertexBuffers[i] = context.createVertexBuffer(context, numParticles * 4, ELEMENTS_PER_VERTEX, "DynamicDraw");
                 VertexBuffers[i] = Gl.GenBuffer();
             }
     
-            //ByteArray zeroBytes = new ByteArray();
-            //zeroBytes.length = numParticles * 16 * ELEMENTS_PER_VERTEX;
-            for (int i = 0; i < SNumberOfVertexBuffers; ++i)
-            {
-                //vertexBuffers[i].uploadFromByteArray(zeroBytes, 0, 0, numParticles * 4);
-                Gl.BindBuffer(BufferTarget.ArrayBuffer, VertexBuffers[i]);
-                Gl.BufferData(BufferTarget.ArrayBuffer, (uint)(numParticles * 32 * sizeof(float)), IntPtr.Zero, BufferUsage.DynamicDraw);
-            }
-            //zeroBytes.length = 0;
-    
             if (_indices == null)
             {
-                _indices = new int[numParticles * 6];
-                int numVertices = 0;
+                _indices = new ushort[numParticles * 6];
+                short numVertices = 0;
                 int indexPosition = -1;
                 for (int i = 0; i < numParticles; ++i)
                 {
-                    _indices[++indexPosition] = numVertices;
-                    _indices[++indexPosition] = numVertices + 1;
-                    _indices[++indexPosition] = numVertices + 2;
+                    _indices[++indexPosition] = (ushort) numVertices;
+                    _indices[++indexPosition] = (ushort) (numVertices + 1);
+                    _indices[++indexPosition] = (ushort) (numVertices + 2);
     
-                    _indices[++indexPosition] = numVertices + 1;
-                    _indices[++indexPosition] = numVertices + 3;
-                    _indices[++indexPosition] = numVertices + 2;
+                    _indices[++indexPosition] = (ushort) (numVertices + 1);
+                    _indices[++indexPosition] = (ushort) (numVertices + 3);
+                    _indices[++indexPosition] = (ushort) (numVertices + 2);
                     numVertices += 4;
                 }
             }
-            //indexBuffer = context.createIndexBuffer(numParticles * 6);
-            //indexBuffer.uploadFromVector(indices, 0, numParticles * 6);
             IndexBuffer = Gl.GenBuffer();
             Gl.BindBuffer(BufferTarget.ElementArrayBuffer, IndexBuffer);
-            Gl.BufferData(BufferTarget.ElementArrayBuffer, (uint)(sizeof(int) * numParticles * 6), _indices, BufferUsage.DynamicDraw);
+            Gl.BufferData(BufferTarget.ElementArrayBuffer, (uint)(_indices.Length * sizeof(ushort)), _indices, BufferUsage.DynamicDraw);
         }
         
         /// <summary>

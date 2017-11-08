@@ -62,8 +62,10 @@
     <Compile Include="Handlers\Sparrow\SparrowHandler.cs" />
     <Compile Include="Handlers\Sparrow\SparrowParticleBuffers.cs" />
     <Compile Include="Handlers\Sparrow\SparrowRenderer.cs" />
+    <Compile Include="Initializers\Alpha.cs" />
     <Compile Include="Initializers\Initializer.cs" />
     <Compile Include="Initializers\Life.cs" />
+    <Compile Include="Initializers\Line.cs" />
     <Compile Include="Initializers\Velocity.cs" />
     <Compile Include="Math\RandomBase.cs" />
     <Compile Include="Math\StardustMath.cs" />

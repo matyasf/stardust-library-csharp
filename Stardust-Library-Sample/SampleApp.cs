@@ -49,6 +49,7 @@ namespace Stardust_Library_Sample
             builder.RegisterClass(typeof(DeathLife));
             builder.RegisterClass(typeof(Velocity));
             builder.RegisterClass(typeof(Move));
+            builder.RegisterClass(typeof(Alpha));
             builder.RegisterClass(typeof(SinglePoint));
             builder.BuildFromXml(elem);
             var result = builder.GetElementByName("0");
@@ -68,7 +69,7 @@ namespace Stardust_Library_Sample
                 var handler = (SparrowHandler)em.ParticleHandler; 
                 handler.Container = sp;
                 
-                var subTex = new SubTexture(Texture.FromColor(32, 32,0xFF33FF));
+                var subTex = new SubTexture(Texture.FromColor(4, 4, 0xFF33FF));
                 var subTexes = new List<SubTexture>();
                 subTexes.Add(subTex);
                 handler.Textures = subTexes;

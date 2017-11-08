@@ -86,7 +86,7 @@ namespace Stardust.Zones
         /// <summary>
         /// Sets the position of this zone.
         /// </summary>
-        public void SetPosition(float xc, float yc)
+        public virtual void SetPosition(float xc, float yc)
         {
             X = xc;
             Y = yc;
