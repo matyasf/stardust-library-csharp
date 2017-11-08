@@ -5,8 +5,11 @@ using Stardust.Emitters;
 using Stardust.Particles;
 using Stardust.Xml;
 
-namespace Stardust.Handlers.Sparrow
+namespace Stardust.Handlers.Sparrow.simple
 {
+    /// <summary>
+    /// Simple, but slow renderer. Doesnt supprt advanced stuff.
+    /// </summary>
     public class SimpleSparrowHandler : ParticleHandler
     {
 

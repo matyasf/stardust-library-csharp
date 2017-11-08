@@ -57,6 +57,7 @@
     <Compile Include="SampleApp.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="emitter_perf_renderer.xml" />
     <EmbeddedResource Include="emitter_simple.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

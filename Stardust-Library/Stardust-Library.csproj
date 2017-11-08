@@ -58,7 +58,7 @@
     <Compile Include="Handlers\ParticleHandler.cs" />
     <Compile Include="Handlers\Sparrow\Frame.cs" />
     <Compile Include="Handlers\Sparrow\ParticleProgram.cs" />
-    <Compile Include="Handlers\Sparrow\SimpleSparrowHandler.cs" />
+    <Compile Include="Handlers\Sparrow\simple\SimpleSparrowHandler.cs" />
     <Compile Include="Handlers\Sparrow\SparrowHandler.cs" />
     <Compile Include="Handlers\Sparrow\SparrowParticleBuffers.cs" />
     <Compile Include="Handlers\Sparrow\SparrowRenderer.cs" />

@@ -333,17 +333,18 @@ namespace Stardust.Handlers.Sparrow
             //context.setVertexBufferAt(2, SparrowParticleBuffers.VertexBuffer, TEXCOORD_OFFSET, Context3DVertexBufferFormat.FLOAT_2);
             Gl.BindBuffer(BufferTarget.ArrayBuffer, SparrowParticleBuffers.VertexBuffer);
             Gl.BufferData(BufferTarget.ArrayBuffer, (uint)(vertexes.Length * sizeof(float)), vertexes, BufferUsage.DynamicDraw);
+            
             uint attribPosition = (uint)program.Attributes["aPosition"];
             Gl.EnableVertexAttribArray(attribPosition);
-            Gl.VertexAttribPointer(attribPosition, 2, VertexAttribType.Float, false, sizeof(float) * 2, 0);
+            Gl.VertexAttribPointer(attribPosition, 2, VertexAttribType.Float, false, 32, (IntPtr)0);
             
             uint attribColor = (uint)program.Attributes["aColor"];
             Gl.EnableVertexAttribArray(attribColor);
-            Gl.VertexAttribPointer(attribColor, 4, VertexAttribType.UnsignedByte, false, sizeof(float) * 4, 8);
+            Gl.VertexAttribPointer(attribColor, 4, VertexAttribType.Float, false, 32, (IntPtr)8);
             
             uint aTexCoords = (uint)program.Attributes["aTexCoords"];
             Gl.EnableVertexAttribArray(aTexCoords);
-            Gl.VertexAttribPointer(aTexCoords, 2, VertexAttribType.Float, false, sizeof(float) * 2, 24);
+            Gl.VertexAttribPointer(aTexCoords, 2, VertexAttribType.Float, false, 32, (IntPtr)24);
             Gl.ActiveTexture(TextureUnit.Texture0);       
             RenderUtil.SetSamplerStateAt(mTexture.Base, mTexture.NumMipMaps > 0, TexSmoothing);
             

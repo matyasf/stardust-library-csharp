@@ -43,7 +43,7 @@ namespace Stardust.Handlers.Sparrow
             {
                 //vertexBuffers[i].uploadFromByteArray(zeroBytes, 0, 0, numParticles * 4);
                 Gl.BindBuffer(BufferTarget.ArrayBuffer, VertexBuffers[i]);
-                Gl.BufferData(BufferTarget.ArrayBuffer, (uint)(numParticles * 4 * sizeof(float)), IntPtr.Zero, BufferUsage.DynamicDraw);
+                Gl.BufferData(BufferTarget.ArrayBuffer, (uint)(numParticles * 32 * sizeof(float)), IntPtr.Zero, BufferUsage.DynamicDraw);
             }
             //zeroBytes.length = 0;
     
@@ -68,7 +68,7 @@ namespace Stardust.Handlers.Sparrow
             //indexBuffer.uploadFromVector(indices, 0, numParticles * 6);
             IndexBuffer = Gl.GenBuffer();
             Gl.BindBuffer(BufferTarget.ElementArrayBuffer, IndexBuffer);
-            Gl.BufferData(BufferTarget.ElementArrayBuffer, (uint)(sizeof(short) * numParticles * 6), _indices, BufferUsage.DynamicDraw);
+            Gl.BufferData(BufferTarget.ElementArrayBuffer, (uint)(sizeof(int) * numParticles * 6), _indices, BufferUsage.DynamicDraw);
         }
         
         /// <summary>
