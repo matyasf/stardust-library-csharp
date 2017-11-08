@@ -1,6 +1,6 @@
 ﻿
 using System.Xml.Linq;
-using Stardust.Math;
+using Stardust.MathStuff;
 using Stardust.Xml;
 
 namespace Stardust.Clocks

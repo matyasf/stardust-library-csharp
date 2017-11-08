@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
-using Stardust.Math;
+using Stardust.MathStuff;
 using Stardust.Particles;
 using Stardust.Xml;
 

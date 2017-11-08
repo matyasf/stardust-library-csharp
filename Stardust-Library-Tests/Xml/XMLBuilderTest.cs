@@ -6,7 +6,6 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using NUnit.Framework;
 using Stardust;
-using Stardust.Math;
 using Stardust.Xml;
 
 namespace Stardust_Library_Tests.Xml

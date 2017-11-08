@@ -1,5 +1,8 @@
-﻿using Stardust.Geom;
-using Stardust.Math;
+﻿using System;
+using System.Xml.Linq;
+using Stardust.Geom;
+using Stardust.MathStuff;
+using Stardust.Xml;
 using Stardust.Zones;
 
 namespace Stardust.Initializers
@@ -96,17 +99,28 @@ namespace Stardust.Initializers
         
         public override Vec2D CalculateMotionData2D()
         {
-            throw new System.NotImplementedException();
+            _random.SetRange(0, 1);
+            var rand = _random.Random();
+            var vec = Vec2D.Pool.Acquire();
+            vec.SetTo(StardustMath.Interpolate(0, 0, 1, _x2 - _x, rand), 
+                      StardustMath.Interpolate(0, 0, 1, _y2 - _y, rand));
+            return vec;
+
         }
         
         public override bool Contains(float x, float y)
         {
-            throw new System.NotImplementedException();
+            if (x < _x && x < _x2) return false;
+            if (x > _x && x > _x2) return false;
+            if ((x - _x) / (_x2 - _x) == (y - _y) / (_y2 - _y)) return true;
+            return false;
         }
 
         protected override void UpdateArea()
         {
-            throw new System.NotImplementedException();
+            var dx = _x - _x2;
+            var dy = _y - _y2;
+            area = (float)Math.Sqrt(dx * dx + dy * dy) * VirtualThicknessVal;
         }
 
         #region XML
@@ -115,7 +129,26 @@ namespace Stardust.Initializers
         {
             return "Line";
         }
-        
+
+        public override XElement ToXml()
+        {
+            var xml = base.ToXml();
+            xml.SetAttributeValue("x1", _x);
+            xml.SetAttributeValue("y1", _y);
+            xml.SetAttributeValue("x2", _x2);
+            xml.SetAttributeValue("y2", _y2);
+            return xml;
+        }
+
+        public override void ParseXml(XElement xml, XmlBuilder builder)
+        {
+            base.ParseXml(xml, builder);
+            _x = float.Parse(xml.Attribute("x1").Value);
+            _y = float.Parse(xml.Attribute("y1").Value);
+            _x2 = float.Parse(xml.Attribute("x2").Value);
+            _y2 = float.Parse(xml.Attribute("y2").Value);
+        }
+
         #endregion
         
     }

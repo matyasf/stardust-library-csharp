@@ -66,10 +66,11 @@
     <Compile Include="Initializers\Initializer.cs" />
     <Compile Include="Initializers\Life.cs" />
     <Compile Include="Initializers\Line.cs" />
+    <Compile Include="Initializers\PositionAnimated.cs" />
     <Compile Include="Initializers\Velocity.cs" />
-    <Compile Include="Math\RandomBase.cs" />
-    <Compile Include="Math\StardustMath.cs" />
-    <Compile Include="Math\UniformRandom.cs" />
+    <Compile Include="MathStuff\RandomBase.cs" />
+    <Compile Include="MathStuff\StardustMath.cs" />
+    <Compile Include="MathStuff\UniformRandom.cs" />
     <Compile Include="ObjectPool.cs" />
     <Compile Include="Particles\Particle.cs" />
     <Compile Include="Particles\PooledParticleFactory.cs" />
@@ -80,6 +81,8 @@
     <Compile Include="Xml\ClassPackage.cs" />
     <Compile Include="Xml\XMLBuilder.cs" />
     <Compile Include="Zones\Contour.cs" />
+    <Compile Include="Zones\IZoneContainer.cs" />
+    <Compile Include="Zones\RectZone.cs" />
     <Compile Include="Zones\SinglePoint.cs" />
     <Compile Include="Zones\Zone.cs" />
     <Compile Include="Zones\ZoneCollection.cs" />

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Linq;
 
-namespace Stardust.Math
+namespace Stardust.MathStuff
 {
     /// <summary>
     /// This class generates a random number.

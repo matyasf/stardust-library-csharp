@@ -15,7 +15,7 @@ namespace Stardust.Initializers
     public abstract class Initializer : SortableElement
     {
 
-        public void DoInitialize(IEnumerable<Particle> particles, float currentTime)
+        public virtual void DoInitialize(IEnumerable<Particle> particles, float currentTime)
         {
             if (Active)
             {

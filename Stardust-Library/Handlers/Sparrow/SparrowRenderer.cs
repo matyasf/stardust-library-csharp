@@ -10,7 +10,7 @@ using Sparrow.Geom;
 using Sparrow.Rendering;
 using Sparrow.Textures;
 using Sparrow.Utils;
-using Stardust.Math;
+using Stardust.MathStuff;
 using Stardust.Particles;
 
 namespace Stardust.Handlers.Sparrow
@@ -18,31 +18,29 @@ namespace Stardust.Handlers.Sparrow
     public class SparrowRenderer : DisplayObject
     {
         
-        public const int MAX_POSSIBLE_PARTICLES = 16383;
-        private static readonly float DEGREES_TO_RADIANS = StardustMath.Pi / 180;
-        private static readonly float[] sCosLUT = new float[0x800];
-        private static readonly float[] sSinLUT = new float[0x800];
-        private static readonly Matrix3D renderMatrix = Matrix3D.Create();
-        private static readonly float[] renderAlpha = new float[4];
-        private static int numberOfVertexBuffers;
-        private static int maxParticles;
-        private static bool initCalled = false;
+        public const int MaxPossibleParticles = 16383;
+        private const float DegreesToRadians = StardustMath.Pi / 180;
+        private static readonly float[] SCosLut = new float[0x800];
+        private static readonly float[] SSinLut = new float[0x800];
+        private static readonly float[] RenderAlpha = new float[4];
+        private static int _numberOfVertexBuffers;
+        private static int _maxParticles;
+        private static bool _initCalled;
     
-        private Rectangle boundsRect;
-        private FragmentFilter mFilter;
-        private bool mTinted = true;
-        private Texture mTexture;
-        private bool mBatched;
-        private float[] vertexes;
-        private List<Frame> frames;
+        private Rectangle _boundsRect;
+        private FragmentFilter _mFilter;
+        private Texture _mTexture;
+        private bool _mBatched;
+        private float[] _vertexes;
+        private List<Frame> _frames;
 
-        public int mNumParticles = 0;
+        private int _mNumParticles;
         public TextureSmoothing TexSmoothing;
         public bool PremultiplyAlpha = true;
 
         public SparrowRenderer()
         {
-            if (initCalled == false)
+            if (_initCalled == false)
             {
                 Init();
             }
@@ -58,72 +56,51 @@ namespace Stardust.Handlers.Sparrow
         /// </summary>
         /// <param name="numberOfBuffers">the amount of vertex buffers used by the particle system for multi buffering.</param>
         /// <param name="maxParticlesPerBuffer"></param>
-        public static void Init(int numberOfBuffers = 2, int maxParticlesPerBuffer = MAX_POSSIBLE_PARTICLES)
+        public static void Init(int numberOfBuffers = 2, int maxParticlesPerBuffer = MaxPossibleParticles)
         {
-            numberOfVertexBuffers = numberOfBuffers;
-            if (maxParticlesPerBuffer > MAX_POSSIBLE_PARTICLES) {
-                maxParticlesPerBuffer = MAX_POSSIBLE_PARTICLES;
+            _numberOfVertexBuffers = numberOfBuffers;
+            if (maxParticlesPerBuffer > MaxPossibleParticles) {
+                maxParticlesPerBuffer = MaxPossibleParticles;
                 Debug.WriteLine("StardustStarlingRenderer WARNING: Tried to render than possible particles, setting value to max");
             }
-            maxParticles = maxParticlesPerBuffer;
+            _maxParticles = maxParticlesPerBuffer;
             SparrowParticleBuffers.CreateBuffers(maxParticlesPerBuffer, numberOfBuffers);
 
-            if (!initCalled) {
+            if (!_initCalled) {
                 for (int i = 0; i < 0x800; ++i) {
-                    sCosLUT[i & 0x7FF] = (float)System.Math.Cos(i * 0.00306796157577128245943617517898); // 0.003067 = 2PI/2048
-                    sSinLUT[i & 0x7FF] = (float)System.Math.Sin(i * 0.00306796157577128245943617517898);
+                    SCosLut[i & 0x7FF] = (float)Math.Cos(i * 0.00306796157577128245943617517898); // 0.003067 = 2PI/2048
+                    SSinLut[i & 0x7FF] = (float)Math.Sin(i * 0.00306796157577128245943617517898);
                 }
                 // handle a lost device context
                 SparrowSharp.ContextCreated += SparrowSharpOnContextCreated;
-                initCalled = true;
+                _initCalled = true;
             }
         }
 
         private static void SparrowSharpOnContextCreated()
         {
-            SparrowParticleBuffers.CreateBuffers(maxParticles, numberOfVertexBuffers);
+            SparrowParticleBuffers.CreateBuffers(_maxParticles, _numberOfVertexBuffers);
         }
 
-        public void SetTextures(Texture texture, List<Frame> _frames)
+        public void SetTextures(Texture texture, List<Frame> frames)
         {
-            mTexture = texture;
-            frames = _frames;
+            _mTexture = texture;
+            _frames = frames;
         }
 
         public void AdvanceTime(IList<Particle> mParticles) // TODO make this a native array
         {
-            mNumParticles = mParticles.Count;
-            vertexes = new float[mNumParticles * 32];
-            Particle particle;
-            int vertexID = 0;
+            _mNumParticles = mParticles.Count;
+            _vertexes = new float[_mNumParticles * 32];
 
-            float red;
-            float green;
-            float blue;
-            float particleAlpha;
-
-            float rotation;
-            float x, y;
-            float xOffset, yOffset;
-
-            int angle;
-            float cos;
-            float sin;
-            float cosX;
-            float cosY;
-            float sinX;
-            float sinY;
-            int position;
-            Frame frame;
-            float bottomRightX;
-            float bottomRightY;
-            float topLeftX;
-            float topLeftY;
-            for (int i = 0; i < mNumParticles; ++i) {
-                vertexID = i << 2;
-                particle = mParticles[i];
+            for (int i = 0; i < _mNumParticles; ++i) {
+                var vertexId = i << 2;
+                var particle = mParticles[i];
                 // color & alpha
-                particleAlpha = particle.Alpha;
+                var particleAlpha = particle.Alpha;
+                float red;
+                float green;
+                float blue;
                 if (PremultiplyAlpha) {
                     red = particle.ColorR * particleAlpha;
                     green = particle.ColorG * particleAlpha;
@@ -135,100 +112,100 @@ namespace Stardust.Handlers.Sparrow
                     blue = particle.ColorB;
                 }
                 // position & rotation
-                rotation = particle.Rotation * DEGREES_TO_RADIANS;
-                x = particle.X;
-                y = particle.Y;
+                var rotation = particle.Rotation * DegreesToRadians;
+                var x = particle.X;
+                var y = particle.Y;
                 // texture
-                frame = frames[particle.CurrentAnimationFrame];
-                bottomRightX = frame.BottomRightX;
-                bottomRightY = frame.BottomRightY;
-                topLeftX = frame.TopLeftX;
-                topLeftY = frame.TopLeftY;
-                xOffset = frame.ParticleHalfWidth * particle.Scale;
-                yOffset = frame.ParticleHalfHeight * particle.Scale;
+                var frame = _frames[particle.CurrentAnimationFrame];
+                var bottomRightX = frame.BottomRightX;
+                var bottomRightY = frame.BottomRightY;
+                var topLeftX = frame.TopLeftX;
+                var topLeftY = frame.TopLeftY;
+                var xOffset = frame.ParticleHalfWidth * particle.Scale;
+                var yOffset = frame.ParticleHalfHeight * particle.Scale;
 
-                position = vertexID << 3; // * 8
-                if (rotation != 0) {
-                    angle = ((int)(rotation * 325.94932345220164765467394738691f) & 2047);
-                    cos = sCosLUT[angle];
-                    sin = sSinLUT[angle];
-                    cosX = cos * xOffset;
-                    cosY = cos * yOffset;
-                    sinX = sin * xOffset;
-                    sinY = sin * yOffset;
+                var position = vertexId << 3;
+                if (rotation != 0f) {
+                    var angle = ((int)(rotation * 325.94932345220164765467394738691f) & 2047);
+                    var cos = SCosLut[angle];
+                    var sin = SSinLut[angle];
+                    var cosX = cos * xOffset;
+                    var cosY = cos * yOffset;
+                    var sinX = sin * xOffset;
+                    var sinY = sin * yOffset;
     
-                    vertexes[position] = x - cosX + sinY;  // 0,1: position (in pixels)
-                    vertexes[++position] = y - sinX - cosY;
-                    vertexes[++position] = red;// 2,3,4,5: Color and Alpha [0-1]
-                    vertexes[++position] = green;
-                    vertexes[++position] = blue;
-                    vertexes[++position] = particleAlpha;
-                    vertexes[++position] = topLeftX; // 6,7: Texture coords [0-1]
-                    vertexes[++position] = topLeftY;
+                    _vertexes[position] = x - cosX + sinY;  // 0,1: position (in pixels)
+                    _vertexes[++position] = y - sinX - cosY;
+                    _vertexes[++position] = red;// 2,3,4,5: Color and Alpha [0-1]
+                    _vertexes[++position] = green;
+                    _vertexes[++position] = blue;
+                    _vertexes[++position] = particleAlpha;
+                    _vertexes[++position] = topLeftX; // 6,7: Texture coords [0-1]
+                    _vertexes[++position] = topLeftY;
     
-                    vertexes[++position] = x + cosX + sinY;
-                    vertexes[++position] = y + sinX - cosY;
-                    vertexes[++position] = red;
-                    vertexes[++position] = green;
-                    vertexes[++position] = blue;
-                    vertexes[++position] = particleAlpha;
-                    vertexes[++position] = bottomRightX;
-                    vertexes[++position] = topLeftY;
+                    _vertexes[++position] = x + cosX + sinY;
+                    _vertexes[++position] = y + sinX - cosY;
+                    _vertexes[++position] = red;
+                    _vertexes[++position] = green;
+                    _vertexes[++position] = blue;
+                    _vertexes[++position] = particleAlpha;
+                    _vertexes[++position] = bottomRightX;
+                    _vertexes[++position] = topLeftY;
     
-                    vertexes[++position] = x - cosX - sinY;
-                    vertexes[++position] = y - sinX + cosY;
-                    vertexes[++position] = red;
-                    vertexes[++position] = green;
-                    vertexes[++position] = blue;
-                    vertexes[++position] = particleAlpha;
-                    vertexes[++position] = topLeftX;
-                    vertexes[++position] = bottomRightY;
+                    _vertexes[++position] = x - cosX - sinY;
+                    _vertexes[++position] = y - sinX + cosY;
+                    _vertexes[++position] = red;
+                    _vertexes[++position] = green;
+                    _vertexes[++position] = blue;
+                    _vertexes[++position] = particleAlpha;
+                    _vertexes[++position] = topLeftX;
+                    _vertexes[++position] = bottomRightY;
     
-                    vertexes[++position] = x + cosX - sinY;
-                    vertexes[++position] = y + sinX + cosY;
-                    vertexes[++position] = red;
-                    vertexes[++position] = green;
-                    vertexes[++position] = blue;
-                    vertexes[++position] = particleAlpha;
-                    vertexes[++position] = bottomRightX;
-                    vertexes[++position] = bottomRightY;
+                    _vertexes[++position] = x + cosX - sinY;
+                    _vertexes[++position] = y + sinX + cosY;
+                    _vertexes[++position] = red;
+                    _vertexes[++position] = green;
+                    _vertexes[++position] = blue;
+                    _vertexes[++position] = particleAlpha;
+                    _vertexes[++position] = bottomRightX;
+                    _vertexes[++position] = bottomRightY;
                 }
                 else {
-                    vertexes[position] = x - xOffset;
-                    vertexes[++position] = y - yOffset;
-                    vertexes[++position] = red;
-                    vertexes[++position] = green;
-                    vertexes[++position] = blue;
-                    vertexes[++position] = particleAlpha;
-                    vertexes[++position] = topLeftX;
-                    vertexes[++position] = topLeftY;
+                    _vertexes[position] = x - xOffset;
+                    _vertexes[++position] = y - yOffset;
+                    _vertexes[++position] = red;
+                    _vertexes[++position] = green;
+                    _vertexes[++position] = blue;
+                    _vertexes[++position] = particleAlpha;
+                    _vertexes[++position] = topLeftX;
+                    _vertexes[++position] = topLeftY;
     
-                    vertexes[++position] = x + xOffset;
-                    vertexes[++position] = y - yOffset;
-                    vertexes[++position] = red;
-                    vertexes[++position] = green;
-                    vertexes[++position] = blue;
-                    vertexes[++position] = particleAlpha;
-                    vertexes[++position] = bottomRightX;
-                    vertexes[++position] = topLeftY;
+                    _vertexes[++position] = x + xOffset;
+                    _vertexes[++position] = y - yOffset;
+                    _vertexes[++position] = red;
+                    _vertexes[++position] = green;
+                    _vertexes[++position] = blue;
+                    _vertexes[++position] = particleAlpha;
+                    _vertexes[++position] = bottomRightX;
+                    _vertexes[++position] = topLeftY;
     
-                    vertexes[++position] = x - xOffset;
-                    vertexes[++position] = y + yOffset;
-                    vertexes[++position] = red;
-                    vertexes[++position] = green;
-                    vertexes[++position] = blue;
-                    vertexes[++position] = particleAlpha;
-                    vertexes[++position] = topLeftX;
-                    vertexes[++position] = bottomRightY;
+                    _vertexes[++position] = x - xOffset;
+                    _vertexes[++position] = y + yOffset;
+                    _vertexes[++position] = red;
+                    _vertexes[++position] = green;
+                    _vertexes[++position] = blue;
+                    _vertexes[++position] = particleAlpha;
+                    _vertexes[++position] = topLeftX;
+                    _vertexes[++position] = bottomRightY;
     
-                    vertexes[++position] = x + xOffset;
-                    vertexes[++position] = y + yOffset;
-                    vertexes[++position] = red;
-                    vertexes[++position] = green;
-                    vertexes[++position] = blue;
-                    vertexes[++position] = particleAlpha;
-                    vertexes[++position] = bottomRightX;
-                    vertexes[++position] = bottomRightY;
+                    _vertexes[++position] = x + xOffset;
+                    _vertexes[++position] = y + yOffset;
+                    _vertexes[++position] = red;
+                    _vertexes[++position] = green;
+                    _vertexes[++position] = blue;
+                    _vertexes[++position] = particleAlpha;
+                    _vertexes[++position] = bottomRightX;
+                    _vertexes[++position] = bottomRightY;
                 }
             }
         }
@@ -237,15 +214,15 @@ namespace Stardust.Handlers.Sparrow
                 TextureSmoothing smoothing, uint blendMode, FragmentFilter filter,
                 bool premultiplyAlpha, int numParticles)
         {
-            if (mNumParticles == 0) {
+            if (_mNumParticles == 0) {
                 return false;
             }
-            else if (mNumParticles + numParticles > MAX_POSSIBLE_PARTICLES) {
+            else if (_mNumParticles + numParticles > MaxPossibleParticles) {
                 return true;
             }
-            else if (mTexture != null && texture != 0) {
-                return mTexture.Base != texture || TexSmoothing != smoothing || BlendMode != blendMode ||
-                    mFilter != filter || PremultiplyAlpha != premultiplyAlpha;
+            else if (_mTexture != null && texture != 0) {
+                return _mTexture.Base != texture || TexSmoothing != smoothing || BlendMode != blendMode ||
+                    _mFilter != filter || PremultiplyAlpha != premultiplyAlpha;
             }
             return true;
         }
@@ -253,14 +230,14 @@ namespace Stardust.Handlers.Sparrow
         public override void Render(Painter painter)
         {
             painter.ExcludeFromCache(this); // for some reason it doesnt work if inside the if. Starling bug?
-            if (mNumParticles > 0 && !mBatched) {
+            if (_mNumParticles > 0 && !_mBatched) {
                 int mNumBatchedParticles = BatchNeighbours();
                 float parentAlpha = Parent != null ? Parent.Alpha : 1;
                 RenderCustom(painter, mNumBatchedParticles, parentAlpha);
             }
             //reset filter
-            base.Filter = mFilter;
-            mBatched = false;
+            base.Filter = _mFilter;
+            _mBatched = false;
         }
         
         protected int BatchNeighbours()
@@ -268,22 +245,22 @@ namespace Stardust.Handlers.Sparrow
             int mNumBatchedParticles = 0;
             int last = Parent.GetChildIndex(this);
             while (++last < Parent.NumChildren) {
-                SparrowRenderer nextPS  = Parent.GetChild(last) as SparrowRenderer;
-                if (nextPS != null && !nextPS.IsStateChange(mTexture.Base, TexSmoothing, BlendMode, mFilter, PremultiplyAlpha, mNumParticles)) {
-                    if (nextPS.mNumParticles > 0) {
-                        int targetIndex = (mNumParticles + mNumBatchedParticles) * 32; // 4 * 8
+                SparrowRenderer nextPs  = Parent.GetChild(last) as SparrowRenderer;
+                if (nextPs != null && !nextPs.IsStateChange(_mTexture.Base, TexSmoothing, BlendMode, _mFilter, PremultiplyAlpha, _mNumParticles)) {
+                    if (nextPs._mNumParticles > 0) {
+                        int targetIndex = (_mNumParticles + mNumBatchedParticles) * 32; // 4 * 8
                         int sourceIndex = 0;
-                        int sourceEnd = nextPS.mNumParticles * 32; // 4 * 8
+                        int sourceEnd = nextPs._mNumParticles * 32; // 4 * 8
                         while (sourceIndex < sourceEnd) {
-                            vertexes[targetIndex++] = nextPS.vertexes[sourceIndex++];
+                            _vertexes[targetIndex++] = nextPs._vertexes[sourceIndex++];
                         }
                         
-                        mNumBatchedParticles += nextPS.mNumParticles;
+                        mNumBatchedParticles += nextPs._mNumParticles;
                         
-                        nextPS.mBatched = true;
+                        nextPs._mBatched = true;
 
                         //disable filter of batched system temporarily
-                        nextPS.Filter = null;
+                        nextPs.Filter = null;
                     }
                 }
                 else {
@@ -295,11 +272,11 @@ namespace Stardust.Handlers.Sparrow
         
         private void RenderCustom(Painter painter, int mNumBatchedParticles, float parentAlpha)
         {
-            if (mNumParticles == 0 || SparrowParticleBuffers.BuffersCreated == false) {
+            if (_mNumParticles == 0 || SparrowParticleBuffers.BuffersCreated == false) {
                 return;
             }
-            if (mNumBatchedParticles > maxParticles) {
-                Debug.WriteLine("Over " + maxParticles + " particles! Aborting rendering");
+            if (mNumBatchedParticles > _maxParticles) {
+                Debug.WriteLine("Over " + _maxParticles + " particles! Aborting rendering");
                 return;
             }
             SparrowParticleBuffers.SwitchVertexBuffer();
@@ -310,14 +287,14 @@ namespace Stardust.Handlers.Sparrow
             
             global::Sparrow.Display.BlendMode.Get(BlendMode).Activate();
     
-            renderAlpha[0] = renderAlpha[1] = renderAlpha[2] = PremultiplyAlpha ? parentAlpha : 1;
-            renderAlpha[3] = parentAlpha;
+            RenderAlpha[0] = RenderAlpha[1] = RenderAlpha[2] = PremultiplyAlpha ? parentAlpha : 1;
+            RenderAlpha[3] = parentAlpha;
 
             var program = ParticleProgram.GetProgram();
             program.Activate();
               
             int uAlpha = program.Uniforms["uAlpha"];
-            Gl.Uniform4(uAlpha, renderAlpha[0], renderAlpha[1], renderAlpha[2], renderAlpha[3]);
+            Gl.Uniform4(uAlpha, RenderAlpha[0], RenderAlpha[1], RenderAlpha[2], RenderAlpha[3]);
             
             int uMvpMatrix = program.Uniforms["uMvpMatrix"];
             Gl.UniformMatrix4(uMvpMatrix, 1, false, painter.State.MvpMatrix3D.RawData);
@@ -325,7 +302,7 @@ namespace Stardust.Handlers.Sparrow
             //context.setTextureAt(0, mTexture.Base);
 
             Gl.BindBuffer(BufferTarget.ArrayBuffer, SparrowParticleBuffers.VertexBuffer);
-            Gl.BufferData(BufferTarget.ArrayBuffer, (uint)(vertexes.Length * sizeof(float)), vertexes, BufferUsage.DynamicDraw);
+            Gl.BufferData(BufferTarget.ArrayBuffer, (uint)(_vertexes.Length * sizeof(float)), _vertexes, BufferUsage.DynamicDraw);
             
             uint attribPosition = (uint)program.Attributes["aPosition"];
             Gl.EnableVertexAttribArray(attribPosition);
@@ -339,12 +316,12 @@ namespace Stardust.Handlers.Sparrow
             Gl.EnableVertexAttribArray(aTexCoords);
             Gl.VertexAttribPointer(aTexCoords, 2, VertexAttribType.Float, false, 32, (IntPtr)24);
             Gl.ActiveTexture(TextureUnit.Texture0);       
-            RenderUtil.SetSamplerStateAt(mTexture.Base, mTexture.NumMipMaps > 0, TexSmoothing);
+            RenderUtil.SetSamplerStateAt(_mTexture.Base, _mTexture.NumMipMaps > 0, TexSmoothing);
             
             Gl.BindBuffer(BufferTarget.ElementArrayBuffer, SparrowParticleBuffers.IndexBuffer);
             
             // TODO limit max number of particles
-            Gl.DrawElements(PrimitiveType.Triangles, (mNumParticles + mNumBatchedParticles) * 6, DrawElementsType.UnsignedShort, IntPtr.Zero);
+            Gl.DrawElements(PrimitiveType.Triangles, (_mNumParticles + mNumBatchedParticles) * 6, DrawElementsType.UnsignedShort, IntPtr.Zero);
 
             Gl.DisableVertexAttribArray(attribPosition);
             Gl.DisableVertexAttribArray(attribColor);
@@ -357,9 +334,9 @@ namespace Stardust.Handlers.Sparrow
             get => base.Filter;
             set
             {
-                if (!mBatched)
+                if (!_mBatched)
                 {
-                    mFilter = value;
+                    _mFilter = value;
                 }
                 base.Filter = value;
             }
@@ -371,11 +348,11 @@ namespace Stardust.Handlers.Sparrow
         /// </summary>
         public override Rectangle GetBounds(DisplayObject targetSpace)
         {
-            if (boundsRect == null)
+            if (_boundsRect == null)
             {
-                boundsRect = Rectangle.Create();
+                _boundsRect = Rectangle.Create();
             }
-            return boundsRect;
+            return _boundsRect;
         }
 
 

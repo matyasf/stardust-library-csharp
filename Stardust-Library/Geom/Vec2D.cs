@@ -1,4 +1,4 @@
-﻿using Stardust.Math;
+﻿using Stardust.MathStuff;
 
 namespace Stardust.Geom
 {
@@ -58,7 +58,7 @@ namespace Stardust.Geom
             Pool.Release(temp);
         }
         
-        public Vec2D Rotate(float angle, bool useRadian)
+        public Vec2D Rotate(float angle, bool useRadian = false)
         {
             if (!useRadian) angle = angle * StardustMath.DegreeToRadian;
             var originalX = X;

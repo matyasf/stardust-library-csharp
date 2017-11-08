@@ -14,7 +14,7 @@ using Stardust.Emitters;
 using Stardust.Handlers.Sparrow;
 using Stardust.Handlers.Sparrow.simple;
 using Stardust.Initializers;
-using Stardust.Math;
+using Stardust.MathStuff;
 using Stardust.Xml;
 using Stardust.Zones;
 
@@ -28,9 +28,9 @@ namespace Stardust_Library_Sample
         {
             SparrowSharp.EnableErrorChecking();
             SparrowSharp.SkipUnchangedFrames = false;
-            //SparrowSharp.ShowStats(HAlign.Right);
+            SparrowSharp.ShowStats(HAlign.Right);
             EnterFrame += OnEnterFrame;
-            SparrowRenderer.Init(1, 100);
+            SparrowRenderer.Init(1, 20000);
             
             Stream stream = Assembly.GetExecutingAssembly().
                 //GetManifestResourceStream("Stardust_Library_Sample.emitter_simple.xml");
@@ -51,6 +51,8 @@ namespace Stardust_Library_Sample
             builder.RegisterClass(typeof(Move));
             builder.RegisterClass(typeof(Alpha));
             builder.RegisterClass(typeof(SinglePoint));
+            builder.RegisterClass(typeof(Line));
+            builder.RegisterClass(typeof(PositionAnimated));
             builder.BuildFromXml(elem);
             var result = builder.GetElementByName("0");
             em = (Emitter) result;

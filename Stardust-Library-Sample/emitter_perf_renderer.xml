@@ -5,6 +5,11 @@
     <Move name="Move_1" active="true" multiplier="1"/>
   </actions>
   <initializers>
+    <PositionAnimated name="PositionAnimated_1" active="true" inheritVelocity="false" >
+        <zones>
+            <Line name="Line_1"/>
+        </zones>
+    </PositionAnimated>        
     <Life name="Life_2" active="true" random="UniformRandom_59"/>
     <Alpha name="Alpha_2" active="true" random="UniformRandom_60"/>
     <Velocity name="Velocity_1" active="true">
@@ -21,6 +26,7 @@
         <Move name="Move_1"/>
       </actions>
       <initializers>
+        <PositionAnimated name="PositionAnimated_1"/>
         <Life name="Life_2"/>
         <Velocity name="Velocity_1"/>
         <Alpha name="Alpha_2"/>
@@ -31,12 +37,13 @@
   </fields>
   <zones>
       <SinglePoint name="SinglePoint_3" rotation="0" virtualThickness="1" x="0" y="100"/>
+      <Line name="Line_1" x1="0" y1="0" x2="100" y2="0" rotation="0" virtualThickness="1"/>
   </zones>
   <handlers>
     <StarlingHandler name="StarlingHandler_2" spriteSheetAnimationSpeed="60" spriteSheetStartAtRandomFrame="false" smoothing="false" blendMode="normal" premultiplyAlpha="false"/>
   </handlers>
   <clocks>
-    <SteadyClock name="SteadyClock_5" ticksPerCall="2" initialDelay="UniformRandom_58"/>
+    <SteadyClock name="SteadyClock_5" ticksPerCall="50" initialDelay="UniformRandom_58"/>
   </clocks>
   <randoms>
     <UniformRandom name="UniformRandom_58" center="0" radius="0"/>

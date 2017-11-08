@@ -1,8 +1,7 @@
 ﻿using System.Xml.Linq;
-using System.Xml.Serialization;
 using Stardust.Xml;
 
-namespace Stardust.Math
+namespace Stardust.MathStuff
 {
     /// <summary>
     /// This class generates uniformly distributed random numbers.
