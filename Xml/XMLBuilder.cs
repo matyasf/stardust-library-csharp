@@ -36,7 +36,6 @@ namespace Stardust.Xml
             TraverseRelatedObjects(rootElement, relatedElements);
 
             List<StardustElement> relatedElementsArray = new List<StardustElement>();
-            StardustElement element;
             foreach (var elem in relatedElements) {
                 relatedElementsArray.Add(elem.Value);
             }

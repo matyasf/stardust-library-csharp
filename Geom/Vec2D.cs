@@ -6,7 +6,7 @@ namespace Stardust.Geom
     
     public class Vec2D : IDisposable
     {
-        public static readonly Pool<Vec2D> Pool = new Pool<Vec2D>(100, pool => new Vec2D());
+        public static readonly Pool<Vec2D> Pool = new Pool<Vec2D>(pool => new Vec2D());
         
         public float X;
         public float Y;

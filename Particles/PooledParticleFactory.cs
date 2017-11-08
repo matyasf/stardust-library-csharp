@@ -6,7 +6,7 @@ namespace Stardust.Particles
 {
     public class PooledParticleFactory
     {
-        public static readonly Pool<Particle> Pool = new Pool<Particle>(100, pool => new Particle());
+        public static readonly Pool<Particle> Pool = new Pool<Particle>(pool => new Particle());
         
         private readonly SortableCollection _initializerCollection;
         

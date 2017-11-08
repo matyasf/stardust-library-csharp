@@ -56,6 +56,15 @@ namespace Stardust.Particles
         /// The collision radius of the particle.
         /// </summary>
         public float CollisionRadius;
+        
+        /// <summary>
+        /// Custom user data of the particle.
+        /// <para>
+        /// Normally, this property contains information for renderers.
+        /// For instance this property should refer to the graphics object of this particle.
+        /// </para>
+        /// </summary>
+        public object Target;
 
         /// <summary>
         /// Current red color component; in the [0,1] range.
@@ -113,6 +122,7 @@ namespace Stardust.Particles
 
         public void Destroy() // TODO is this nedeed?
         {
+            Target = null;
         }
 
         public int CompareTo(Particle other)

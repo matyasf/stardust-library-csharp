@@ -9,61 +9,29 @@ using System.Threading;
         private bool _isDisposed;
         private readonly Func<Pool<T>, T> _factory;
         private readonly Stack<T> _itemStore;
-        private readonly int _size;
-        private int _count;
-        private readonly Semaphore _sync;
         
-        public Pool(int size, Func<Pool<T>, T> factory)
+        public Pool(Func<Pool<T>, T> factory)
         {
-            if (size <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(size), size,
-                    "Argument 'size' must be greater than zero.");
-            }
             if (factory == null)
             {
                 throw new ArgumentNullException(nameof(factory));    
             }
-            _size = size;
             _factory = factory;
-            _sync = new Semaphore(size, size);
-            _itemStore = new Stack<T>(size);
+            _itemStore = new Stack<T>();
         }
 
         public T Acquire()
         {
-            _sync.WaitOne();
-            bool shouldExpand = false;
-            if (_count < _size)
-            {
-                int newCount = Interlocked.Increment(ref _count);
-                if (newCount <= _size)
-                {
-                    shouldExpand = true;
-                }
-                else
-                {
-                    // Another thread took the last spot - use the store instead
-                    Interlocked.Decrement(ref _count);
-                }
-            }
-            if (shouldExpand)
-            {
-                return _factory(this);
-            }
-            lock (_itemStore)
+            if (_itemStore.Count > 0)
             {
                 return _itemStore.Pop();
             }
+            return _factory(this);
         }
 
         public void Release(T item)
         {
-            lock (_itemStore)
-            {
-                _itemStore.Push(item);
-            }
-            _sync.Release();
+             _itemStore.Push(item);
         }
 
         /// <summary>
@@ -78,16 +46,12 @@ using System.Threading;
             _isDisposed = true;
             if (typeof(IDisposable).IsAssignableFrom(typeof(T)))
             {
-                lock (_itemStore)
+                while (_itemStore.Count > 0)
                 {
-                    while (_itemStore.Count > 0)
-                    {
-                        IDisposable disposable = (IDisposable)_itemStore.Pop();
-                        disposable.Dispose();
-                    }
+                    IDisposable disposable = (IDisposable)_itemStore.Pop();
+                    disposable.Dispose();
                 }
             }
-            _sync.Close();
         }
         
         public bool IsDisposed

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using System.Xml.Linq;
 using Stardust.Geom;
@@ -11,7 +11,7 @@ namespace Stardust.Initializers
     public class Velocity : Initializer
     {
 
-        protected ZoneCollection ZoneCollection;
+        protected readonly ZoneCollection ZoneCollection;
 
         public IList<Zone> Zones
         {

@@ -11,8 +11,8 @@ namespace Stardust.Handlers.Sparrow
 {
     public class SparrowHandler : ParticleHandler
     {
-        private static readonly Random rng = new Random();
-        private string _blendMode; // TODO use stronly typed value in Sparrow-sharp
+        private static readonly Random Rng = new Random();
+        private uint _blendMode; // TODO use stronly typed value in Sparrow-sharp
         private int _spriteSheetAnimationSpeed;
         private TextureSmoothing _smoothing;
         private bool _isSpriteSheet;
@@ -20,18 +20,18 @@ namespace Stardust.Handlers.Sparrow
         private bool _spriteSheetStartAtRandomFrame;
         private int _totalFrames;
         private IList<SubTexture> _textures;
-        private StardustStarlingRenderer _renderer;
-        private float timeSinceLastStep;
+        private SparrowRenderer _renderer;
+        private float _timeSinceLastStep;
 
         public SparrowHandler()
         {
-            timeSinceLastStep = 0;
+            _timeSinceLastStep = 0;
             _spriteSheetAnimationSpeed = 1;
         }
         
         public override void Reset()
         {
-            timeSinceLastStep = 0;
+            _timeSinceLastStep = 0;
             _renderer.AdvanceTime(new List<Particle>());
         }
 
@@ -48,20 +48,20 @@ namespace Stardust.Handlers.Sparrow
         {
             if (_renderer == null)
             {
-                _renderer = new StardustStarlingRenderer();
+                _renderer = new SparrowRenderer();
                 _renderer.BlendMode = _blendMode;
                 _renderer.TexSmoothing = _smoothing;
-                _renderer.PreMultiplyAlpha = _premultiplyAlpha;
+                _renderer.PremultiplyAlpha = _premultiplyAlpha;
             }
         }
 
         public override void StepEnd(Emitter emitter, IList<Particle> particles, float time)
         {
             if (_isSpriteSheet && _spriteSheetAnimationSpeed > 0) {
-                timeSinceLastStep = timeSinceLastStep + time;
-                if (timeSinceLastStep > 1/_spriteSheetAnimationSpeed)
+                _timeSinceLastStep = _timeSinceLastStep + time;
+                if (_timeSinceLastStep > 1f/_spriteSheetAnimationSpeed)
                 {
-                    int stepSize = (int)System.Math.Floor(timeSinceLastStep * _spriteSheetAnimationSpeed);
+                    int stepSize = (int)System.Math.Floor(_timeSinceLastStep * _spriteSheetAnimationSpeed);
                     var mNumParticles = particles.Count;
                     for (int i = 0; i < mNumParticles; ++i) {
                         Particle particle = particles[i];
@@ -72,7 +72,7 @@ namespace Stardust.Handlers.Sparrow
                         }
                         particle.CurrentAnimationFrame = currFrame;
                     }
-                    timeSinceLastStep = 0;
+                    _timeSinceLastStep = 0;
                 }
             }
             _renderer.AdvanceTime(particles);
@@ -83,7 +83,7 @@ namespace Stardust.Handlers.Sparrow
             if (_isSpriteSheet) {
                 int currFrame = 0;
                 if (_spriteSheetStartAtRandomFrame) {
-                    currFrame = (int)(rng.NextDouble() * _totalFrames);
+                    currFrame = (int)(Rng.NextDouble() * _totalFrames);
                 }
                 particle.CurrentAnimationFrame = currFrame;
             }
@@ -96,7 +96,7 @@ namespace Stardust.Handlers.Sparrow
         {   
         }
 
-        public StardustStarlingRenderer Renderer => _renderer;
+        public SparrowRenderer Renderer => _renderer;
         
         public int SpriteSheetAnimationSpeed
         {
@@ -145,7 +145,7 @@ namespace Stardust.Handlers.Sparrow
                 _renderer.PremultiplyAlpha = value;
             }
         }
-        public string BlendMode
+        public uint BlendMode
         {
             get => _blendMode;
             set
@@ -170,15 +170,15 @@ namespace Stardust.Handlers.Sparrow
             get => _textures;
             set
             {
-                if (Textures == null || Textures.Count == 0) {
+                if (value == null || value.Count == 0) {
                     throw new ArgumentException("the textures parameter cannot be null and needs to hold at least 1 element");
                 }
                 CreateRendererIfNeeded();
-                _isSpriteSheet = Textures.Count > 1;
-                _textures = Textures;
+                _isSpriteSheet = value.Count > 1;
+                _textures = value;
                 List<Frame> frames = new List<Frame>();
-                foreach (SubTexture texture in Textures) {
-                    if (texture.Root != Textures[0].Root) {
+                foreach (SubTexture texture in value) {
+                    if (texture.Root != value[0].Root) {
                         throw new Exception("The texture " + texture + " does not share the same base root with others");
                     }
                     // TODO use the transformationMatrix
@@ -192,7 +192,7 @@ namespace Stardust.Handlers.Sparrow
                     frames.Add(frame);
                 }
                 _totalFrames = frames.Count;
-                _renderer.SetTextures(Textures[0].Root, frames);
+                _renderer.SetTextures(value[0].Root, frames);
             }
         }
 
@@ -219,7 +219,15 @@ namespace Stardust.Handlers.Sparrow
             _spriteSheetAnimationSpeed = int.Parse(xml.Attribute("spriteSheetAnimationSpeed").Value);
             _spriteSheetStartAtRandomFrame = bool.Parse(xml.Attribute("spriteSheetStartAtRandomFrame").Value);
             Smoothing = bool.Parse(xml.Attribute("smoothing").Value);
-            BlendMode = xml.Attribute("blendMode").Value;
+            string bMode = xml.Attribute("blendMode").Value;
+            if (bMode == "normal")
+            {
+                BlendMode = global::Sparrow.Display.BlendMode.NORMAL;   
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
             PremultiplyAlpha = bool.Parse(xml.Attribute("premultiplyAlpha").Value);
         }
 

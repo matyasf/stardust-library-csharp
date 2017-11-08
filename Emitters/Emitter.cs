@@ -180,6 +180,7 @@ namespace Stardust.Emitters
                 action.PreUpdate(this, timeSinceLastStep);
             }
             //update the remaining particles
+            List<Particle> deadParticles = new List<Particle>(); // do not instantiate here
             foreach (Particle particle in _particles)
             {
                 foreach (Action activeAction in activeActions)
@@ -189,13 +190,17 @@ namespace Stardust.Emitters
 
                 if (particle.IsDead)
                 {
-                    ParticleHandler.ParticleRemoved(particle);
-                    
-                    particle.Destroy();
-                    factory.Recycle(particle);
-
-                    _particles.Remove(particle); // TODO check
+                    deadParticles.Add(particle);
                 }
+            }
+            foreach (Particle deadParticle in deadParticles)
+            {
+                ParticleHandler.ParticleRemoved(deadParticle);
+                    
+                deadParticle.Destroy();
+                factory.Recycle(deadParticle);
+
+                _particles.Remove(deadParticle);
             }
             
             // postUpdate
