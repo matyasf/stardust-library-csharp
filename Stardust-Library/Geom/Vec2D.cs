@@ -6,7 +6,19 @@ namespace Stardust.Geom
     
     public class Vec2D : IDisposable
     {
-        public static readonly Pool<Vec2D> Pool = new Pool<Vec2D>(pool => new Vec2D());
+        private static readonly Pool<Vec2D> Pool = new Pool<Vec2D>(pool => new Vec2D());
+
+        public static Vec2D GetFromPool(float x = 0f, float y = 0f)
+        {
+            Vec2D vec = Pool.Acquire();
+            vec.SetTo(x, y);
+            return vec;
+        }
+
+        public static void RecycleToPool(Vec2D vec)
+        {
+            Pool.Release(vec);
+        }
         
         public float X;
         public float Y;
@@ -95,6 +107,11 @@ namespace Stardust.Geom
             X = 0;
             Y = 0;
             Pool.Release(this);
+        }
+
+        public override string ToString()
+        {
+            return $"[X:{X},Y:{Y}]";
         }
     }
 }

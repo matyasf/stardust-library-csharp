@@ -76,7 +76,7 @@ namespace Stardust.Initializers
                     particle.X = vec2D.X;
                     particle.Y = vec2D.Y;
                 }
-                Vec2D.Pool.Release(vec2D);
+                Vec2D.RecycleToPool(vec2D);
             }
         }
 

@@ -25,7 +25,7 @@ namespace Stardust.Zones
         
         public override Vec2D CalculateMotionData2D()
         {
-            return Vec2D.Pool.Acquire();
+            return Vec2D.GetFromPool();
         }
         
         protected override void UpdateArea()

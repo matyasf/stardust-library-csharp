@@ -101,7 +101,7 @@ namespace Stardust.Initializers
         {
             _random.SetRange(0, 1);
             var rand = _random.Random();
-            var vec = Vec2D.Pool.Acquire();
+            var vec = Vec2D.GetFromPool();
             vec.SetTo(StardustMath.Interpolate(0, 0, 1, _x2 - _x, rand), 
                       StardustMath.Interpolate(0, 0, 1, _y2 - _y, rand));
             return vec;

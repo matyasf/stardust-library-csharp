@@ -15,8 +15,6 @@ namespace Stardust.Fields
         private Vec2D md2D;
         private float _invMass;
 
-        protected readonly Vec2D point = Vec2D.Pool.Acquire();
-
         public Field()
         {
             Active = true;
@@ -25,7 +23,7 @@ namespace Stardust.Fields
 
         public Vec2D GetMotionData2D(Particle particle)
         {
-            if (!Active) return Vec2D.Pool.Acquire();
+            if (!Active) return Vec2D.GetFromPool();
 
             md2D = CalculateMotionData2D(particle);
             if (!Massless) {

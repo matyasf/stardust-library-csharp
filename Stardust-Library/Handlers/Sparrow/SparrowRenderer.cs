@@ -217,12 +217,12 @@ namespace Stardust.Handlers.Sparrow
             if (_mNumParticles == 0) {
                 return false;
             }
-            else if (_mNumParticles + numParticles > MaxPossibleParticles) {
+            if (_mNumParticles + numParticles > MaxPossibleParticles) {
                 return true;
             }
-            else if (_mTexture != null && texture != 0) {
+            if (_mTexture != null && texture != 0) {
                 return _mTexture.Base != texture || TexSmoothing != smoothing || BlendMode != blendMode ||
-                    _mFilter != filter || PremultiplyAlpha != premultiplyAlpha;
+                       _mFilter != filter || PremultiplyAlpha != premultiplyAlpha;
             }
             return true;
         }

@@ -97,9 +97,7 @@ namespace Stardust.Zones
         /// </summary>
         public Vec2D GetPosition()
         {
-            Vec2D position = Vec2D.Pool.Acquire();
-            position.SetTo(X, Y);
-            return position;
+            return Vec2D.GetFromPool(X, Y);
         }
 
         #region XML
