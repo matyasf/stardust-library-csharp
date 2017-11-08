@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Xml.Linq;
 using Stardust.Actions;
 using Stardust.Clocks;
@@ -27,11 +26,8 @@ namespace Stardust.Emitters
         /// Returns every managed particle for custom parameter manipulation.
         /// The returned List is not a copy.
         /// </summary>
-        public IReadOnlyList<Particle> Particles
-        {
-            get { return _particles; }
-        }
-        
+        public IReadOnlyList<Particle> Particles => _particles;
+
         /// <summary>
         /// Particle handler is used to render particles.
         /// </summary>
@@ -40,7 +36,7 @@ namespace Stardust.Emitters
         /// <summary>
         /// The clock determines when to spawn particles
         /// </summary>
-        protected Clock _clock;
+        private Clock _clock;
 
         /// <summary>
         /// Whether the emitter is active, true by default.
@@ -55,19 +51,19 @@ namespace Stardust.Emitters
         /// The time since the simulation is running.
         /// </summary>
         public float CurrentTime;
-        
+
         /// <summary>
         /// While the max. fps is usually 60, the actual value fluctuates a few ms.
         /// Thus using the real value would cause lots of frame skips
         /// To take this into account Stardust uses internally a slightly smaller value to compensate.
         /// </summary>
-        public static float TimeStepCorrectionOffset = 0.004f;
-        protected PooledParticleFactory factory = new PooledParticleFactory();
-        protected SortableCollection _actionCollection = new SortableCollection();
-        protected List<Action> activeActions = new List<Action>();
-        protected float _invFps = 1f / 60f - TimeStepCorrectionOffset;
-        protected float timeSinceLastStep = 0;
-        protected float _fps = 0;
+        public const float TimeStepCorrectionOffset = 0.004f;
+        private readonly PooledParticleFactory _factory = new PooledParticleFactory();
+        private readonly SortableCollection _actionCollection = new SortableCollection();
+        private readonly List<Action> _activeActions = new List<Action>();
+        private float _invFps = 1f / 60f - TimeStepCorrectionOffset;
+        private float _timeSinceLastStep;
+        private float _fps;
 
         public Emitter() : this(null, null) {}
         
@@ -111,7 +107,6 @@ namespace Stardust.Emitters
                     value = 60;
                 }
                 _fps = value;
-
                 _invFps = 1 / value - TimeStepCorrectionOffset;
             }
         }
@@ -144,29 +139,29 @@ namespace Stardust.Emitters
             {
                 return;
             }
-            timeSinceLastStep = timeSinceLastStep + time;
+            _timeSinceLastStep = _timeSinceLastStep + time;
             CurrentTime = CurrentTime + time;
-            if (timeSinceLastStep < _invFps)
+            if (_timeSinceLastStep < _invFps)
             {
                 return;
             }
-            ParticleHandler.StepBegin(this, _particles, timeSinceLastStep);
+            ParticleHandler.StepBegin(this, _particles, _timeSinceLastStep);
             
             if (Active) {
-                CreateParticles(_clock.GetTicks(timeSinceLastStep));
+                CreateParticles(_clock.GetTicks(_timeSinceLastStep));
             }
             
             //filter out active actions
-            activeActions.Clear();
+            _activeActions.Clear();
             foreach (Action action in Actions)
             {
                 if (action.Active) {
-                    activeActions.Add(action);
+                    _activeActions.Add(action);
                 }
             }
             
             // sorting
-            foreach (Action activeAction in activeActions)
+            foreach (Action activeAction in _activeActions)
             {
                 if (activeAction.NeedsSortedParticles)
                 {
@@ -175,17 +170,17 @@ namespace Stardust.Emitters
                 }
             }
             //invoke action preupdates
-            foreach (Action action in activeActions)
+            foreach (Action action in _activeActions)
             {
-                action.PreUpdate(this, timeSinceLastStep);
+                action.PreUpdate(this, _timeSinceLastStep);
             }
             //update the remaining particles
             List<Particle> deadParticles = new List<Particle>(); // do not instantiate here
             foreach (Particle particle in _particles)
             {
-                foreach (Action activeAction in activeActions)
+                foreach (Action activeAction in _activeActions)
                 {
-                    activeAction.Update(this, particle, timeSinceLastStep, CurrentTime);
+                    activeAction.Update(this, particle, _timeSinceLastStep, CurrentTime);
                 }
 
                 if (particle.IsDead)
@@ -198,22 +193,22 @@ namespace Stardust.Emitters
                 ParticleHandler.ParticleRemoved(deadParticle);
                     
                 deadParticle.Destroy();
-                factory.Recycle(deadParticle);
+                _factory.Recycle(deadParticle);
 
                 _particles.Remove(deadParticle);
             }
             
             // postUpdate
-            foreach (Action activeAction in activeActions)
+            foreach (Action activeAction in _activeActions)
             {
-                activeAction.PostUpdate(this, timeSinceLastStep);
+                activeAction.PostUpdate(this, _timeSinceLastStep);
             }
 
             EmitterStepEnd?.Invoke(this);
             
-            ParticleHandler.StepEnd(this, _particles, timeSinceLastStep);
+            ParticleHandler.StepEnd(this, _particles, _timeSinceLastStep);
 
-            timeSinceLastStep = 0;
+            _timeSinceLastStep = 0;
         }
         
         #endregion
@@ -259,14 +254,14 @@ namespace Stardust.Emitters
         /// <summary>
         /// Returns every initializer for this emitter.
         /// </summary>
-        public IReadOnlyList<SortableElement> Initializers => factory.InitializerCollection.Elems;
+        public IReadOnlyList<SortableElement> Initializers => _factory.InitializerCollection.Elems;
 
         /// <summary>
         /// Adds an initializer to the emitter.
         /// </summary>
         public void AddInitializer(Initializer initializer)
         {
-            factory.AddInitializer(initializer);
+            _factory.AddInitializer(initializer);
             initializer.DispatchAddEvent();
         }
         
@@ -275,7 +270,7 @@ namespace Stardust.Emitters
         /// </summary>
         public void RemoveInitializer(Initializer initializer)
         {
-            factory.RemoveInitializer(initializer);
+            _factory.RemoveInitializer(initializer);
             initializer.DispatchRemoveEvent();
         }
         
@@ -284,12 +279,12 @@ namespace Stardust.Emitters
         /// </summary>
         public void CleaInitializers()
         {
-            var initializers = factory.InitializerCollection.Elems;
+            var initializers = _factory.InitializerCollection.Elems;
             var len = initializers.Count;
             for (int i = 0; i < len; ++i) {
                 initializers[i].DispatchRemoveEvent();
             }
-            factory.ClearInitializers();
+            _factory.ClearInitializers();
         }
         
         #endregion
@@ -308,7 +303,7 @@ namespace Stardust.Emitters
         public IEnumerable<Particle> CreateParticles(int pCount)
         {
             NewParticles.Clear();
-            factory.CreatParticles(pCount, CurrentTime, NewParticles);
+            _factory.CreatParticles(pCount, CurrentTime, NewParticles);
             AddParticles(NewParticles);
             return NewParticles;
         }
@@ -337,7 +332,7 @@ namespace Stardust.Emitters
             {
                 ParticleHandler.ParticleRemoved(particle);
                 particle.Destroy();
-                factory.Recycle(particle);
+                _factory.Recycle(particle);
             }
             _particles.Clear();
         }
@@ -400,7 +395,7 @@ namespace Stardust.Emitters
         public override void ParseXml(XElement xml, XmlBuilder builder)
         {
             _actionCollection.Clear();
-            factory.ClearInitializers();
+            _factory.ClearInitializers();
             
             Active = bool.Parse(xml.Attribute("active").Value);
             Clock = builder.GetElementByName(xml.Attribute("clock").Value) as Clock;

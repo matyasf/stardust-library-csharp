@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Xml.Linq;
 using Sparrow.Core;
 using Sparrow.Display;
+using Sparrow.Text;
 using Sparrow.Textures;
 using Sparrow.Utils;
 using Stardust.Actions;
@@ -23,15 +24,18 @@ namespace Stardust_Library_Sample
     public class SampleApp : Sprite
     {
         private Emitter em;
+        private float timeCounter;
+        private int frameNum;
+        private TextField textField;
         
         public SampleApp()
         {
-            SparrowSharp.EnableErrorChecking();
+            //SparrowSharp.EnableErrorChecking();
             SparrowSharp.SkipUnchangedFrames = false;
-            SparrowSharp.ShowStats(HAlign.Right);
-            EnterFrame += OnEnterFrame;
-            SparrowRenderer.Init(1, 20000);
+            //SparrowSharp.ShowStats(HAlign.Right);
             
+            SparrowRenderer.Init(1, 35000);
+            timeCounter = 0;
             Stream stream = Assembly.GetExecutingAssembly().
                 //GetManifestResourceStream("Stardust_Library_Sample.emitter_simple.xml");
                 GetManifestResourceStream("Stardust_Library_Sample.emitter_perf_renderer.xml");
@@ -76,12 +80,23 @@ namespace Stardust_Library_Sample
                 subTexes.Add(subTex);
                 handler.Textures = subTexes;
             }
+            
+            textField = new TextField(150, 40);
+            AddChild(textField);
+            EnterFrame += OnEnterFrame;
         }
         
         private void OnEnterFrame(DisplayObject target, float passedTime)
         {
             em.Step(passedTime / 1000f);
-            Debug.WriteLine(em.NumParticles);
+            timeCounter = timeCounter + passedTime;
+            frameNum++;
+            if (timeCounter > 500)
+            {
+                textField.Text = "Fps: " + (frameNum * 2) + " #p: " + em.NumParticles;
+                timeCounter = 0;
+                frameNum = 0;
+            }
         }
     }
 }

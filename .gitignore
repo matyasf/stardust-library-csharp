@@ -1,6 +1,9 @@
 .idea/*
 .vs/*
 packages/*
+*.vsp
+*.vspx
+*.psess
 
 Stardust-Library/bin/*
 Stardust-Library/obj/*

@@ -18,7 +18,7 @@ namespace Stardust.Handlers.Sparrow
     public class SparrowRenderer : DisplayObject
     {
         
-        public const int MaxPossibleParticles = 16383;
+        public const int MaxPossibleParticles = 50000;
         private const float DegreesToRadians = StardustMath.Pi / 180;
         private static readonly float[] SCosLut = new float[0x800];
         private static readonly float[] SSinLut = new float[0x800];
@@ -48,26 +48,29 @@ namespace Stardust.Handlers.Sparrow
 
         /// <summary>
         /// numberOfBuffers is the amount of vertex buffers used by the particle system for multi buffering.
-        ///  Multi buffering can avoid stalling of the GPU but will also increases it's memory consumption.
-        ///  If you want to avoid stalling create the same amount of buffers as your maximum rendered emitters at the
+        /// Multi buffering can avoid stalling of the GPU but will also increases it's memory consumption.
+        /// If you want to avoid stalling create the same amount of buffers as your maximum rendered emitters at the
         /// same time.
-        /// Allocating one buffer with the maximum amount of particles (16383) takes up 2048KB(2MB) GPU memory.
-        /// This call requires that there is a Starling context
+        /// For example allocating one buffer with 16383 particles takes up 2048KB(2MB) GPU memory.
+        /// This call requires that there is a GL context
         /// </summary>
         /// <param name="numberOfBuffers">the amount of vertex buffers used by the particle system for multi buffering.</param>
-        /// <param name="maxParticlesPerBuffer"></param>
+        /// <param name="maxParticlesPerBuffer">Maximum number of particles that you will be able to display.</param>
         public static void Init(int numberOfBuffers = 2, int maxParticlesPerBuffer = MaxPossibleParticles)
         {
             _numberOfVertexBuffers = numberOfBuffers;
-            if (maxParticlesPerBuffer > MaxPossibleParticles) {
+            if (maxParticlesPerBuffer > MaxPossibleParticles) 
+            {
                 maxParticlesPerBuffer = MaxPossibleParticles;
                 Debug.WriteLine("StardustStarlingRenderer WARNING: Tried to render than possible particles, setting value to max");
             }
             _maxParticles = maxParticlesPerBuffer;
             SparrowParticleBuffers.CreateBuffers(maxParticlesPerBuffer, numberOfBuffers);
 
-            if (!_initCalled) {
-                for (int i = 0; i < 0x800; ++i) {
+            if (!_initCalled)
+            {
+                for (int i = 0; i < 0x800; ++i) 
+                {
                     SCosLut[i & 0x7FF] = (float)Math.Cos(i * 0.00306796157577128245943617517898); // 0.003067 = 2PI/2048
                     SSinLut[i & 0x7FF] = (float)Math.Sin(i * 0.00306796157577128245943617517898);
                 }
@@ -93,7 +96,8 @@ namespace Stardust.Handlers.Sparrow
             _mNumParticles = mParticles.Count;
             _vertexes = new float[_mNumParticles * 32];
 
-            for (int i = 0; i < _mNumParticles; ++i) {
+            for (int i = 0; i < _mNumParticles; ++i) 
+            {
                 var vertexId = i << 2;
                 var particle = mParticles[i];
                 // color & alpha
@@ -101,12 +105,14 @@ namespace Stardust.Handlers.Sparrow
                 float red;
                 float green;
                 float blue;
-                if (PremultiplyAlpha) {
+                if (PremultiplyAlpha) 
+                {
                     red = particle.ColorR * particleAlpha;
                     green = particle.ColorG * particleAlpha;
                     blue = particle.ColorB * particleAlpha;
                 }
-                else {
+                else 
+                {
                     red = particle.ColorR;
                     green = particle.ColorG;
                     blue = particle.ColorB;
@@ -125,7 +131,8 @@ namespace Stardust.Handlers.Sparrow
                 var yOffset = frame.ParticleHalfHeight * particle.Scale;
 
                 var position = vertexId << 3;
-                if (rotation != 0f) {
+                if (rotation != 0f)
+                {
                     var angle = ((int)(rotation * 325.94932345220164765467394738691f) & 2047);
                     var cos = SCosLut[angle];
                     var sin = SSinLut[angle];
@@ -170,7 +177,8 @@ namespace Stardust.Handlers.Sparrow
                     _vertexes[++position] = bottomRightX;
                     _vertexes[++position] = bottomRightY;
                 }
-                else {
+                else
+                {
                     _vertexes[position] = x - xOffset;
                     _vertexes[++position] = y - yOffset;
                     _vertexes[++position] = red;
@@ -214,13 +222,16 @@ namespace Stardust.Handlers.Sparrow
                 TextureSmoothing smoothing, uint blendMode, FragmentFilter filter,
                 bool premultiplyAlpha, int numParticles)
         {
-            if (_mNumParticles == 0) {
+            if (_mNumParticles == 0)
+            {
                 return false;
             }
-            if (_mNumParticles + numParticles > MaxPossibleParticles) {
+            if (_mNumParticles + numParticles > MaxPossibleParticles)
+            {
                 return true;
             }
-            if (_mTexture != null && texture != 0) {
+            if (_mTexture != null && texture != 0)
+            {
                 return _mTexture.Base != texture || TexSmoothing != smoothing || BlendMode != blendMode ||
                        _mFilter != filter || PremultiplyAlpha != premultiplyAlpha;
             }
@@ -230,7 +241,8 @@ namespace Stardust.Handlers.Sparrow
         public override void Render(Painter painter)
         {
             painter.ExcludeFromCache(this); // for some reason it doesnt work if inside the if. Starling bug?
-            if (_mNumParticles > 0 && !_mBatched) {
+            if (_mNumParticles > 0 && !_mBatched)
+            {
                 int mNumBatchedParticles = BatchNeighbours();
                 float parentAlpha = Parent != null ? Parent.Alpha : 1;
                 RenderCustom(painter, mNumBatchedParticles, parentAlpha);
@@ -244,26 +256,28 @@ namespace Stardust.Handlers.Sparrow
         {
             int mNumBatchedParticles = 0;
             int last = Parent.GetChildIndex(this);
-            while (++last < Parent.NumChildren) {
+            while (++last < Parent.NumChildren)
+            {
                 SparrowRenderer nextPs  = Parent.GetChild(last) as SparrowRenderer;
-                if (nextPs != null && !nextPs.IsStateChange(_mTexture.Base, TexSmoothing, BlendMode, _mFilter, PremultiplyAlpha, _mNumParticles)) {
-                    if (nextPs._mNumParticles > 0) {
+                if (nextPs != null && !nextPs.IsStateChange(_mTexture.Base, TexSmoothing, BlendMode, _mFilter, PremultiplyAlpha, _mNumParticles))
+                {
+                    if (nextPs._mNumParticles > 0)
+                    {
                         int targetIndex = (_mNumParticles + mNumBatchedParticles) * 32; // 4 * 8
                         int sourceIndex = 0;
                         int sourceEnd = nextPs._mNumParticles * 32; // 4 * 8
-                        while (sourceIndex < sourceEnd) {
+                        while (sourceIndex < sourceEnd)
+                        {
                             _vertexes[targetIndex++] = nextPs._vertexes[sourceIndex++];
                         }
-                        
                         mNumBatchedParticles += nextPs._mNumParticles;
-                        
                         nextPs._mBatched = true;
-
                         //disable filter of batched system temporarily
                         nextPs.Filter = null;
                     }
                 }
-                else {
+                else 
+                {
                     break;
                 }
             }
@@ -272,10 +286,12 @@ namespace Stardust.Handlers.Sparrow
         
         private void RenderCustom(Painter painter, int mNumBatchedParticles, float parentAlpha)
         {
-            if (_mNumParticles == 0 || SparrowParticleBuffers.BuffersCreated == false) {
+            if (_mNumParticles == 0 || SparrowParticleBuffers.BuffersCreated == false)
+            {
                 return;
             }
-            if (mNumBatchedParticles > _maxParticles) {
+            if (mNumBatchedParticles > _maxParticles)
+            {
                 Debug.WriteLine("Over " + _maxParticles + " particles! Aborting rendering");
                 return;
             }

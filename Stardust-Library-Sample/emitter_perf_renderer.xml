@@ -37,13 +37,13 @@
   </fields>
   <zones>
       <SinglePoint name="SinglePoint_3" rotation="0" virtualThickness="1" x="0" y="100"/>
-      <Line name="Line_1" x1="0" y1="0" x2="100" y2="0" rotation="0" virtualThickness="1"/>
+      <Line name="Line_1" x1="0" y1="0" x2="300" y2="0" rotation="0" virtualThickness="1"/>
   </zones>
   <handlers>
     <StarlingHandler name="StarlingHandler_2" spriteSheetAnimationSpeed="60" spriteSheetStartAtRandomFrame="false" smoothing="false" blendMode="normal" premultiplyAlpha="false"/>
   </handlers>
   <clocks>
-    <SteadyClock name="SteadyClock_5" ticksPerCall="50" initialDelay="UniformRandom_58"/>
+    <SteadyClock name="SteadyClock_5" ticksPerCall="5000" initialDelay="UniformRandom_58"/>
   </clocks>
   <randoms>
     <UniformRandom name="UniformRandom_58" center="0" radius="0"/>

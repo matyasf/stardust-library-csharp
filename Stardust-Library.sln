@@ -14,6 +14,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SparrowSharp.Desktop", "..\sparrow-sharp\SparrowSharp.Desktop\SparrowSharp.Desktop.csproj", "{40765B80-9BE8-4A35-80B5-7D5ABE4D6657}"
 EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\sparrow-sharp\SparrowShared\SparrowShared.projitems*{40765b80-9be8-4a35-80b5-7d5abe4d6657}*SharedItemsImports = 4
 		..\sparrow-sharp\SparrowShared\SparrowShared.projitems*{4d13ab71-77bc-431b-8eb4-54bb69e86f9c}*SharedItemsImports = 13
