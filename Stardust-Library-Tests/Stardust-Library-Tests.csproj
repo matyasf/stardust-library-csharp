@@ -47,7 +47,7 @@
     <Compile Include="Xml\XMLBuilderTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Stardust-Library.csproj">
+    <ProjectReference Include="..\Stardust-Library\Stardust-Library.csproj">
       <Project>{745ae63f-8f06-445b-ae8e-10c75f6b6bc6}</Project>
       <Name>Stardust-Library</Name>
     </ProjectReference>

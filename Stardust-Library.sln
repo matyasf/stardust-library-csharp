@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stardust_Library", "Stardust-Library.csproj", "{745AE63F-8F06-445B-AE8E-10C75F6B6BC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stardust_Library", "Stardust-Library\Stardust-Library.csproj", "{745AE63F-8F06-445B-AE8E-10C75F6B6BC6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stardust-Library-Tests", "Stardust-Library-Tests\Stardust-Library-Tests.csproj", "{B98352A3-4421-4062-AC61-9E5478DE3568}"
 EndProject

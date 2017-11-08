@@ -51,7 +51,7 @@ namespace Stardust_Library_Sample
             
             var handler = (SimpleSparrowHandler)em.ParticleHandler;
             var sp = new Sprite();
-            sp.X = sp.Y = 200;
+            sp.X = sp.Y = 100;
             AddChild(sp);
             handler.Container = sp;
         }
