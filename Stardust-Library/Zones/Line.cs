@@ -3,9 +3,8 @@ using System.Xml.Linq;
 using Stardust.Geom;
 using Stardust.MathStuff;
 using Stardust.Xml;
-using Stardust.Zones;
 
-namespace Stardust.Initializers
+namespace Stardust.Zones
 {
     
     /// <summary>

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OpenGL;
@@ -13,7 +12,7 @@ using Sparrow.Utils;
 using Stardust.MathStuff;
 using Stardust.Particles;
 
-namespace Stardust.Handlers.Sparrow
+namespace Stardust.Sparrow
 {
     public class SparrowRenderer : DisplayObject
     {
@@ -91,10 +90,10 @@ namespace Stardust.Handlers.Sparrow
             _frames = frames;
         }
 
-        public void AdvanceTime(IList<Particle> mParticles) // TODO make this a native array
+        public void AdvanceTime(IList<Particle> mParticles)
         {
             _mNumParticles = mParticles.Count;
-            _vertexes = new float[_mNumParticles * 32];
+            _vertexes = new float[_mNumParticles * 32]; // this is a bottleneck
 
             for (int i = 0; i < _mNumParticles; ++i) 
             {

@@ -1,4 +1,4 @@
-﻿namespace Stardust.Handlers.Sparrow
+﻿namespace Stardust.Sparrow
 {
     public class Frame
     {

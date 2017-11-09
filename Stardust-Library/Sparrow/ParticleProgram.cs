@@ -1,7 +1,7 @@
 ﻿
 using Sparrow.Rendering;
 
-namespace Stardust.Handlers.Sparrow
+namespace Stardust.Sparrow
 {
     public static class ParticleProgram
     {

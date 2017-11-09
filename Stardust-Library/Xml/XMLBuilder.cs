@@ -169,7 +169,7 @@ namespace Stardust.Xml
             return elements[name];
         }
 
-        public IEnumerable<StardustElement> GetElementByClass(Type t)
+        public IList<StardustElement> GetElementByClass(Type t)
         {
             var ret = new List<StardustElement>();
             foreach (var element in elements)

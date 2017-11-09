@@ -1,7 +1,7 @@
 ﻿
 using OpenGL;
 
-namespace Stardust.Handlers.Sparrow
+namespace Stardust.Sparrow
 {
     public static class SparrowParticleBuffers
     {

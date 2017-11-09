@@ -10,9 +10,9 @@ namespace Stardust.Xml
     /// </summary>
     public abstract class ClassPackage
     {
-        protected IEnumerable<Type> classes;
+        protected readonly IList<Type> classes;
 
-        public ClassPackage()
+        protected ClassPackage()
         {
             classes = new List<Type>();
             PopulateClasses();

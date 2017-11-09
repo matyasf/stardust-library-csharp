@@ -35,12 +35,16 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="OpenGL.Net, Version=0.6.1.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>packages\OpenGL.Net.0.6.1\lib\net35\OpenGL.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -49,6 +53,9 @@
     <Compile Include="Actions\Age.cs" />
     <Compile Include="Actions\DeathLife.cs" />
     <Compile Include="Actions\Move.cs" />
+    <Compile Include="Actions\Spawn.cs" />
+    <Compile Include="Actions\Triggers\DeathTrigger.cs" />
+    <Compile Include="Actions\Triggers\Trigger.cs" />
     <Compile Include="Clocks\Clock.cs" />
     <Compile Include="Clocks\SteadyClock.cs" />
     <Compile Include="Collections\SortableCollection.cs" />
@@ -56,17 +63,14 @@
     <Compile Include="Fields\Field.cs" />
     <Compile Include="Geom\Vec2D.cs" />
     <Compile Include="Handlers\ParticleHandler.cs" />
-    <Compile Include="Handlers\Sparrow\Frame.cs" />
-    <Compile Include="Handlers\Sparrow\ParticleProgram.cs" />
-    <Compile Include="Handlers\Sparrow\simple\SimpleSparrowHandler.cs" />
-    <Compile Include="Handlers\Sparrow\SparrowHandler.cs" />
-    <Compile Include="Handlers\Sparrow\SparrowParticleBuffers.cs" />
-    <Compile Include="Handlers\Sparrow\SparrowRenderer.cs" />
     <Compile Include="Initializers\Alpha.cs" />
     <Compile Include="Initializers\Initializer.cs" />
     <Compile Include="Initializers\Life.cs" />
-    <Compile Include="Initializers\Line.cs" />
+    <Compile Include="Initializers\Mass.cs" />
+    <Compile Include="Initializers\Omega.cs" />
     <Compile Include="Initializers\PositionAnimated.cs" />
+    <Compile Include="Initializers\Rotation.cs" />
+    <Compile Include="Initializers\Scale.cs" />
     <Compile Include="Initializers\Velocity.cs" />
     <Compile Include="MathStuff\RandomBase.cs" />
     <Compile Include="MathStuff\StardustMath.cs" />
@@ -75,13 +79,27 @@
     <Compile Include="Particles\Particle.cs" />
     <Compile Include="Particles\PooledParticleFactory.cs" />
     <Compile Include="SortableElement.cs" />
+    <Compile Include="Sparrow\Frame.cs" />
+    <Compile Include="Sparrow\ParticleProgram.cs" />
+    <Compile Include="Sparrow\Player\Emitters\EmitterBuilder.cs" />
+    <Compile Include="Sparrow\Player\Emitters\EmitterValueObject.cs" />
+    <Compile Include="Sparrow\Player\Project\ProjectValueObject.cs" />
+    <Compile Include="Sparrow\Player\SDEConstants.cs" />
+    <Compile Include="Sparrow\Player\SimLoader.cs" />
+    <Compile Include="Sparrow\Player\SimPlayer.cs" />
+    <Compile Include="Sparrow\simple\SimpleSparrowHandler.cs" />
+    <Compile Include="Sparrow\SparrowHandler.cs" />
+    <Compile Include="Sparrow\SparrowParticleBuffers.cs" />
+    <Compile Include="Sparrow\SparrowRenderer.cs" />
     <Compile Include="StardustElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StardustInfo.cs" />
     <Compile Include="Xml\ClassPackage.cs" />
+    <Compile Include="Xml\CommonClassPackage.cs" />
     <Compile Include="Xml\XMLBuilder.cs" />
     <Compile Include="Zones\Contour.cs" />
     <Compile Include="Zones\IZoneContainer.cs" />
+    <Compile Include="Zones\Line.cs" />
     <Compile Include="Zones\RectZone.cs" />
     <Compile Include="Zones\SinglePoint.cs" />
     <Compile Include="Zones\Zone.cs" />

@@ -4,10 +4,11 @@ using System.Xml.Linq;
 using Sparrow.Display;
 using Sparrow.Textures;
 using Stardust.Emitters;
+using Stardust.Handlers;
 using Stardust.Particles;
 using Stardust.Xml;
 
-namespace Stardust.Handlers.Sparrow
+namespace Stardust.Sparrow
 {
     public class SparrowHandler : ParticleHandler
     {
@@ -61,7 +62,7 @@ namespace Stardust.Handlers.Sparrow
                 _timeSinceLastStep = _timeSinceLastStep + time;
                 if (_timeSinceLastStep > 1f/_spriteSheetAnimationSpeed)
                 {
-                    int stepSize = (int)System.Math.Floor(_timeSinceLastStep * _spriteSheetAnimationSpeed);
+                    int stepSize = (int)Math.Floor(_timeSinceLastStep * _spriteSheetAnimationSpeed);
                     var mNumParticles = particles.Count;
                     for (int i = 0; i < mNumParticles; ++i) {
                         Particle particle = particles[i];
@@ -124,7 +125,7 @@ namespace Stardust.Handlers.Sparrow
             get => _smoothing != TextureSmoothing.None;
             set
             {
-                if (value == true) {
+                if (value) {
                     _smoothing = TextureSmoothing.Bilinear;
                 }
                 else {

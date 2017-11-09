@@ -2,10 +2,11 @@
 using System.Xml.Linq;
 using Sparrow.Display;
 using Stardust.Emitters;
+using Stardust.Handlers;
 using Stardust.Particles;
 using Stardust.Xml;
 
-namespace Stardust.Handlers.Sparrow.simple
+namespace Stardust.Sparrow.simple
 {
     /// <summary>
     /// Simple, but slow renderer. Doesnt supprt advanced stuff.

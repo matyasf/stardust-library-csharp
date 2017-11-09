@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Xml.Linq;
@@ -8,14 +7,13 @@ using Sparrow.Core;
 using Sparrow.Display;
 using Sparrow.Text;
 using Sparrow.Textures;
-using Sparrow.Utils;
 using Stardust.Actions;
 using Stardust.Clocks;
 using Stardust.Emitters;
-using Stardust.Handlers.Sparrow;
-using Stardust.Handlers.Sparrow.simple;
 using Stardust.Initializers;
 using Stardust.MathStuff;
+using Stardust.Sparrow;
+using Stardust.Sparrow.Player;
 using Stardust.Xml;
 using Stardust.Zones;
 
@@ -23,10 +21,10 @@ namespace Stardust_Library_Sample
 {
     public class SampleApp : Sprite
     {
-        private Emitter em;
-        private float timeCounter;
-        private int frameNum;
-        private TextField textField;
+        private readonly Emitter _em;
+        private float _timeCounter;
+        private int _frameNum;
+        private readonly TextField _textField;
         
         public SampleApp()
         {
@@ -35,7 +33,25 @@ namespace Stardust_Library_Sample
             //SparrowSharp.ShowStats(HAlign.Right);
             
             SparrowRenderer.Init(1, 35000);
-            timeCounter = 0;
+            _timeCounter = 0;
+            
+            var sp = new Sprite();
+            sp.X = sp.Y = 100;
+            AddChild(sp);
+
+            var resources = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+            Stream sdeStream = Assembly.GetExecutingAssembly().
+                GetManifestResourceStream("Stardust_Library_Sample.Untitled.zip");
+            SimLoader loader = new SimLoader();
+            loader.LoadSim(sdeStream);
+            var sim = loader.CreateProjectInstance();
+            var player = new SimPlayer(sim, sp);
+
+            EnterFrame += (target, time) =>
+            {
+                player.StepSimulation(time/1000);
+            };
+            /*
             Stream stream = Assembly.GetExecutingAssembly().
                 //GetManifestResourceStream("Stardust_Library_Sample.emitter_simple.xml");
                 GetManifestResourceStream("Stardust_Library_Sample.emitter_perf_renderer.xml");
@@ -59,20 +75,16 @@ namespace Stardust_Library_Sample
             builder.RegisterClass(typeof(PositionAnimated));
             builder.BuildFromXml(elem);
             var result = builder.GetElementByName("0");
-            em = (Emitter) result;
+            _em = (Emitter) result;
             
-            var sp = new Sprite();
-            sp.X = sp.Y = 100;
-            AddChild(sp);
-            
-            if (em.ParticleHandler is SimpleSparrowHandler)
+            if (_em.ParticleHandler is SimpleSparrowHandler)
             {
-                var handler = (SimpleSparrowHandler)em.ParticleHandler; 
+                var handler = (SimpleSparrowHandler)_em.ParticleHandler; 
                 handler.Container = sp;
             }
             else
             {
-                var handler = (SparrowHandler)em.ParticleHandler; 
+                var handler = (SparrowHandler)_em.ParticleHandler; 
                 handler.Container = sp;
                 
                 var subTex = new SubTexture(Texture.FromColor(4, 4, 0xFF33FF));
@@ -81,21 +93,22 @@ namespace Stardust_Library_Sample
                 handler.Textures = subTexes;
             }
             
-            textField = new TextField(150, 40);
-            AddChild(textField);
+            _textField = new TextField(150, 40);
+            AddChild(_textField);
             EnterFrame += OnEnterFrame;
+            */
         }
         
         private void OnEnterFrame(DisplayObject target, float passedTime)
         {
-            em.Step(passedTime / 1000f);
-            timeCounter = timeCounter + passedTime;
-            frameNum++;
-            if (timeCounter > 500)
+            _em.Step(passedTime / 1000f);
+            _timeCounter = _timeCounter + passedTime;
+            _frameNum++;
+            if (_timeCounter > 500)
             {
-                textField.Text = "Fps: " + (frameNum * 2) + " #p: " + em.NumParticles;
-                timeCounter = 0;
-                frameNum = 0;
+                _textField.Text = "Fps: " + (_frameNum * 2) + " #p: " + _em.NumParticles;
+                _timeCounter = 0;
+                _frameNum = 0;
             }
         }
     }

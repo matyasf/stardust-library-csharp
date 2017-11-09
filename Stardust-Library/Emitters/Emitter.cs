@@ -300,7 +300,7 @@ namespace Stardust.Emitters
         /// <summary>
         /// This method is called by the emitter to create new particles.
         /// </summary>
-        public IEnumerable<Particle> CreateParticles(int pCount)
+        public IList<Particle> CreateParticles(int pCount)
         {
             NewParticles.Clear();
             _factory.CreatParticles(pCount, CurrentTime, NewParticles);
