@@ -132,13 +132,14 @@ namespace Stardust.Emitters
         /// It is recommended that you call this method through the <code>Event.ENTER_FRAME</code> event or the <code>TimerEvent.TIMER</code> event.
         /// </para>
         /// </summary>
-        /// <param name="time">The time elapsed since the last step in seconds</param>
+        /// <param name="time">The time elapsed since the last step in milliseconds</param>
         public void Step(float time)
         {
             if (time <= 0)
             {
                 return;
             }
+            time = time / 1000;
             _timeSinceLastStep = _timeSinceLastStep + time;
             CurrentTime = CurrentTime + time;
             if (_timeSinceLastStep < _invFps)

@@ -51,12 +51,16 @@
   <ItemGroup>
     <Compile Include="Actions\Action.cs" />
     <Compile Include="Actions\Age.cs" />
+    <Compile Include="Actions\ColorGradient.cs" />
     <Compile Include="Actions\DeathLife.cs" />
     <Compile Include="Actions\Move.cs" />
+    <Compile Include="Actions\NormalDrift.cs" />
     <Compile Include="Actions\Spawn.cs" />
+    <Compile Include="Actions\Spin.cs" />
     <Compile Include="Actions\Triggers\DeathTrigger.cs" />
     <Compile Include="Actions\Triggers\Trigger.cs" />
     <Compile Include="Clocks\Clock.cs" />
+    <Compile Include="Clocks\ImpluseClock.cs" />
     <Compile Include="Clocks\SteadyClock.cs" />
     <Compile Include="Collections\SortableCollection.cs" />
     <Compile Include="Emitters\Emitter.cs" />
@@ -107,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Untitled2.sde" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sparrow-sharp\SparrowSharp.Desktop\SparrowSharp.Desktop.csproj">

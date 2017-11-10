@@ -30,6 +30,9 @@ namespace Stardust.Xml
             classes.Add(typeof(DeathLife));
             classes.Add(typeof(Move));
             classes.Add(typeof(Spawn));
+            classes.Add(typeof(ColorGradient));
+            classes.Add(typeof(NormalDrift));
+            classes.Add(typeof(Spin));
            
             //action triggers
             classes.Add(typeof(DeathTrigger));
@@ -40,6 +43,7 @@ namespace Stardust.Xml
 
             //clocks
             classes.Add(typeof(SteadyClock));
+            classes.Add(typeof(ImpluseClock));
 
             //emitters
             classes.Add(typeof(Emitter));

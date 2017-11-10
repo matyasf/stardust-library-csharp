@@ -35,7 +35,7 @@ namespace Stardust.Particles
         public float Scale;
 
         /// <summary>
-        /// The alpha value of the particle.
+        /// The alpha value of the particle. (0..1)
         /// </summary>
         public float Alpha;
         
