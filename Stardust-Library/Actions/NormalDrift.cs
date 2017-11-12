@@ -23,7 +23,6 @@ namespace Stardust.Actions
 
         private float _timeDeltaOneSec;
         private RandomBase _random;
-        private float _max;
         
         public NormalDrift() : this(1, null) {}
         
@@ -31,25 +30,10 @@ namespace Stardust.Actions
         {
             Massless = true;
             Random = random;
-            Max = max;
         }
         
         /// <summary>
-        /// The acceleration ranges from -max to max.
-        /// </summary>
-        public float Max // TODO remove
-        {
-            get => _max;
-            set
-            {
-                _max = value;
-                _random.SetRange(-_max, _max);
-            }
-        }
-        
-        /// <summary>
-        /// The random object used to generate a random number for the acceleration in the range [-max, max], uniform random by default.
-        /// You don't have to set the random object's range. The range is automatically set each time before the random generation.
+        /// The random object used to generate a random number for the acceleration, uniform random by default.
         /// </summary>
         public RandomBase Random
         {
@@ -60,7 +44,6 @@ namespace Stardust.Actions
                 {
                     value = new UniformRandom();
                     _random = value;
-                    _random.SetRange(-_max, _max);
                 }
             }
         }
@@ -96,7 +79,6 @@ namespace Stardust.Actions
         {
             XElement xml = base.ToXml();
             xml.SetAttributeValue("massless", Massless);
-            xml.SetAttributeValue("max", _max);
             xml.SetAttributeValue("random", _random.Name);
             return xml;
         }
@@ -105,7 +87,6 @@ namespace Stardust.Actions
         {
             base.ParseXml(xml, builder);
             Massless = bool.Parse(xml.Attribute("massless").Value);
-            Max = float.Parse(xml.Attribute("max").Value);
             Random = (RandomBase)builder.GetElementByName(xml.Attribute("random").Value);
         }
 
