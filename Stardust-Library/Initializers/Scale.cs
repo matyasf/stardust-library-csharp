@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.MathStuff;
 using Stardust.Particles;
 using Stardust.Xml;

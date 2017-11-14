@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Geom;
 using Stardust.MathStuff;
 using Stardust.Xml;
@@ -14,6 +15,7 @@ namespace Stardust.Zones
 
         protected float _x;
 
+        [XmlAttribute]
         public virtual float X
         {
             get => _x;
@@ -22,6 +24,7 @@ namespace Stardust.Zones
         
         protected float _y;
 
+        [XmlAttribute]
         public virtual float Y
         {
             get => _y;
@@ -56,6 +59,7 @@ namespace Stardust.Zones
             return md2D;
         }
 
+        [XmlAttribute]
         public float Rotation
         {
             get { return _rotation; }

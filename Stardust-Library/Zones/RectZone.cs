@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Geom;
 using Stardust.MathStuff;
 using Stardust.Xml;
@@ -32,6 +33,7 @@ namespace Stardust.Zones
             Height = height;
         }
         
+        [XmlAttribute]
         public float Width
         {
             get => _width;
@@ -43,6 +45,7 @@ namespace Stardust.Zones
             }
         }
         
+        [XmlAttribute]
         public float Height
         {
             get => _height;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.MathStuff;
 using Stardust.Xml;
 
@@ -16,6 +17,7 @@ namespace Stardust.Clocks
         /// <summary>
         /// How many particles to create when an impulse is happening.
         /// </summary>
+        [XmlAttribute]
         public float TicksPerCall;
 
         private RandomBase _initialDelay;

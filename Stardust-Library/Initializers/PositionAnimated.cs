@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Geom;
 using Stardust.Particles;
 using Stardust.Xml;
@@ -19,19 +20,22 @@ namespace Stardust.Initializers
 
         protected ZoneCollection ZoneCollection;
         
-        public IList<Zone> Zones { 
+        public List<Zone> Zones { 
             get => ZoneCollection.Zones;
             set => ZoneCollection.Zones = value;
         }
 
+        [XmlAttribute]
         public bool InheritVelocity;
+        
+        [XmlIgnoreAttribute] // TODO parse this
         public Vec2D[] Positions;
         private int _prevPos;
         private int _currentPos;
         
         public PositionAnimated() : this(null) {}
         
-        public PositionAnimated(IList<Zone> zones)
+        public PositionAnimated(List<Zone> zones)
         {
             ZoneCollection = new ZoneCollection();
             if (zones != null) 

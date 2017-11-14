@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Actions;
 using Stardust.Clocks;
 using Stardust.Collections;
@@ -26,6 +27,7 @@ namespace Stardust.Emitters
         /// Returns every managed particle for custom parameter manipulation.
         /// The returned List is not a copy.
         /// </summary>
+        [XmlIgnoreAttribute]
         public IReadOnlyList<Particle> Particles => _particles;
 
         /// <summary>
@@ -50,6 +52,7 @@ namespace Stardust.Emitters
         /// <summary>
         /// The time since the simulation is running.
         /// </summary>
+        [XmlIgnoreAttribute]
         public float CurrentTime;
 
         /// <summary>
@@ -59,7 +62,7 @@ namespace Stardust.Emitters
         /// </summary>
         public const float TimeStepCorrectionOffset = 0.004f;
         private readonly PooledParticleFactory _factory = new PooledParticleFactory();
-        private readonly SortableCollection _actionCollection = new SortableCollection();
+        private readonly SortableCollection<Action> _actionCollection = new SortableCollection<Action>();
         private readonly List<Action> _activeActions = new List<Action>();
         private float _invFps = 1f / 60f - TimeStepCorrectionOffset;
         private float _timeSinceLastStep;
@@ -97,6 +100,7 @@ namespace Stardust.Emitters
         /// (e.g. A clock produces the same amount of ticks on all FPSes, but it does it at a different times,
         /// resulting in particles emitted in batches instead smoothly)
         /// </summary>
+        [XmlAttribute]
         public float Fps
         {
             get => _fps;
@@ -215,11 +219,22 @@ namespace Stardust.Emitters
         #endregion
 
         #region actions & initializers
-        
+
         /// <summary>
-        /// Returns every action for this emitter.
+        /// Holds every action for this emitter.
         /// </summary>
-        public IReadOnlyList<SortableElement> Actions => _actionCollection.Elems;
+        public List<Action> Actions
+        {
+            get => _actionCollection.Elems;
+            set
+            {
+                foreach (Action element in value)
+                {
+                    AddAction(element);
+                }
+            }
+            
+        } 
 
         /// <summary>
         /// Adds an action to the emitter.
@@ -231,7 +246,7 @@ namespace Stardust.Emitters
         }
         
         /// <summary>
-        /// Reomves an action from the emitter.
+        /// Removes an action from the emitter.
         /// </summary>
         public void RemoveAction(Action action)
         {
@@ -246,16 +261,27 @@ namespace Stardust.Emitters
         {
             var actions = _actionCollection.Elems;
             var len = actions.Count;
-            for (int i = 0; i < len; ++i) {
+            for (int i = 0; i < len; ++i) 
+            {
                 actions[i].DispatchRemoveEvent();
             }
             _actionCollection.Clear();
         }
-        
+
         /// <summary>
-        /// Returns every initializer for this emitter.
+        /// Holds every initializer for this emitter.
         /// </summary>
-        public IReadOnlyList<SortableElement> Initializers => _factory.InitializerCollection.Elems;
+        public List<Initializer> Initializers
+        {
+            get => _factory.InitializerCollection.Elems;
+            set
+            {
+                foreach (Initializer element in value)
+                {
+                    AddInitializer(element);
+                }
+            }
+        }
 
         /// <summary>
         /// Adds an initializer to the emitter.
@@ -295,6 +321,7 @@ namespace Stardust.Emitters
         /// <summary>
         /// The number of particles in the emitter.
         /// </summary>
+        [XmlIgnoreAttribute]
         public int NumParticles => _particles.Count;
         
         private static readonly List<Particle> NewParticles = new List<Particle>();

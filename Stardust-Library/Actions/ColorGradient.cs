@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Emitters;
 using Stardust.Particles;
 using Stardust.Xml;
@@ -16,19 +17,19 @@ namespace Stardust.Actions
         /// Number of gradient steps. Higher values result in smoother transition, but more memory usage.
         /// </summary>
         public int NumSteps = 200;
-
-        private uint[] _colors;
-        private float[] _ratios;
-        private float[] _alphas;
+        
+        [XmlAttribute]
+        public uint[] Colors;
+        [XmlAttribute]
+        public float[] Ratios;
+        [XmlAttribute]
+        public float[] Alphas;
+        
         private float[] _colorRs; // 0..1
         private float[] _colorGs;
         private float[] _colorBs;
         private float[] _colorAlphas;
-
-        public uint[] Colors => _colors;
-        public float[] Ratios => _ratios;
-        public float[] Alphas => _alphas;
-
+        
         public ColorGradient() : this(false) {}
         
         /// <summary>
@@ -52,33 +53,33 @@ namespace Stardust.Actions
         /// <param name="alphas">Array of alphas in the 0-1 range.</param>
         public void SetGradient(uint[] colors, float[] ratios, float[] alphas)
         {
-            _colors = colors;
-            _ratios = ratios;
-            _alphas = alphas;
+            Colors = colors;
+            Ratios = ratios;
+            Alphas = alphas;
             _colorRs = new float[NumSteps];
             _colorGs = new float[NumSteps];
             _colorBs = new float[NumSteps];
             _colorAlphas = new float[NumSteps];
             // create gradient values via interpolation
             float stepSize = NumSteps / 255f;
-            for (int i = 0; i < _colors.Length - 1; i++)
+            for (int i = 0; i < Colors.Length - 1; i++)
             {
                 // see https://codepen.io/Tobsta/post/programmatically-making-gradients 
-                float colorRStart = ((_colors[i] >> 16) & 0xFF); // 0..255
-                float colorREnd = ((_colors[i+1] >> 16) & 0xFF);
+                float colorRStart = ((Colors[i] >> 16) & 0xFF); // 0..255
+                float colorREnd = ((Colors[i+1] >> 16) & 0xFF);
 
-                float colorGStart = ((_colors[i] >> 8) & 0xFF); // 0..255
-                float colorGEnd = ((_colors[i + 1] >> 8) & 0xFF);
+                float colorGStart = ((Colors[i] >> 8) & 0xFF); // 0..255
+                float colorGEnd = ((Colors[i + 1] >> 8) & 0xFF);
 
-                float colorBStart = (_colors[i] & 0xFF); // 0..255
-                float colorBEnd = (_colors[i + 1] & 0xFF);
+                float colorBStart = (Colors[i] & 0xFF); // 0..255
+                float colorBEnd = (Colors[i + 1] & 0xFF);
 
                 float start = ratios[i] * stepSize;
                 float end = ratios[i + 1] * stepSize;
                 CalcGradient(start, end, colorRStart, colorREnd, _colorRs);
                 CalcGradient(start, end, colorGStart, colorGEnd, _colorGs);
                 CalcGradient(start, end, colorBStart, colorBEnd, _colorBs);
-                CalcAlpha(start, end, _alphas[i], alphas[i + 1], _colorAlphas);
+                CalcAlpha(start, end, Alphas[i], alphas[i + 1], _colorAlphas);
             }
             for (int i = 0; i < _colorRs.Length; i++)
             {
@@ -129,8 +130,8 @@ namespace Stardust.Actions
             XElement xml = base.ToXml();
 
             string colorsStr = string.Join(",", _colorRs);
-            string ratiosStr = string.Join(",", _ratios);
-            string alphasStr = string.Join(",", _alphas);
+            string ratiosStr = string.Join(",", Ratios);
+            string alphasStr = string.Join(",", Alphas);
             
             xml.SetAttributeValue("colors", colorsStr);
             xml.SetAttributeValue("ratios", ratiosStr);

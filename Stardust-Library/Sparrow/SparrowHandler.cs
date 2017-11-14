@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Sparrow.Display;
 using Sparrow.Textures;
 using Stardust.Emitters;
@@ -36,6 +37,7 @@ namespace Stardust.Sparrow
             _renderer.AdvanceTime(new List<Particle>());
         }
 
+        [XmlIgnoreAttribute]
         public DisplayObjectContainer Container
         {
             set
@@ -99,6 +101,7 @@ namespace Stardust.Sparrow
 
         public SparrowRenderer Renderer => _renderer;
         
+        [XmlAttribute]
         public int SpriteSheetAnimationSpeed
         {
             get => _spriteSheetAnimationSpeed;
@@ -112,6 +115,7 @@ namespace Stardust.Sparrow
             }
         }
         
+        [XmlAttribute]
         public bool SpriteSheetStartAtRandomFrame
         {
             get => _spriteSheetStartAtRandomFrame;
@@ -120,6 +124,7 @@ namespace Stardust.Sparrow
         
         public bool IsSpriteSheet => _isSpriteSheet;
         
+        [XmlAttribute]
         public bool Smoothing // TODO make this an enum?
         {
             get => _smoothing != TextureSmoothing.None;
@@ -136,6 +141,7 @@ namespace Stardust.Sparrow
             }
         }
 
+        [XmlAttribute]
         public bool PremultiplyAlpha
         {
             get => _premultiplyAlpha;
@@ -146,6 +152,8 @@ namespace Stardust.Sparrow
                 _renderer.PremultiplyAlpha = value;
             }
         }
+        
+        [XmlAttribute]
         public uint BlendMode
         {
             get => _blendMode;
@@ -166,6 +174,7 @@ namespace Stardust.Sparrow
         /// </summary>
         /// <exception cref="ArgumentException">The value is not or has 0 elements</exception>
         /// <exception cref="Exception">Textures do not share the same root.</exception>
+        [XmlIgnoreAttribute]
         public IList<SubTexture> Textures
         {
             get => _textures;

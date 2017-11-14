@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using System.Runtime.Serialization;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Xml;
 
 namespace Stardust
@@ -15,9 +17,10 @@ namespace Stardust
         /// <summary>
         /// Denotes if its is active, true by default.
         /// </summary>
+        [XmlAttribute]
         public bool Active;
 
-        public SortableElement()
+        protected SortableElement()
         {
             _priority = 0;
             Active = true;
@@ -32,6 +35,7 @@ namespace Stardust
         /// You can alter the priority of an element, but it is recommended that you use the default values.
         /// </para>
         /// </summary>
+        [XmlAttribute]
         public int Priority
         {
             get { return _priority; }

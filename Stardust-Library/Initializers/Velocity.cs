@@ -13,7 +13,7 @@ namespace Stardust.Initializers
 
         protected readonly ZoneCollection ZoneCollection;
 
-        public IList<Zone> Zones
+        public List<Zone> Zones
         {
             get => ZoneCollection.Zones;
             set => ZoneCollection.Zones = value;
@@ -21,7 +21,7 @@ namespace Stardust.Initializers
         
         public Velocity() : this(null) {}
 
-        public Velocity(IList<Zone> zones)
+        public Velocity(List<Zone> zones)
         {
             ZoneCollection = new ZoneCollection();
             if (zones != null)
@@ -49,7 +49,6 @@ namespace Stardust.Initializers
 
         public override IEnumerable<StardustElement> GetRelatedObjects()
         {
-            // is this OK?
             return new List<StardustElement>(ZoneCollection.Zones);
         }
 

@@ -1,4 +1,5 @@
 ﻿
+using System.Runtime.Serialization;
 using System.Xml.Linq;
 using Stardust.Emitters;
 using Stardust.Particles;

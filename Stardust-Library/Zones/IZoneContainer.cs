@@ -5,7 +5,7 @@ namespace Stardust.Zones
 {
     public interface IZoneContainer
     {
-        IList<Zone> Zones { get; set; }
+        List<Zone> Zones { get; set; }
         
     }
 }

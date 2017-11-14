@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace Stardust.Collections
 {
-    public class SortableCollection
+    public class SortableCollection<T> where T: SortableElement
     {
-        private readonly List<SortableElement> _elems;
+        private readonly List<T> _elems;
 
         public SortableCollection()
         {
-            _elems = new List<SortableElement>();
+            _elems = new List<T>();
         }
 
-        public IReadOnlyList<SortableElement> Elems => _elems;
+        public List<T> Elems => _elems;
 
-        public void Add(SortableElement elem)
+        public void Add(T elem)
         {
             if (_elems.Contains(elem)) return;
             _elems.Add(elem);
@@ -22,7 +22,7 @@ namespace Stardust.Collections
             SortElements();
         }
 
-        public void Remove(SortableElement elem)
+        public void Remove(T elem)
         {
             bool removed = _elems.Remove(elem);
             if (removed)
@@ -33,7 +33,7 @@ namespace Stardust.Collections
 
         public void Clear()
         {
-            foreach (SortableElement action in _elems)
+            foreach (T action in _elems)
             {
                 Remove(action);
             }
@@ -45,7 +45,7 @@ namespace Stardust.Collections
         }
 
         // descending priority sort
-        private static int PriorityComparison(SortableElement el1, SortableElement el2)
+        private static int PriorityComparison(T el1, T el2)
         {
             if (el1.Priority > el2.Priority)
             {

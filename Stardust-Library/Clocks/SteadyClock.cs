@@ -1,5 +1,6 @@
 ﻿
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.MathStuff;
 using Stardust.Xml;
 
@@ -16,11 +17,12 @@ namespace Stardust.Clocks
         ///
         /// If less than one, it's the probability of an emitter to create a single particle in each second.
         /// </summary>
+        [XmlAttribute]
         public float TicksPerCall;
 
-        protected RandomBase _initialDelay;
-        protected float currentInitialDelay;
-        protected float currentTime;
+        private RandomBase _initialDelay;
+        private float currentInitialDelay;
+        private float currentTime;
 
         public SteadyClock() : this(1, null) {}
         
@@ -30,7 +32,7 @@ namespace Stardust.Clocks
             InitialDelay = _initialDelay == null ? new UniformRandom(0, 0) : _initialDelay;
             currentTime = 0;
         }
-
+        
         public RandomBase InitialDelay
         {
             get { return _initialDelay; }

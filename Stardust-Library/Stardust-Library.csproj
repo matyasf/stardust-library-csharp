@@ -45,6 +45,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -98,6 +99,7 @@
     <Compile Include="StardustElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StardustInfo.cs" />
+    <Compile Include="TestSer.cs" />
     <Compile Include="Xml\ClassPackage.cs" />
     <Compile Include="Xml\CommonClassPackage.cs" />
     <Compile Include="Xml\XMLBuilder.cs" />
@@ -111,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Untitled2.sde" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sparrow-sharp\SparrowSharp.Desktop\SparrowSharp.Desktop.csproj">

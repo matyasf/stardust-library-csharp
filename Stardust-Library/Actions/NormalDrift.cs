@@ -1,11 +1,14 @@
 ﻿
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Emitters;
 using Stardust.Geom;
 using Stardust.MathStuff;
 using Stardust.Particles;
 using Stardust.Xml;
+using Stardust.Zones;
 
 namespace Stardust.Actions
 {
@@ -19,9 +22,11 @@ namespace Stardust.Actions
         /// Whether the particles acceleration is divided by their masses before applied to them, true by default.
         /// When set to true, it simulates a gravity that applies equal acceleration on all particles.
         /// </summary>
+        [XmlAttribute]
         public bool Massless;
-
+        
         private float _timeDeltaOneSec;
+        
         private RandomBase _random;
         
         public NormalDrift() : this(1, null) {}
@@ -43,8 +48,8 @@ namespace Stardust.Actions
                 if (value == null)
                 {
                     value = new UniformRandom();
-                    _random = value;
                 }
+                _random = value;
             }
         }
 

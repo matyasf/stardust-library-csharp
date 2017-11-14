@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Emitters;
 using Stardust.Particles;
 using Stardust.Xml;
@@ -21,8 +22,9 @@ namespace Stardust.Actions
         /// For instance, a multiplier value of 2 causes a particle to move twice as fast as normal.
         /// </p>
         /// </summary>
+        [XmlAttribute]
         public float Multiplier;
-
+        
         private float factor;
         
         public Move() : this(1) {}

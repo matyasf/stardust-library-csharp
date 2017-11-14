@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Geom;
 using Stardust.MathStuff;
 using Stardust.Xml;
@@ -35,6 +36,7 @@ namespace Stardust.Zones
         /// <summary>
         /// The X coordinate of the other end of the line.
         /// </summary>
+        [XmlAttribute]
         public float X2
         {
             get => _x2;
@@ -50,6 +52,7 @@ namespace Stardust.Zones
         /// <summary>
         /// The Y coordinate of the other end of the line.
         /// </summary>
+        [XmlAttribute]
         public float Y2
         {
             get => _y2;

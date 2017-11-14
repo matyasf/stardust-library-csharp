@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Xml;
 
 namespace Stardust.Zones
@@ -21,6 +22,7 @@ namespace Stardust.Zones
         /// since contours have zero thickness.
         /// The larger the virtual thickness, the larger the virtual area.
         /// </summary>
+        [XmlAttribute]
         public float VirtualThickness
         {
             get => VirtualThicknessVal;

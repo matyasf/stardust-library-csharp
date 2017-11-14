@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using System.Xml.Serialization;
 using Stardust.Emitters;
 using Stardust.Particles;
 using Stardust.Xml;
@@ -24,6 +25,7 @@ namespace Stardust.Actions
         /// You can then use this increasing value with <code>LifeTrigger</code> and other custom actions to create various effects.
         /// </para>
         /// </summary>
+        [XmlAttribute]
         public float Multiplier;
 
         public Age() : this(1) {}

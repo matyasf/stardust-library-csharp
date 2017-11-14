@@ -8,7 +8,7 @@ namespace Stardust.Zones
 {
     public class ZoneCollection
     {
-        public IList<Zone> Zones = new List<Zone>();
+        public List<Zone> Zones = new List<Zone>();
         
         private static readonly Random Rng = new Random();
         

@@ -8,12 +8,12 @@ namespace Stardust.Particles
     {
         public static readonly Pool<Particle> Pool = new Pool<Particle>(pool => new Particle());
         
-        private readonly SortableCollection _initializerCollection;
+        private readonly SortableCollection<Initializer> _initializerCollection;
         
         
         public PooledParticleFactory()
         {
-            _initializerCollection = new SortableCollection();
+            _initializerCollection = new SortableCollection<Initializer>();
         }
         
         /// <summary>
@@ -42,7 +42,7 @@ namespace Stardust.Particles
                 int len = initializers.Count;
                 for (int i = 0; i < len; ++i)
                 {
-                    Initializer init = (Initializer) (initializers[i]);
+                    Initializer init = initializers[i];
                     init.DoInitialize(particles, currentTime);
                 }
             }
@@ -67,7 +67,7 @@ namespace Stardust.Particles
             _initializerCollection.Clear();
         }
         
-        public SortableCollection InitializerCollection => _initializerCollection;
+        public SortableCollection<Initializer> InitializerCollection => _initializerCollection;
 
         public void Recycle(Particle particle)
         {
