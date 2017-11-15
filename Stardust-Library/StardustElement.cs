@@ -14,7 +14,6 @@ namespace Stardust
     {
         private static readonly Dictionary<string, int> ElementCounter = new Dictionary<string, int>();
         
-        [XmlAttribute]
         public string Name;
 
         public StardustElement()

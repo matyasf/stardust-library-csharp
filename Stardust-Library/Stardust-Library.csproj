@@ -64,7 +64,7 @@
     <Compile Include="Clocks\ImpluseClock.cs" />
     <Compile Include="Clocks\SteadyClock.cs" />
     <Compile Include="Collections\SortableCollection.cs" />
-    <Compile Include="Emitters\Emitter.cs" />
+    <Compile Include="Emitters\Emitter2D.cs" />
     <Compile Include="Fields\Field.cs" />
     <Compile Include="Geom\Vec2D.cs" />
     <Compile Include="Handlers\ParticleHandler.cs" />
@@ -83,6 +83,8 @@
     <Compile Include="ObjectPool.cs" />
     <Compile Include="Particles\Particle.cs" />
     <Compile Include="Particles\PooledParticleFactory.cs" />
+    <Compile Include="Serialization\CustomSerializationBinder.cs" />
+    <Compile Include="Serialization\StardustSerializer.cs" />
     <Compile Include="SortableElement.cs" />
     <Compile Include="Sparrow\Frame.cs" />
     <Compile Include="Sparrow\ParticleProgram.cs" />
@@ -92,14 +94,12 @@
     <Compile Include="Sparrow\Player\SDEConstants.cs" />
     <Compile Include="Sparrow\Player\SimLoader.cs" />
     <Compile Include="Sparrow\Player\SimPlayer.cs" />
-    <Compile Include="Sparrow\simple\SimpleSparrowHandler.cs" />
-    <Compile Include="Sparrow\SparrowHandler.cs" />
+    <Compile Include="Sparrow\StarlingHandler.cs" />
     <Compile Include="Sparrow\SparrowParticleBuffers.cs" />
     <Compile Include="Sparrow\SparrowRenderer.cs" />
     <Compile Include="StardustElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StardustInfo.cs" />
-    <Compile Include="TestSer.cs" />
     <Compile Include="Xml\ClassPackage.cs" />
     <Compile Include="Xml\CommonClassPackage.cs" />
     <Compile Include="Xml\XMLBuilder.cs" />

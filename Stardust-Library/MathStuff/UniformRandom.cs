@@ -13,7 +13,6 @@ namespace Stardust.MathStuff
         /// <summary>
         /// The expected value of the random number.
         /// </summary>
-        [XmlAttribute]
         public float Center;
 
         /// <summary>
@@ -23,7 +22,6 @@ namespace Stardust.MathStuff
         /// The range of the generated random number is [center - radius, center + radius].
         /// </para>
         /// </summary>
-        [XmlAttribute]
         public float Radius;
 
         public UniformRandom() : this(0.5f, 0) {}

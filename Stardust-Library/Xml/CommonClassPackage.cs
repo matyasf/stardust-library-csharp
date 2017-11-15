@@ -46,7 +46,7 @@ namespace Stardust.Xml
             classes.Add(typeof(ImpluseClock));
 
             //emitters
-            classes.Add(typeof(Emitter));
+            classes.Add(typeof(Emitter2D));
 
             //initializers
             classes.Add(typeof(Alpha));

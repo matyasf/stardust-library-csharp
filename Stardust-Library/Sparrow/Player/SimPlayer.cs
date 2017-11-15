@@ -22,7 +22,7 @@ namespace Stardust.Sparrow.Player
             _project = project;
             foreach (var emitterValueObject in project.Emitters)
             {
-                SparrowHandler handler = (SparrowHandler) emitterValueObject.Emitter.ParticleHandler;
+                StarlingHandler handler = (StarlingHandler) emitterValueObject.Emitter.ParticleHandler;
                 handler.Container = renderTarget;
             }
         }

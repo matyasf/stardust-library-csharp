@@ -6,7 +6,7 @@ namespace Stardust.Actions.Triggers
 {
     public abstract class Trigger : StardustElement
     {
-        public abstract bool TestTrigger(Emitter emitter, Particle particle, float time);
+        public abstract bool TestTrigger(Emitter2D emitter, Particle particle, float time);
 
         #region XML
 

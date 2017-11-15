@@ -1,18 +1,24 @@
 ﻿
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using Sparrow.Core;
 using Sparrow.Display;
 using Sparrow.Text;
+using Stardust;
 using Stardust.Actions;
 using Stardust.Clocks;
 using Stardust.Emitters;
 using Stardust.Initializers;
 using Stardust.MathStuff;
+using Stardust.Serialization;
 using Stardust.Sparrow;
 using Stardust.Sparrow.Player;
 using Stardust.Zones;
@@ -21,7 +27,7 @@ namespace Stardust_Library_Sample
 {
     public class SampleApp : Sprite
     {
-        private readonly Emitter _em;
+        private readonly Emitter2D _em;
         private float _timeCounter;
         private int _frameNum;
         private readonly TextField _textField;
@@ -48,7 +54,7 @@ namespace Stardust_Library_Sample
             
             Stream sdeStream = Assembly.GetExecutingAssembly().
                 //GetManifestResourceStream("Stardust_Library_Sample.Untitled.zip");
-                GetManifestResourceStream("Stardust_Library_Sample.blazingFire.zip");
+                GetManifestResourceStream("Stardust_Library_Sample.Untitled.zip");
             SimLoader loader = new SimLoader();
             loader.LoadSim(sdeStream);
             var sim = loader.CreateProjectInstance();
@@ -59,53 +65,17 @@ namespace Stardust_Library_Sample
                 player.StepSimulation(time);
             };
             
-            Emitter em = sim.Emitters[0].Emitter;
-            Type[] extras =
-            {
-                typeof(UniformRandom), 
-                
-                typeof(SteadyClock), 
-                typeof(ImpluseClock),
-                
-                typeof(SinglePoint),
-                typeof(Line),
-                typeof(RectZone),
-                
-                typeof(SparrowHandler),
-                
-                typeof(DeathLife),
-                typeof(Age),
-                typeof(ColorGradient),
-                typeof(Move),
-                typeof(NormalDrift),
-                typeof(Spin),
-                
-                typeof(Alpha),
-                typeof(Life),
-                typeof(Mass),
-                typeof(Omega),
-                typeof(PositionAnimated),
-                typeof(Rotation),
-                typeof(Scale),
-                typeof(Velocity),
-            };
+            Emitter2D em = sim.Emitters[0].Emitter;
             
-            var ee = new NormalDrift(32, new UniformRandom(5, 2));
+           
+            var err = new NormalDrift(123, new UniformRandom(12,333));
             
+            StardustSerializer zer = new StardustSerializer();
+            var json = zer.Serialize(em);
+            var szar = zer.Deserialize(json);
             
-            var serializer = new XmlSerializer(typeof(Emitter), extras);
-            StringBuilder sb = new StringBuilder();
-            var settings = new XmlWriterSettings();
-            settings.Indent = true;
-            var xtw = XmlWriter.Create(sb, settings);
-            serializer.Serialize(xtw, em);
-            xtw.Flush();
-            var xstr = sb.ToString();
-            
-            int a = 45;
-            
+            int a = 45;   
         }
-        
     }
 
 }

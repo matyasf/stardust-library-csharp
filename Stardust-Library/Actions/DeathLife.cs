@@ -1,4 +1,5 @@
-﻿using Stardust.Emitters;
+﻿using System.ComponentModel;
+using Stardust.Emitters;
 using Stardust.Particles;
 
 namespace Stardust.Actions
@@ -6,7 +7,7 @@ namespace Stardust.Actions
     public class DeathLife : Action
     {
 
-        public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
+        public override void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime)
         {
             if (particle.Life <= 0)
             {

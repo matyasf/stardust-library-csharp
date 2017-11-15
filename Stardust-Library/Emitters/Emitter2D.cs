@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Stardust.Actions;
 using Stardust.Clocks;
 using Stardust.Collections;
@@ -14,10 +16,10 @@ namespace Stardust.Emitters
     /// <summary>
     /// This class takes charge of the actual particle simulation of the Stardust particle system.
     /// </summary>
-    public class Emitter : StardustElement
+    public class Emitter2D : StardustElement
     {
         
-        public delegate void EmitterStepEndHandler(Emitter emitter);
+        public delegate void EmitterStepEndHandler(Emitter2D emitter);
         public event EmitterStepEndHandler EmitterStepEnd;
         
         private readonly List<Particle> _particles = new List<Particle>(20);
@@ -27,7 +29,7 @@ namespace Stardust.Emitters
         /// Returns every managed particle for custom parameter manipulation.
         /// The returned List is not a copy.
         /// </summary>
-        [XmlIgnoreAttribute]
+        [JsonIgnore]
         public IReadOnlyList<Particle> Particles => _particles;
 
         /// <summary>
@@ -52,7 +54,7 @@ namespace Stardust.Emitters
         /// <summary>
         /// The time since the simulation is running.
         /// </summary>
-        [XmlIgnoreAttribute]
+        [JsonIgnore]
         public float CurrentTime;
 
         /// <summary>
@@ -68,9 +70,9 @@ namespace Stardust.Emitters
         private float _timeSinceLastStep;
         private float _fps;
 
-        public Emitter() : this(null, null) {}
+        public Emitter2D() : this(null, null) {}
         
-        public Emitter(Clock clock, ParticleHandler particleHandler)
+        public Emitter2D(Clock clock, ParticleHandler particleHandler)
         {
             Clock = clock;
             Active = true;
@@ -100,7 +102,6 @@ namespace Stardust.Emitters
         /// (e.g. A clock produces the same amount of ticks on all FPSes, but it does it at a different times,
         /// resulting in particles emitted in batches instead smoothly)
         /// </summary>
-        [XmlAttribute]
         public float Fps
         {
             get => _fps;
@@ -321,7 +322,7 @@ namespace Stardust.Emitters
         /// <summary>
         /// The number of particles in the emitter.
         /// </summary>
-        [XmlIgnoreAttribute]
+        [JsonIgnore]
         public int NumParticles => _particles.Count;
         
         private static readonly List<Particle> NewParticles = new List<Particle>();

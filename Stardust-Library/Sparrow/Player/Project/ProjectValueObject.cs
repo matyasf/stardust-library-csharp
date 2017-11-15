@@ -61,7 +61,7 @@ namespace Stardust.Sparrow.Player.Project
                 emitter.ClearActions();
                 emitter.CleaInitializers();
                 emitterVo.EmitterSnapshot = null;
-                SparrowRenderer renderer = ((SparrowHandler)(emitter.ParticleHandler)).Renderer;
+                SparrowRenderer renderer = ((StarlingHandler)(emitter.ParticleHandler)).Renderer;
                 if (renderer.Parent != null)
                 {
                     renderer.RemoveFromParent();

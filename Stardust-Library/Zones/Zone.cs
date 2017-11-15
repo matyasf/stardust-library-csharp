@@ -14,8 +14,7 @@ namespace Stardust.Zones
         protected float area;
 
         protected float _x;
-
-        [XmlAttribute]
+        
         public virtual float X
         {
             get => _x;
@@ -23,8 +22,7 @@ namespace Stardust.Zones
         }
         
         protected float _y;
-
-        [XmlAttribute]
+        
         public virtual float Y
         {
             get => _y;
@@ -58,8 +56,7 @@ namespace Stardust.Zones
             md2D.Y = _y + md2D.Y;
             return md2D;
         }
-
-        [XmlAttribute]
+        
         public float Rotation
         {
             get { return _rotation; }

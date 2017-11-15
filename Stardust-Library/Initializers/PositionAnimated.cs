@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Stardust.Geom;
 using Stardust.Particles;
 using Stardust.Xml;
@@ -24,11 +25,10 @@ namespace Stardust.Initializers
             get => ZoneCollection.Zones;
             set => ZoneCollection.Zones = value;
         }
-
-        [XmlAttribute]
+        
         public bool InheritVelocity;
         
-        [XmlIgnoreAttribute] // TODO parse this
+        [JsonIgnore] // TODO parse this
         public Vec2D[] Positions;
         private int _prevPos;
         private int _currentPos;

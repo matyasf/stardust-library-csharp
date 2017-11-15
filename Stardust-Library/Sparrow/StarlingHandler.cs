@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Sparrow.Display;
 using Sparrow.Textures;
 using Stardust.Emitters;
@@ -11,10 +12,11 @@ using Stardust.Xml;
 
 namespace Stardust.Sparrow
 {
-    public class SparrowHandler : ParticleHandler
+    // This is named like this for historical reasons. TODO rename this in the parser
+    public class StarlingHandler : ParticleHandler
     {
         private static readonly Random Rng = new Random();
-        private uint _blendMode; // TODO use stronly typed value in Sparrow-sharp
+        private string _blendMode; // TODO use stronly typed value in Sparrow-sharp
         private int _spriteSheetAnimationSpeed;
         private TextureSmoothing _smoothing;
         private bool _isSpriteSheet;
@@ -25,7 +27,7 @@ namespace Stardust.Sparrow
         private SparrowRenderer _renderer;
         private float _timeSinceLastStep;
 
-        public SparrowHandler()
+        public StarlingHandler()
         {
             _timeSinceLastStep = 0;
             _spriteSheetAnimationSpeed = 1;
@@ -37,7 +39,7 @@ namespace Stardust.Sparrow
             _renderer.AdvanceTime(new List<Particle>());
         }
 
-        [XmlIgnoreAttribute]
+        [JsonIgnore]
         public DisplayObjectContainer Container
         {
             set
@@ -58,7 +60,7 @@ namespace Stardust.Sparrow
             }
         }
 
-        public override void StepEnd(Emitter emitter, IList<Particle> particles, float time)
+        public override void StepEnd(Emitter2D emitter, IList<Particle> particles, float time)
         {
             if (_isSpriteSheet && _spriteSheetAnimationSpeed > 0) {
                 _timeSinceLastStep = _timeSinceLastStep + time;
@@ -99,9 +101,9 @@ namespace Stardust.Sparrow
         {   
         }
 
+        [JsonIgnore]
         public SparrowRenderer Renderer => _renderer;
         
-        [XmlAttribute]
         public int SpriteSheetAnimationSpeed
         {
             get => _spriteSheetAnimationSpeed;
@@ -115,16 +117,15 @@ namespace Stardust.Sparrow
             }
         }
         
-        [XmlAttribute]
         public bool SpriteSheetStartAtRandomFrame
         {
             get => _spriteSheetStartAtRandomFrame;
             set => _spriteSheetStartAtRandomFrame = value;
         }
         
+        [JsonIgnore]
         public bool IsSpriteSheet => _isSpriteSheet;
         
-        [XmlAttribute]
         public bool Smoothing // TODO make this an enum?
         {
             get => _smoothing != TextureSmoothing.None;
@@ -140,8 +141,7 @@ namespace Stardust.Sparrow
                 _renderer.TexSmoothing = _smoothing;
             }
         }
-
-        [XmlAttribute]
+        
         public bool PremultiplyAlpha
         {
             get => _premultiplyAlpha;
@@ -153,8 +153,7 @@ namespace Stardust.Sparrow
             }
         }
         
-        [XmlAttribute]
-        public uint BlendMode
+        public string BlendMode
         {
             get => _blendMode;
             set
@@ -174,7 +173,7 @@ namespace Stardust.Sparrow
         /// </summary>
         /// <exception cref="ArgumentException">The value is not or has 0 elements</exception>
         /// <exception cref="Exception">Textures do not share the same root.</exception>
-        [XmlIgnoreAttribute]
+        [JsonIgnore]
         public IList<SubTexture> Textures
         {
             get => _textures;

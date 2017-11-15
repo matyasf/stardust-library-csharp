@@ -33,7 +33,6 @@ namespace Stardust.Zones
             Height = height;
         }
         
-        [XmlAttribute]
         public float Width
         {
             get => _width;
@@ -45,7 +44,6 @@ namespace Stardust.Zones
             }
         }
         
-        [XmlAttribute]
         public float Height
         {
             get => _height;

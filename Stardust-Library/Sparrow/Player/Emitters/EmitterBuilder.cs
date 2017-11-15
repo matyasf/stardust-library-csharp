@@ -8,11 +8,11 @@ namespace Stardust.Sparrow.Player.Emitters
     {
         private static XmlBuilder _builder;
 
-        public static Emitter BuidEmitter(XElement source, string uniqueEmitterId)
+        public static Emitter2D BuidEmitter(XElement source, string uniqueEmitterId)
         {
             CreateBuilderIfNeeded();
             _builder.BuildFromXml(source);
-            Emitter emitter = (_builder.GetElementByClass(typeof(Emitter)))[0] as Emitter;
+            Emitter2D emitter = (_builder.GetElementByClass(typeof(Emitter2D)))[0] as Emitter2D;
             emitter.Name = uniqueEmitterId;
             return emitter;
         }
@@ -37,7 +37,7 @@ namespace Stardust.Sparrow.Player.Emitters
             {
                 _builder = new XmlBuilder();
                 _builder.RegisterClassesFromClassPackage(CommonClassPackage.GetInstance());
-                _builder.RegisterClass(typeof(SparrowHandler));
+                _builder.RegisterClass(typeof(StarlingHandler));
             }
         }
     }

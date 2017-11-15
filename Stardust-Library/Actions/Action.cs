@@ -1,6 +1,7 @@
 ﻿
 using System.Runtime.Serialization;
 using System.Xml.Linq;
+using Newtonsoft.Json;
 using Stardust.Emitters;
 using Stardust.Particles;
 
@@ -29,7 +30,7 @@ namespace Stardust.Actions
         /// </summary>
         /// <param name="emitter">The associated emitter.</param>
         /// <param name="time">The timespan of each emitter's step.</param>
-        public virtual void PreUpdate(Emitter emitter, float time) {}
+        public virtual void PreUpdate(Emitter2D emitter, float time) {}
 
         /// <summary>
         /// Acts on all particles upon each <code>Emitter.Step()</code> method call.
@@ -42,7 +43,7 @@ namespace Stardust.Actions
         /// <param name="particle">The associated particle.</param>
         /// <param name="timeDelta">The timespan of each emitter's step.</param>
         /// <param name="currentTime">The total time from the first Emitter.Step() call.</param>
-        public abstract void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime);
+        public abstract void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime);
         
         /// <summary>
         /// This method is called once after each <code>Emitter.Step()</code> method call,
@@ -54,7 +55,7 @@ namespace Stardust.Actions
         /// </summary>
         /// <param name="emitter">The associated emitter.</param>
         /// <param name="time">The timespan of each emitter's step.</param>
-        public virtual void PostUpdate(Emitter emitter, float time) {}
+        public virtual void PostUpdate(Emitter2D emitter, float time) {}
         
         /// <summary>
         /// Tells the emitter whether this action requires that particles must be sorted before the <code>update()</code> calls.
@@ -63,6 +64,7 @@ namespace Stardust.Actions
         /// For instance, the <code>Collide</code> action needs all particles to be sorted in X positions.
         /// </para>
         /// </summary>
+        [JsonIgnore]
         public virtual bool NeedsSortedParticles
         {
             get { return false; }

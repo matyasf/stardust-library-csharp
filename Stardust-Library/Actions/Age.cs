@@ -1,5 +1,4 @@
 ﻿using System.Xml.Linq;
-using System.Xml.Serialization;
 using Stardust.Emitters;
 using Stardust.Particles;
 using Stardust.Xml;
@@ -25,7 +24,6 @@ namespace Stardust.Actions
         /// You can then use this increasing value with <code>LifeTrigger</code> and other custom actions to create various effects.
         /// </para>
         /// </summary>
-        [XmlAttribute]
         public float Multiplier;
 
         public Age() : this(1) {}
@@ -35,7 +33,7 @@ namespace Stardust.Actions
             Multiplier = multiplier;
         }
         
-        public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
+        public override void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime)
         {
             particle.Life -= timeDelta * Multiplier;
             if (particle.Life < 0) particle.Life = 0;

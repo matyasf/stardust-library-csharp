@@ -17,7 +17,6 @@ namespace Stardust.Clocks
         ///
         /// If less than one, it's the probability of an emitter to create a single particle in each second.
         /// </summary>
-        [XmlAttribute]
         public float TicksPerCall;
 
         private RandomBase _initialDelay;

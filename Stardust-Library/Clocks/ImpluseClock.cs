@@ -17,7 +17,6 @@ namespace Stardust.Clocks
         /// <summary>
         /// How many particles to create when an impulse is happening.
         /// </summary>
-        [XmlAttribute]
         public float TicksPerCall;
 
         private RandomBase _initialDelay;

@@ -17,7 +17,6 @@ namespace Stardust
         /// <summary>
         /// Denotes if its is active, true by default.
         /// </summary>
-        [XmlAttribute]
         public bool Active;
 
         protected SortableElement()
@@ -35,7 +34,6 @@ namespace Stardust
         /// You can alter the priority of an element, but it is recommended that you use the default values.
         /// </para>
         /// </summary>
-        [XmlAttribute]
         public int Priority
         {
             get { return _priority; }

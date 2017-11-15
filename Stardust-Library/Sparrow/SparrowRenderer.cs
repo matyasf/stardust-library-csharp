@@ -218,7 +218,7 @@ namespace Stardust.Sparrow
         }
         
         protected bool IsStateChange(uint texture,
-                TextureSmoothing smoothing, uint blendMode, FragmentFilter filter,
+                TextureSmoothing smoothing, string blendMode, FragmentFilter filter,
                 bool premultiplyAlpha, int numParticles)
         {
             if (_mNumParticles == 0)

@@ -22,7 +22,6 @@ namespace Stardust.Actions
         /// Whether the particles acceleration is divided by their masses before applied to them, true by default.
         /// When set to true, it simulates a gravity that applies equal acceleration on all particles.
         /// </summary>
-        [XmlAttribute]
         public bool Massless;
         
         private float _timeDeltaOneSec;
@@ -53,12 +52,12 @@ namespace Stardust.Actions
             }
         }
 
-        public override void PreUpdate(Emitter emitter, float time)
+        public override void PreUpdate(Emitter2D emitter, float time)
         {
             _timeDeltaOneSec = time * 60;
         }
 
-        public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
+        public override void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime)
         {
             var v = Vec2D.GetFromPool(particle.Vy, particle.Vx);
             v.Length = _random.Random();

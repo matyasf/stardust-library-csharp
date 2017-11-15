@@ -76,7 +76,7 @@ namespace Stardust.Sparrow.Player
             var project = new ProjectValueObject(version);
             foreach (RawEmitterData rawData in _rawEmitterDatas)
             {
-                Emitter emitter = EmitterBuilder.BuidEmitter(rawData.EmitterXml, rawData.EmitterId);
+                Emitter2D emitter = EmitterBuilder.BuidEmitter(rawData.EmitterXml, rawData.EmitterId);
                 EmitterValueObject emitterVo = new EmitterValueObject(emitter);
                 project.Emitters.Add(emitterVo);
                 if (rawData.Snapshot != null)
@@ -85,7 +85,7 @@ namespace Stardust.Sparrow.Player
                 }
                 var textures = _atlas.GetTextures(SDEConstants.GetSubtexturePrefix(emitterVo.Id));
                 var subTextures = textures.Cast<SubTexture>().ToList();
-                ((SparrowHandler) (emitterVo.Emitter.ParticleHandler)).Textures = subTextures;
+                ((StarlingHandler) (emitterVo.Emitter.ParticleHandler)).Textures = subTextures;
             }
 
             foreach (var emitterVo in project.Emitters)

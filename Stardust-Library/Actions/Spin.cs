@@ -21,7 +21,6 @@ namespace Stardust.Actions
         /// For instance, a multiplier value of 2 causes a particle to spin twice as fast as normal.
         /// </para>
         /// </summary>
-        [XmlAttribute]
         public float Multiplier;
 
         private float _factor;
@@ -34,12 +33,12 @@ namespace Stardust.Actions
             Multiplier = multiplier;
         }
 
-        public override void PreUpdate(Emitter emitter, float time)
+        public override void PreUpdate(Emitter2D emitter, float time)
         {
             _factor = time * Multiplier;
         }
 
-        public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
+        public override void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime)
         {
             particle.Rotation += particle.Omega * _factor;
         }
