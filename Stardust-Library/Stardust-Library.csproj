@@ -64,7 +64,7 @@
     <Compile Include="Clocks\ImpluseClock.cs" />
     <Compile Include="Clocks\SteadyClock.cs" />
     <Compile Include="Collections\SortableCollection.cs" />
-    <Compile Include="Emitters\Emitter2D.cs" />
+    <Compile Include="Emitters\Emitter.cs" />
     <Compile Include="Fields\Field.cs" />
     <Compile Include="Geom\Vec2D.cs" />
     <Compile Include="Handlers\ParticleHandler.cs" />

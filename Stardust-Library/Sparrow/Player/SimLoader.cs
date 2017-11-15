@@ -12,19 +12,17 @@ using Stardust.Actions;
 using Stardust.Emitters;
 using Stardust.Sparrow.Player.Emitters;
 using Stardust.Sparrow.Player.Project;
+using Stardust.Serialization;
 
 namespace Stardust.Sparrow.Player
 {
     public class SimLoader
     {
-        public const string DESCRIPTOR_FILENAME = "descriptor.json";
-        // this is only used by the editor
-        public const string BACKGROUND_FILENAME = "background.png"; 
-
         private IList<RawEmitterData> _rawEmitterDatas = new List<RawEmitterData>();
         private TextureAtlas _atlas;
         private bool _projectLoaded;
         private JObject _descJson;
+        private StardustSerializer _stardusSerializer = new StardustSerializer();
         
         /// <summary>
         /// Loads a simulation
@@ -38,7 +36,7 @@ namespace Stardust.Sparrow.Player
         private void LoadSde(Stream stream)
         {
             ZipArchive zip = new ZipArchive(stream, ZipArchiveMode.Read);
-            _descJson = JObject.Parse(EntryToString(zip.GetEntry(DESCRIPTOR_FILENAME)));
+            _descJson = JObject.Parse(EntryToString(zip.GetEntry(SDEConstants.DESCRIPTOR_FILENAME)));
             
             foreach (ZipArchiveEntry entry in zip.Entries)
             {
@@ -47,8 +45,7 @@ namespace Stardust.Sparrow.Player
                     string emitterId = SDEConstants.GetEmitterId(entry.Name);
                     RawEmitterData rawData = new RawEmitterData();
                     rawData.EmitterId = emitterId;
-                    string xmlString = EntryToString(entry);
-                    rawData.EmitterXml = XElement.Parse(xmlString);
+                    rawData.EmitterString = EntryToString(entry);
                     // + parse snapshot
                     _rawEmitterDatas.Add(rawData);
                 }
@@ -76,7 +73,9 @@ namespace Stardust.Sparrow.Player
             var project = new ProjectValueObject(version);
             foreach (RawEmitterData rawData in _rawEmitterDatas)
             {
-                Emitter2D emitter = EmitterBuilder.BuidEmitter(rawData.EmitterXml, rawData.EmitterId);
+                Emitter emitter = _stardusSerializer.Deserialize(rawData.EmitterString);
+                emitter.Name = rawData.EmitterId;
+                //REMOVE Emitter2D emitter = EmitterBuilder.BuidEmitter(rawData.EmitterString, rawData.EmitterId);
                 EmitterValueObject emitterVo = new EmitterValueObject(emitter);
                 project.Emitters.Add(emitterVo);
                 if (rawData.Snapshot != null)
@@ -136,10 +135,10 @@ namespace Stardust.Sparrow.Player
                 throw new NullReferenceException("stream cannot be null");
             }
             ZipArchive zip = new ZipArchive(stream, ZipArchiveMode.Read);
-            var desc = zip.GetEntry(DESCRIPTOR_FILENAME);
+            var desc = zip.GetEntry(SDEConstants.DESCRIPTOR_FILENAME);
             if (desc == null)
             {
-                throw new Exception(DESCRIPTOR_FILENAME + " not found");
+                throw new Exception(SDEConstants.DESCRIPTOR_FILENAME + " not found");
             }
             var descJson = JObject.Parse(EntryToString(desc));
             if (descJson["version"].Value<float>() < StardustInfo.Version)
@@ -180,7 +179,7 @@ namespace Stardust.Sparrow.Player
     internal class RawEmitterData
     {
         public string EmitterId;
-        public XElement EmitterXml;
+        public string EmitterString;
         public object Snapshot; // TODO
     }
 }

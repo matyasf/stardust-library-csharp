@@ -33,7 +33,7 @@ namespace Stardust.Actions
             Multiplier = multiplier;
         }
         
-        public override void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime)
+        public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
         {
             particle.Life -= timeDelta * Multiplier;
             if (particle.Life < 0) particle.Life = 0;

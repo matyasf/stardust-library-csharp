@@ -60,7 +60,7 @@ namespace Stardust.Sparrow
             }
         }
 
-        public override void StepEnd(Emitter2D emitter, IList<Particle> particles, float time)
+        public override void StepEnd(Emitter emitter, IList<Particle> particles, float time)
         {
             if (_isSpriteSheet && _spriteSheetAnimationSpeed > 0) {
                 _timeSinceLastStep = _timeSinceLastStep + time;

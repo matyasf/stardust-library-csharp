@@ -11,7 +11,7 @@ namespace Stardust.Actions.Triggers
     public class DeathTrigger : Trigger
     {
         
-        public override bool TestTrigger(Emitter2D emitter, Particle particle, float time)
+        public override bool TestTrigger(Emitter emitter, Particle particle, float time)
         {
             return particle.IsDead;
         }

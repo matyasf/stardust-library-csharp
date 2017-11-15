@@ -1,8 +1,12 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json.Serialization;
+using Stardust.Fields;
+using Stardust.Initializers;
+using Stardust.Zones;
 
 namespace Stardust.Serialization
 {
@@ -23,6 +27,11 @@ namespace Stardust.Serialization
             _nameToType = customDisplayNameTypes.ToDictionary(
                 t => t.Name,
                 t => t);
+            
+            _nameToType.Add("Array.Action", typeof(List<Actions.Action>));
+            _nameToType.Add("Array.Initializer", typeof(List<Initializer>));
+            _nameToType.Add("Array.Zone", typeof(List<Zone>));
+            _nameToType.Add("Array.Field", typeof(List<Field>));
 
             _typeToName = _nameToType.ToDictionary(
                 t => t.Value,
@@ -33,7 +42,7 @@ namespace Stardust.Serialization
         {
             if (false == _typeToName.ContainsKey(serializedType))
             {
-                // throw error instead? how to handle lists?
+                Debug.WriteLine("WARNING: Serializing possibly unknown type " + serializedType);
                 base.BindToName(serializedType, out assemblyName, out typeName);
                 return;
             }
@@ -50,6 +59,7 @@ namespace Stardust.Serialization
             {
                 return _nameToType[typeName];   
             }
+            // Not good, we're deserializing an unknown type!
             return base.BindToType(assemblyName, typeName); 
         }
     }

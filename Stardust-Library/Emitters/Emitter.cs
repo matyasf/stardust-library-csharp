@@ -16,10 +16,10 @@ namespace Stardust.Emitters
     /// <summary>
     /// This class takes charge of the actual particle simulation of the Stardust particle system.
     /// </summary>
-    public class Emitter2D : StardustElement
+    public class Emitter : StardustElement
     {
         
-        public delegate void EmitterStepEndHandler(Emitter2D emitter);
+        public delegate void EmitterStepEndHandler(Emitter emitter);
         public event EmitterStepEndHandler EmitterStepEnd;
         
         private readonly List<Particle> _particles = new List<Particle>(20);
@@ -70,9 +70,9 @@ namespace Stardust.Emitters
         private float _timeSinceLastStep;
         private float _fps;
 
-        public Emitter2D() : this(null, null) {}
+        public Emitter() : this(null, null) {}
         
-        public Emitter2D(Clock clock, ParticleHandler particleHandler)
+        public Emitter(Clock clock, ParticleHandler particleHandler)
         {
             Clock = clock;
             Active = true;

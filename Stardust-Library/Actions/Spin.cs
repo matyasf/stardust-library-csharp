@@ -33,12 +33,12 @@ namespace Stardust.Actions
             Multiplier = multiplier;
         }
 
-        public override void PreUpdate(Emitter2D emitter, float time)
+        public override void PreUpdate(Emitter emitter, float time)
         {
             _factor = time * Multiplier;
         }
 
-        public override void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime)
+        public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
         {
             particle.Rotation += particle.Omega * _factor;
         }

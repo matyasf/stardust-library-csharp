@@ -52,12 +52,12 @@ namespace Stardust.Actions
             }
         }
 
-        public override void PreUpdate(Emitter2D emitter, float time)
+        public override void PreUpdate(Emitter emitter, float time)
         {
             _timeDeltaOneSec = time * 60;
         }
 
-        public override void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime)
+        public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
         {
             var v = Vec2D.GetFromPool(particle.Vy, particle.Vx);
             v.Length = _random.Random();

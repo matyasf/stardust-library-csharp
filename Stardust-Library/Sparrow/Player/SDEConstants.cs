@@ -2,13 +2,17 @@
 {
     public static class SDEConstants
     {
+        public const string DESCRIPTOR_FILENAME = "descriptor.json";
+        // this is only used by the editor
+        public const string BACKGROUND_FILENAME = "background.png";
+
         private const string EMITTER_NAME_PREFIX = "stardustEmitter_";
         public const string ATLAS_IMAGE_NAME = "atlas_0.png";
         public const string ATLAS_XML_NAME = "atlas_0.xml";
 
         public static string GetXmlName(string id)
         {
-            return EMITTER_NAME_PREFIX + id + ".xml";
+            return EMITTER_NAME_PREFIX + id + ".json";
         }
 
         public static string GetParticleSnapshotName(string id)

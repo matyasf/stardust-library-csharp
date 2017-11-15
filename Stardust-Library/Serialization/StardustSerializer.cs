@@ -17,15 +17,15 @@ namespace Stardust.Serialization
             Settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
         
-        public string Serialize(Emitter2D emitter)
+        public string Serialize(Emitter emitter)
         {
             string json = JsonConvert.SerializeObject(emitter, Formatting.Indented, Settings);
             return json;
         }
 
-        public Emitter2D Deserialize(string jsonString)
+        public Emitter Deserialize(string jsonString)
         {
-            var back = JsonConvert.DeserializeObject<Emitter2D>(jsonString, Settings);
+            var back = JsonConvert.DeserializeObject<Emitter>(jsonString, Settings);
             return back;
         }
     }

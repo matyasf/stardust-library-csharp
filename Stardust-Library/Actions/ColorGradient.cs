@@ -107,7 +107,7 @@ namespace Stardust.Actions
             }
         }
 
-        public override void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime)
+        public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
         {
             int ratio = (int)((NumSteps - 1) * (1 - particle.Life / particle.InitLife));
             particle.ColorR = _colorRs[ratio];

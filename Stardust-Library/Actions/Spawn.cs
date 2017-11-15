@@ -21,7 +21,7 @@ namespace Stardust.Actions
 
         public bool InheritDirection;
         public bool InheritVelocity;
-        private Emitter2D _spawnerEmitter;
+        private Emitter _spawnerEmitter;
         private string _spawnerEmitterId;
         private Trigger _trigger;
         
@@ -35,7 +35,7 @@ namespace Stardust.Actions
             Trigger = trigger;
         }
         
-        public Emitter2D SpawnerEmitter
+        public Emitter SpawnerEmitter
         {
             get => _spawnerEmitter;
             set
@@ -60,7 +60,7 @@ namespace Stardust.Actions
             }
         }
 
-        public override void Update(Emitter2D emitter, Particle particle, float timeDelta, float currentTime)
+        public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
         {
             if (_spawnerEmitter == null) 
             {
