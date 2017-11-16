@@ -1,7 +1,4 @@
-﻿using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.Xml;
-
+﻿
 namespace Stardust.Zones
 {
     /// <summary>
@@ -31,22 +28,5 @@ namespace Stardust.Zones
                 UpdateArea();
             }
         }
-
-        #region XML
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            xml.SetAttributeValue("virtualThickness", VirtualThickness);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            VirtualThickness = float.Parse(xml.Attribute("virtualThickness").Value);
-        }
-
-        #endregion
     }
 }

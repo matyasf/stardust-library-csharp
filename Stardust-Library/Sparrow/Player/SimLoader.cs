@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using Sparrow.ResourceLoading;
 using Sparrow.Textures;

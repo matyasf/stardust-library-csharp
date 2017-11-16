@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xml.Linq;
 
 namespace Stardust.MathStuff
 {
@@ -24,15 +23,6 @@ namespace Stardust.MathStuff
         /// Returns the random number's range.
         /// </summary>
         public abstract float[] GetRange();
-
-        #region XML
-
-        public override XElement GetElementTypeXmlTag()
-        {
-            return new XElement("randoms");
-        }
-
-        #endregion
         
     }
 }

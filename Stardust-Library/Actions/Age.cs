@@ -1,7 +1,5 @@
-﻿using System.Xml.Linq;
-using Stardust.Emitters;
+﻿using Stardust.Emitters;
 using Stardust.Particles;
-using Stardust.Xml;
 
 namespace Stardust.Actions
 {
@@ -39,26 +37,6 @@ namespace Stardust.Actions
             if (particle.Life < 0) particle.Life = 0;
         }
 
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "Age";
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            xml.SetAttributeValue("multiplier", Multiplier);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            Multiplier = float.Parse(xml.Attribute("multiplier").Value);
-        }
-
-        #endregion
+       
     }
 }

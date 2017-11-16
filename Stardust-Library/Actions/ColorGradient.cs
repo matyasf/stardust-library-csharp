@@ -1,10 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Xml.Linq;
-using System.Xml.Serialization;
 using Stardust.Emitters;
 using Stardust.Particles;
-using Stardust.Xml;
 using Newtonsoft.Json;
 using System.Runtime.Serialization;
 
@@ -118,7 +114,7 @@ namespace Stardust.Actions
             }
         }
 
-        private void CalcGradient(float start, float end, float colorStart, float colorEnd, float[] array)
+        private static void CalcGradient(float start, float end, float colorStart, float colorEnd, float[] array)
         {
             colorStart = colorStart * colorStart;
             colorEnd = colorEnd * colorEnd;
@@ -129,7 +125,7 @@ namespace Stardust.Actions
             }
         }
 
-        private void CalcAlpha(float start, float end, float alphaStart, float alphaEnd, float[] array)
+        private static void CalcAlpha(float start, float end, float alphaStart, float alphaEnd, float[] array)
         {
             for (float j = start; j < end; j++)
             {
@@ -153,41 +149,6 @@ namespace Stardust.Actions
             SetGradient(Colors, Ratios, Alphas);
         }
 
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "ColorGradient";
-        }
-
-        public override XElement ToXml()
-        {
-            XElement xml = base.ToXml();
-
-            string colorsStr = string.Join(",", _colorRs);
-            string ratiosStr = string.Join(",", Ratios);
-            string alphasStr = string.Join(",", Alphas);
-            
-            xml.SetAttributeValue("colors", colorsStr);
-            xml.SetAttributeValue("ratios", ratiosStr);
-            xml.SetAttributeValue("alphas", alphasStr);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            
-            string[] colors = xml.Attribute("colors").Value.Split(',');
-            string[] ratios = xml.Attribute("ratios").Value.Split(',');
-            string[] alphas = xml.Attribute("alphas").Value.Split(',');
-            
-            SetGradient(Array.ConvertAll(colors, uint.Parse), 
-                Array.ConvertAll(ratios, float.Parse), 
-                Array.ConvertAll(alphas, float.Parse));
-        }
-
-        #endregion
         
     }
 }

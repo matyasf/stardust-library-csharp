@@ -1,8 +1,5 @@
-﻿using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.Emitters;
+﻿using Stardust.Emitters;
 using Stardust.Particles;
-using Stardust.Xml;
 
 namespace Stardust.Actions
 {
@@ -24,7 +21,7 @@ namespace Stardust.Actions
         /// </summary>
         public float Multiplier;
         
-        private float factor;
+        private float _factor;
         
         public Move() : this(1) {}
         
@@ -36,35 +33,14 @@ namespace Stardust.Actions
 
         public override void PreUpdate(Emitter emitter, float time)
         {
-            factor = time * Multiplier;
+            _factor = time * Multiplier;
         }
 
         public override void Update(Emitter emitter, Particle particle, float timeDelta, float currentTime)
         {
-            particle.X += particle.Vx * factor;
-            particle.Y += particle.Vy * factor;
+            particle.X += particle.Vx * _factor;
+            particle.Y += particle.Vy * _factor;
         }
 
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "Move";
-        }
-
-        public override XElement ToXml()
-        {
-            XElement xml = base.ToXml();
-            xml.SetAttributeValue("multiplier", Multiplier);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            Multiplier = float.Parse(xml.Attribute("multiplier").Value);
-        }
-
-        #endregion
     }
 }

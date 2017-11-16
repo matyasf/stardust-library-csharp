@@ -1,9 +1,4 @@
-﻿using System;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.Xml;
-
-namespace Stardust.MathStuff
+﻿namespace Stardust.MathStuff
 {
     /// <summary>
     /// This class generates uniformly distributed random numbers.
@@ -53,29 +48,6 @@ namespace Stardust.MathStuff
         {
             return new[]{Center - Radius, Center + Radius};
         }
-
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "UniformRandom";
-        }
-
-        public override XElement ToXml()
-        {
-            XElement xml = base.ToXml();
-            xml.SetAttributeValue("center", Center);
-            xml.SetAttributeValue("radius", Radius);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            Center = float.Parse(xml.Attribute("center").Value);
-            Radius = float.Parse(xml.Attribute("radius").Value);
-        }
-
-        #endregion
         
     }
 }

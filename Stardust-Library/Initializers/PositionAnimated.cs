@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Xml.Linq;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using Stardust.Geom;
 using Stardust.Particles;
-using Stardust.Xml;
 using Stardust.Zones;
 
 namespace Stardust.Initializers
@@ -95,47 +91,6 @@ namespace Stardust.Initializers
                 return null;
             }
         }
-
-        #region XML
-
-        public override IEnumerable<StardustElement> GetRelatedObjects()
-        {
-            return new List<StardustElement>(ZoneCollection.Zones);
-        }
-
-        public override string GetXmlTagName()
-        {
-            return "PositionAnimated";
-        }
-
-        public override XElement ToXml()
-        {
-            XElement xml = base.ToXml();
-            ZoneCollection.AddToStardustXml(xml);
-            xml.SetAttributeValue("inheritVelocity", InheritVelocity);
-            if (Positions != null && Positions.Length > 0)
-            {
-                throw new NotImplementedException("animated positions are not supported");
-            }
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            
-            ZoneCollection.ParseFromStardustXml(xml, builder);
-            InheritVelocity = bool.Parse(xml.Attribute("inheritVelocity").Value);
-
-            if (xml.Attribute("positions") != null)
-            {
-                Debug.WriteLine("Animated positions cannot be parsed!");
-            }
-        }
-
-        #endregion
-        
-
         
     }
 }

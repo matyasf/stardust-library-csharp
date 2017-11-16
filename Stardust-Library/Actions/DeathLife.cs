@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using Stardust.Emitters;
+﻿using Stardust.Emitters;
 using Stardust.Particles;
 
 namespace Stardust.Actions
@@ -15,13 +14,5 @@ namespace Stardust.Actions
             }
         }
         
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "DeathLife";
-        }
-
-        #endregion
     }
 }

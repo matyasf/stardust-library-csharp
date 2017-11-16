@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.Generic;
-using System.Xml.Linq;
 using Stardust.Particles;
 
 namespace Stardust.Initializers
@@ -34,15 +33,6 @@ namespace Stardust.Initializers
         public virtual void Initialize(Particle particle)
         {
         }
-
-        #region XML
-
-        public override XElement GetElementTypeXmlTag()
-        {
-            return new XElement("initializers");
-        }
-        
-        #endregion
 
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Xml.Linq;
+﻿
 
 namespace Stardust.Clocks
 {
@@ -20,13 +20,5 @@ namespace Stardust.Clocks
         /// </summary>
         public abstract void Reset();
 
-        #region XML
-        
-        public override XElement GetElementTypeXmlTag()
-        {
-            return new XElement("clocks");
-        }
-        
-        #endregion
     }
 }

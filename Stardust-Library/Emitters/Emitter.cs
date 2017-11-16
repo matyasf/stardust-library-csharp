@@ -1,7 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Xml.Linq;
-using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Stardust.Actions;
 using Stardust.Clocks;
@@ -9,7 +6,6 @@ using Stardust.Collections;
 using Stardust.Handlers;
 using Stardust.Initializers;
 using Stardust.Particles;
-using Stardust.Xml;
 
 namespace Stardust.Emitters
 {
@@ -364,83 +360,6 @@ namespace Stardust.Emitters
                 _factory.Recycle(particle);
             }
             _particles.Clear();
-        }
-
-        #endregion
-        
-        #region XML
-
-        public override IEnumerable<StardustElement> GetRelatedObjects()
-        {
-            var allElems = new List<StardustElement>();
-            allElems.Add(_clock);
-            allElems.Add(ParticleHandler);
-            allElems.AddRange(Initializers);
-            allElems.AddRange(Actions);
-            return allElems;
-        }
-
-        public override string GetXmlTagName()
-        {
-            return "Emitter2D";
-        }
-
-        public override XElement GetElementTypeXmlTag()
-        {
-            return new XElement("emitters");
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            xml.SetAttributeValue("active", Active);
-            xml.SetAttributeValue("clock", _clock.Name);
-            xml.SetAttributeValue("particleHandler", ParticleHandler.Name);
-            xml.SetAttributeValue("fps", Fps);
-
-            if (Actions.Count > 0)
-            {
-                var newTag = new XElement("actions");
-                xml.Add(newTag);
-                foreach (var action in Actions)
-                {
-                    newTag.Add(action.GetXmlTag());
-                }
-            }
-
-            if (Initializers.Count > 0) 
-            {
-                var newTag = new XElement("initializers");
-                xml.Add(newTag);
-                foreach (var initializer in Initializers)
-                {
-                    newTag.Add(initializer.GetXmlTag());
-                }
-            }
-
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            _actionCollection.Clear();
-            _factory.ClearInitializers();
-            
-            Active = bool.Parse(xml.Attribute("active").Value);
-            Clock = builder.GetElementByName(xml.Attribute("clock").Value) as Clock;
-            ParticleHandler = builder.GetElementByName(xml.Attribute("particleHandler").Value) as ParticleHandler;
-            Fps = float.Parse(xml.Attribute("fps").Value);
-
-            var actions = xml.Element("actions");
-            foreach (XElement element in actions.Elements())
-            {
-                AddAction(builder.GetElementByName(element.Attribute("name").Value) as Action);
-            }
-            var initializers = xml.Element("initializers");
-            foreach (XElement element in initializers.Elements())
-            {
-                AddInitializer(builder.GetElementByName(element.Attribute("name").Value) as Initializer);
-            }
         }
 
         #endregion

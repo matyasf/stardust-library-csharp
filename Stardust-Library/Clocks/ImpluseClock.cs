@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Xml.Linq;
-using System.Xml.Serialization;
+﻿using System.Runtime.Serialization;
 using Stardust.MathStuff;
-using Stardust.Xml;
 
 namespace Stardust.Clocks
 {
@@ -143,41 +140,11 @@ namespace Stardust.Clocks
             _currentTime = 0;
         }
 
-        #region XML
-
-        public override IEnumerable<StardustElement> GetRelatedObjects()
-        {
-            return new List<StardustElement>() {_impulseInterval, _impulseLength, _initialDelay};
-        }
-
-        public override string GetXmlTagName()
-        {
-            return "ImpulseClock";
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            xml.SetAttributeValue("ticksPerCall", TicksPerCall);
-            xml.SetAttributeValue("impulseInterval", _impulseInterval.Name);
-            xml.SetAttributeValue("impulseLength", _impulseLength.Name);
-            xml.SetAttributeValue("initialDelay", _initialDelay.Name);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            TicksPerCall = float.Parse(xml.Attribute("ticksPerCall").Value);
-            _impulseLength = (RandomBase) builder.GetElementByName(xml.Attribute("impulseLength").Value);
-            _impulseInterval = (RandomBase) builder.GetElementByName(xml.Attribute("impulseInterval").Value);
-            _initialDelay = (RandomBase) builder.GetElementByName(xml.Attribute("initialDelay").Value);
-        }
-
-        public override void OnXmlInitComplete()
+        [OnDeserialized]
+        public void OnParsingComplete()
         {
             Reset();
         }
 
-        #endregion
     }
 }

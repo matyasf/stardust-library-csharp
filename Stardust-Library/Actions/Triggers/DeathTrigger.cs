@@ -1,7 +1,5 @@
-﻿using System.Xml.Linq;
-using Stardust.Emitters;
+﻿using Stardust.Emitters;
 using Stardust.Particles;
-using Stardust.Xml;
 
 namespace Stardust.Actions.Triggers
 {
@@ -14,16 +12,6 @@ namespace Stardust.Actions.Triggers
         public override bool TestTrigger(Emitter emitter, Particle particle, float time)
         {
             return particle.IsDead;
-        }
-        
-        public override string GetXmlTagName()
-        {
-            return "DeathTrigger";
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            
         }
 
     }

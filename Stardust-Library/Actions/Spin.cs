@@ -1,8 +1,5 @@
-﻿using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.Emitters;
+﻿using Stardust.Emitters;
 using Stardust.Particles;
-using Stardust.Xml;
 
 namespace Stardust.Actions
 {
@@ -42,28 +39,6 @@ namespace Stardust.Actions
         {
             particle.Rotation += particle.Omega * _factor;
         }
-        
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "Spin";
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            xml.SetAttributeValue("multiplier", Multiplier);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            Multiplier = float.Parse(xml.Attribute("multiplier").Value);
-        }
-
-        #endregion
         
     }
 }

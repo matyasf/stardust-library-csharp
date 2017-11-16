@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
-using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Sparrow.Display;
 using Sparrow.Textures;
 using Stardust.Emitters;
 using Stardust.Handlers;
 using Stardust.Particles;
-using Stardust.Xml;
 
 namespace Stardust.Sparrow
 {
@@ -204,42 +201,6 @@ namespace Stardust.Sparrow
                 _renderer.SetTextures(value[0].Root, frames);
             }
         }
-
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "StarlingHandler";
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            xml.SetAttributeValue("spriteSheetAnimationSpeed", _spriteSheetAnimationSpeed);
-            xml.SetAttributeValue("spriteSheetStartAtRandomFrame", _spriteSheetStartAtRandomFrame);
-            xml.SetAttributeValue("smoothing", Smoothing);
-            xml.SetAttributeValue("blendMode", _blendMode);
-            xml.SetAttributeValue("premultiplyAlpha", _premultiplyAlpha);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            _spriteSheetAnimationSpeed = int.Parse(xml.Attribute("spriteSheetAnimationSpeed").Value);
-            _spriteSheetStartAtRandomFrame = bool.Parse(xml.Attribute("spriteSheetStartAtRandomFrame").Value);
-            Smoothing = bool.Parse(xml.Attribute("smoothing").Value);
-            string bMode = xml.Attribute("blendMode").Value;
-            if (bMode == "normal")
-            {
-                BlendMode = global::Sparrow.Display.BlendMode.NORMAL;   
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
-            PremultiplyAlpha = bool.Parse(xml.Attribute("premultiplyAlpha").Value);
-        }
-
-        #endregion
+        
     }
 }

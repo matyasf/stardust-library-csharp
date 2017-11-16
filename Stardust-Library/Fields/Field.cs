@@ -1,7 +1,5 @@
-﻿using System.Xml.Linq;
-using Stardust.Geom;
+﻿using Stardust.Geom;
 using Stardust.Particles;
-using Stardust.Xml;
 
 namespace Stardust.Fields
 {
@@ -46,32 +44,5 @@ namespace Stardust.Fields
         /// </summary>
         public abstract Vec2D GetPosition();
 
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "Field";
-        }
-
-        public override XElement GetElementTypeXmlTag()
-        {
-            return new XElement("fields");
-        }
-
-        public override XElement ToXml()
-        {
-            XElement xml = base.ToXml();
-            xml.SetAttributeValue("active", Active);
-            xml.SetAttributeValue("massless", Massless);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            Active = bool.Parse(xml.Attribute("active").Value);
-            Massless = bool.Parse(xml.Attribute("massless").Value);
-        }
-
-        #endregion
     }
 }

@@ -1,8 +1,4 @@
-﻿
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.MathStuff;
-using Stardust.Xml;
+﻿using Stardust.MathStuff;
 
 namespace Stardust.Clocks
 {
@@ -64,20 +60,6 @@ namespace Stardust.Clocks
             float val = _initialDelay.Random();
             currentInitialDelay = val > 0 ? val : 0;
         }
-        
-        #region XML
-        
-        public override string GetXmlTagName()
-        {
-            return "SteadyClock";
-        }
 
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            TicksPerCall = float.Parse(xml.Attribute("ticksPerCall").Value);
-            _initialDelay = builder.GetElementByName(xml.Attribute("initialDelay").Value) as RandomBase;
-        }
-        
-        #endregion
     }
 }

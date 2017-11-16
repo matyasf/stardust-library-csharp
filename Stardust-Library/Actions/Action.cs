@@ -1,7 +1,4 @@
-﻿
-using System.Runtime.Serialization;
-using System.Xml.Linq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Stardust.Emitters;
 using Stardust.Particles;
 
@@ -65,18 +62,6 @@ namespace Stardust.Actions
         /// </para>
         /// </summary>
         [JsonIgnore]
-        public virtual bool NeedsSortedParticles
-        {
-            get { return false; }
-        }
-        
-        #region XML
-
-        public override XElement GetElementTypeXmlTag()
-        {
-            return new XElement("elements");
-        }
-
-        #endregion
+        public virtual bool NeedsSortedParticles => false;
     }
 }

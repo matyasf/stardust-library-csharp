@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
 using Stardust.Geom;
-using Stardust.Xml;
 
 namespace Stardust.Zones
 {
@@ -54,27 +52,6 @@ namespace Stardust.Zones
                 }
             }
             return contains;
-        }
-
-        public void AddToStardustXml(XElement stardustXml)
-        {
-            if (Zones.Count > 0) {
-                XElement zones = new XElement("zones");
-                stardustXml.Add(zones);
-                foreach (Zone zone in Zones) {
-                    zones.Add(zone.GetXmlTagName());
-                }
-            }
-        }
-
-        public void ParseFromStardustXml(XElement stardustXml, XmlBuilder builder)
-        {
-            Zones = new List<Zone>();
-            foreach (XElement node in stardustXml.Element("zones").Elements())
-            {
-                var elem = builder.GetElementByName(node.Attribute("name").Value);
-                Zones.Add((Zone)elem);
-            }
         }
     }
 }

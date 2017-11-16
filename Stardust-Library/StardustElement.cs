@@ -1,9 +1,5 @@
 ﻿
 using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.Xml;
 
 namespace Stardust
 {
@@ -18,7 +14,7 @@ namespace Stardust
 
         public StardustElement()
         {
-            string str = GetXmlTagName();
+            string str = GetType().Name;
             if (!ElementCounter.ContainsKey(str)) {
                 ElementCounter[str] = 0;
             }
@@ -27,59 +23,6 @@ namespace Stardust
             }
             Name = str + "_" + ElementCounter[str];
         }
-
-        #region XML
-        
-        /// <summary>
-        /// Returns the related objects of the element.
-        /// <para>
-        /// This tells the <code>XMLBuilder</code> which elements are related,
-        /// so the builder can include them in the XML representation.
-        /// </para>
-        /// </summary>
-        public virtual IEnumerable<StardustElement> GetRelatedObjects()
-        {
-            return new List<StardustElement>();
-        }
-
-        /// <summary>
-        /// Returns the name of the root node of the element's XML representation.
-        /// </summary>
-        public abstract string GetXmlTagName();
     
-        /// <summary>
-        /// Returns the root tag of the XML representation.
-        /// </summary>
-        public XElement GetXmlTag()
-        {
-            XElement xml = XElement.Parse("<" + GetXmlTagName() + "/>");
-            xml.SetAttributeValue("name", Name);
-            return xml;
-        }
-
-        /// <summary>
-        /// Returns the tag for containing elements of the same type.
-        /// </summary>
-        public abstract XElement GetElementTypeXmlTag();
-    
-        /// <summary>
-        /// Generates XML representation.
-        /// </summary>
-        public virtual XElement ToXml()
-        {
-            return GetXmlTag();
-        }
-    
-        /// <summary>
-        /// Reconstructs the element from XML representations.
-        /// </summary>
-        public abstract void ParseXml(XElement xml, XmlBuilder builder);
-    
-        /// <summary>
-        /// This is called when the whole simulation's XML parsing is complete
-        /// </summary>
-        public virtual void OnXmlInitComplete() {}
-    
-        #endregion
     }
 }

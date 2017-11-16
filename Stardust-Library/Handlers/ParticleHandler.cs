@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Xml.Linq;
 using Stardust.Emitters;
 using Stardust.Particles;
 
@@ -31,15 +30,6 @@ namespace Stardust.Handlers
         /// Handle particle removal in this method.
         /// </summary>
         public abstract void ParticleRemoved(Particle particle);
-        
-        #region XML
-
-        public override XElement GetElementTypeXmlTag()
-        {
-            return new XElement("handlers");
-        }
-
-        #endregion
         
     }
 }

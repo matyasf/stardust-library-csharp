@@ -1,14 +1,7 @@
-﻿
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.Emitters;
+﻿using Stardust.Emitters;
 using Stardust.Geom;
 using Stardust.MathStuff;
 using Stardust.Particles;
-using Stardust.Xml;
-using Stardust.Zones;
 
 namespace Stardust.Actions
 {
@@ -67,33 +60,5 @@ namespace Stardust.Actions
             Vec2D.RecycleToPool(v);
         }
 
-        #region XML
-
-        public override IEnumerable<StardustElement> GetRelatedObjects()
-        {
-            return new List<StardustElement>() {_random};
-        }
-
-        public override string GetXmlTagName()
-        {
-            return "NormalDrift";
-        }
-
-        public override XElement ToXml()
-        {
-            XElement xml = base.ToXml();
-            xml.SetAttributeValue("massless", Massless);
-            xml.SetAttributeValue("random", _random.Name);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            Massless = bool.Parse(xml.Attribute("massless").Value);
-            Random = (RandomBase)builder.GetElementByName(xml.Attribute("random").Value);
-        }
-
-        #endregion
     }
 }

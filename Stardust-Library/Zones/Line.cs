@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Xml.Linq;
-using System.Xml.Serialization;
 using Stardust.Geom;
 using Stardust.MathStuff;
-using Stardust.Xml;
 
 namespace Stardust.Zones
 {
@@ -122,34 +119,6 @@ namespace Stardust.Zones
             var dy = _y - _y2;
             area = (float)Math.Sqrt(dx * dx + dy * dy) * VirtualThicknessVal;
         }
-
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "Line";
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            xml.SetAttributeValue("x1", _x);
-            xml.SetAttributeValue("y1", _y);
-            xml.SetAttributeValue("x2", _x2);
-            xml.SetAttributeValue("y2", _y2);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            _x = float.Parse(xml.Attribute("x1").Value);
-            _y = float.Parse(xml.Attribute("y1").Value);
-            _x2 = float.Parse(xml.Attribute("x2").Value);
-            _y2 = float.Parse(xml.Attribute("y2").Value);
-        }
-
-        #endregion
         
     }
 }

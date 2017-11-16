@@ -1,9 +1,7 @@
 ﻿
 using System.Collections.Generic;
-using System.Xml.Linq;
 using Stardust.Geom;
 using Stardust.Particles;
-using Stardust.Xml;
 using Stardust.Zones;
 
 namespace Stardust.Initializers
@@ -44,33 +42,6 @@ namespace Stardust.Initializers
                 vec2D.Dispose();
             }
         }
-
-        #region XML
-
-        public override IEnumerable<StardustElement> GetRelatedObjects()
-        {
-            return new List<StardustElement>(ZoneCollection.Zones);
-        }
-
-        public override string GetXmlTagName()
-        {
-            return "Velocity";
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            ZoneCollection.AddToStardustXml(xml);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            ZoneCollection.ParseFromStardustXml(xml, builder);
-        }
-
-        #endregion
         
     }
 }

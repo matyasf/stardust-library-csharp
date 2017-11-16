@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Xml.Linq;
-using Stardust.Actions.Triggers;
+﻿using Stardust.Actions.Triggers;
 using Stardust.Emitters;
 using Stardust.Particles;
-using Stardust.Xml;
 
 namespace Stardust.Actions
 {
@@ -84,46 +81,6 @@ namespace Stardust.Actions
                 }
             }
         }
-
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "Spawn";
-        }
-
-        public override IEnumerable<StardustElement> GetRelatedObjects()
-        {
-            return new List<StardustElement>() {_trigger};
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            xml.SetAttributeValue("inheritDirection", InheritDirection);
-            xml.SetAttributeValue("inheritVelocity", InheritVelocity);
-            xml.SetAttributeValue("trigger", _trigger.Name);
-
-            if (_spawnerEmitter != null)
-            {
-                xml.SetAttributeValue("spawnerEmitter", _spawnerEmitter.Name);
-            }
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            
-            InheritDirection = bool.Parse(xml.Attribute("inheritDirection").Value);
-            InheritVelocity = bool.Parse(xml.Attribute("inheritVelocity").Value);
-            
-            _spawnerEmitterId = xml.Attribute("spawnerEmitter").Value;
-            _trigger = (Trigger)builder.GetElementByName(xml.Attribute("trigger").Value);
-
-        }
-
-        #endregion
         
     }
 }

@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.Geom;
+﻿using Stardust.Geom;
 using Stardust.MathStuff;
-using Stardust.Xml;
 
 namespace Stardust.Zones
 {
@@ -101,44 +97,5 @@ namespace Stardust.Zones
             return true;
         }
 
-        #region XML
-
-        public override IEnumerable<StardustElement> GetRelatedObjects()
-        {
-            return new List<StardustElement>() {_randomX, _randomY};
-        }
-        
-        public override string GetXmlTagName()
-        {
-            return "RectZone";
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            
-            xml.SetAttributeValue("x", _x);
-            xml.SetAttributeValue("y", _y);
-            xml.SetAttributeValue("width", _width);
-            xml.SetAttributeValue("height", _height);
-            xml.SetAttributeValue("randomX", _randomX.Name);
-            xml.SetAttributeValue("randomY", _randomY.Name);
-
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            
-            _x = float.Parse(xml.Attribute("x").Value);
-            _y = float.Parse(xml.Attribute("y").Value);
-            Width = float.Parse(xml.Attribute("width").Value);
-            Height = float.Parse(xml.Attribute("height").Value);
-            RandomX = (RandomBase)builder.GetElementByName(xml.Attribute("randomX").Value);
-            RandomY = (RandomBase)builder.GetElementByName(xml.Attribute("randomY").Value);
-        }
-
-        #endregion
     }
 }

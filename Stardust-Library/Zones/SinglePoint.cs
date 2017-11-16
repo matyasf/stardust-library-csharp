@@ -1,7 +1,5 @@
-﻿using System.Xml.Linq;
-using Stardust.Geom;
+﻿using Stardust.Geom;
 using Stardust.MathStuff;
-using Stardust.Xml;
 
 namespace Stardust.Zones
 {
@@ -33,30 +31,5 @@ namespace Stardust.Zones
             area = VirtualThickness * VirtualThickness * StardustMath.Pi;
         }
 
-        #region XML
-
-        public override string GetXmlTagName()
-        {
-            return "SinglePoint";
-        }
-
-        public override XElement ToXml()
-        {
-            var xml = base.ToXml();
-            xml.SetAttributeValue("x", _x);
-            xml.SetAttributeValue("y", _y);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            base.ParseXml(xml, builder);
-            _x = float.Parse(xml.Attribute("x").Value);
-            _y = float.Parse(xml.Attribute("y").Value);
-        }
-
-        #endregion
-        
-        
     }
 }

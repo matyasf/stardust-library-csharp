@@ -61,22 +61,7 @@
     <Compile Include="SampleApp.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="emitter_perf_renderer.xml" />
-    <EmbeddedResource Include="emitter_simple.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Untitled.zip" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="blazingFire.zip" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Untitled2.sde" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="noPMA.sde" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="blazingFire.sde" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

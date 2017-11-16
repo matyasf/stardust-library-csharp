@@ -1,9 +1,4 @@
-﻿using System.Runtime.Serialization;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.Xml;
-
-namespace Stardust
+﻿namespace Stardust
 {
     public abstract class SortableElement : StardustElement
     {
@@ -53,22 +48,6 @@ namespace Stardust
         {
             Removed?.Invoke(this);
         }
-        
 
-        #region XML
-
-        public override XElement ToXml()
-        {
-            XElement xml = base.ToXml();
-            xml.SetAttributeValue("active", Active);
-            return xml;
-        }
-
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            Active = bool.Parse(xml.Attribute("active").Value);
-        }
-
-        #endregion
     }
 }

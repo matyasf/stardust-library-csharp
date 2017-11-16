@@ -1,8 +1,5 @@
-﻿using System.Xml.Linq;
-using System.Xml.Serialization;
-using Stardust.Geom;
+﻿using Stardust.Geom;
 using Stardust.MathStuff;
-using Stardust.Xml;
 
 namespace Stardust.Zones
 {
@@ -101,25 +98,5 @@ namespace Stardust.Zones
             return Vec2D.GetFromPool(X, Y);
         }
 
-        #region XML
-
-        public override XElement GetElementTypeXmlTag()
-        {
-            return new XElement("zones");
-        }
-
-        public override XElement ToXml()
-        {
-            XElement xml = base.ToXml();
-            xml.SetAttributeValue("rotation", _rotation);
-            return xml;
-        }
-        
-        public override void ParseXml(XElement xml, XmlBuilder builder)
-        {
-            Rotation = float.Parse(xml.Attribute("rotation").Value);
-        }
-
-        #endregion
     }
 }
