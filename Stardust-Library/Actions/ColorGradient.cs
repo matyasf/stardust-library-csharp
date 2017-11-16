@@ -5,6 +5,8 @@ using System.Xml.Serialization;
 using Stardust.Emitters;
 using Stardust.Particles;
 using Stardust.Xml;
+using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace Stardust.Actions
 {
@@ -19,8 +21,11 @@ namespace Stardust.Actions
         /// </summary>
         public int NumSteps = 200;
         
+        [JsonIgnore]
         public uint[] Colors;
+        [JsonIgnore]
         public float[] Ratios;
+        [JsonIgnore]
         public float[] Alphas;
         
         private float[] _colorRs; // 0..1
@@ -29,7 +34,33 @@ namespace Stardust.Actions
         private float[] _colorAlphas;
         
         public ColorGradient() : this(false) {}
-        
+
+        /// <summary>
+        /// This is used during serialization
+        /// </summary>
+        public string ColorsStr {
+            set => Colors = Array.ConvertAll(value.Split(','), uint.Parse);
+            get => String.Join(",", Colors);
+        }
+
+        /// <summary>
+        /// This is used during serialization
+        /// </summary>
+        public string RatiosStr
+        {
+            set => Ratios = Array.ConvertAll(value.Split(','), float.Parse);
+            get => String.Join(",", Ratios);
+        }
+
+        /// <summary>
+        /// This is used during serialization
+        /// </summary>
+        public string AlphasStr
+        {
+            set => Alphas = Array.ConvertAll(value.Split(','), float.Parse);
+            get => String.Join(",", Alphas);
+        }
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -114,6 +145,12 @@ namespace Stardust.Actions
             particle.ColorB = _colorBs[ratio];
             particle.ColorG = _colorGs[ratio];
             particle.Alpha = _colorAlphas[ratio];
+        }
+
+        [OnDeserialized]
+        private void OnSerializationComplete(StreamingContext streamingContext)
+        {
+            SetGradient(Colors, Ratios, Alphas);
         }
 
         #region XML

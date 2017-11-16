@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Stardust.Geom;
 using Stardust.Particles;
@@ -84,6 +83,7 @@ namespace Stardust.Initializers
             }
         }
 
+        [JsonIgnore]
         public Vec2D CurrentPosition
         {
             get

@@ -15,6 +15,9 @@ namespace Stardust.Serialization
             Settings.TypeNameHandling = TypeNameHandling.All;
             Settings.SerializationBinder = new CustomSerializationBinder();
             Settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            Settings.MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead;
+            Settings.ObjectCreationHandling = ObjectCreationHandling.Replace;
+            
         }
         
         public string Serialize(Emitter emitter)
