@@ -104,14 +104,6 @@ namespace Stardust.Zones
             return vec;
 
         }
-        
-        public override bool Contains(float x, float y)
-        {
-            if (x < _x && x < _x2) return false;
-            if (x > _x && x > _x2) return false;
-            if ((x - _x) / (_x2 - _x) == (y - _y) / (_y2 - _y)) return true;
-            return false;
-        }
 
         protected override void UpdateArea()
         {

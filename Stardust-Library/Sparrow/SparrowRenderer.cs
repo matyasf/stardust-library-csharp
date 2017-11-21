@@ -265,6 +265,7 @@ namespace Stardust.Sparrow
                         int targetIndex = (_mNumParticles + mNumBatchedParticles) * 32; // 4 * 8
                         int sourceIndex = 0;
                         int sourceEnd = nextPs._mNumParticles * 32; // 4 * 8
+                        Array.Resize(ref _vertexes, targetIndex + sourceEnd);
                         while (sourceIndex < sourceEnd)
                         {
                             _vertexes[targetIndex++] = nextPs._vertexes[sourceIndex++];

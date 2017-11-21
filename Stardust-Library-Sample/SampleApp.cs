@@ -3,6 +3,8 @@ using System.Reflection;
 using Sparrow.Core;
 using Sparrow.Display;
 using Sparrow.Text;
+using Sparrow.Textures;
+using Sparrow.Utils;
 using Stardust.Emitters;
 using Stardust.Sparrow;
 using Stardust.Sparrow.Player;
@@ -15,26 +17,36 @@ namespace Stardust_Library_Sample
         private int _frameNum;
         private readonly TextField _textField;
         private SimPlayer player;
+        private RenderTexture _renderTexture;
+        private Sprite _simContainer;
         
         public SampleApp()
         {
             SparrowSharp.Stage.Color = 0x343434;
             //SparrowSharp.EnableErrorChecking();
             SparrowSharp.SkipUnchangedFrames = false;
-            //SparrowSharp.ShowStats(HAlign.Right);
+            SparrowSharp.ShowStats(HAlign.Right);
             
             SparrowRenderer.Init(1, 35000);
 
             EnterFrame += SampleApp_EnterFrame;
+            
+            _renderTexture = new RenderTexture(500, 500, false);
+            var q = new Quad(500, 500);
+            q.X = 100;
+            q.Y = 100;
+            q.Texture = _renderTexture;
+            AddChild(q);
+            
+            _simContainer = new Sprite();
+            _simContainer.X = _simContainer.Y = 250;
+
         }
 
         private void SampleApp_EnterFrame(DisplayObject target, float passedTime)
         {
             if (cnt == 0)
             {
-                var sp = new Sprite();
-                sp.X = sp.Y = 300;
-                AddChild(sp);
                 /*
                 Emitter emm = new Emitter(new SteadyClock(23, new UniformRandom(34, 22)), new StarlingHandler());
                 emm.AddInitializer(new Life(new UniformRandom(4, 44)));
@@ -48,16 +60,17 @@ namespace Stardust_Library_Sample
                 int a = 5;
                 */
                 Stream sdeStream = Assembly.GetExecutingAssembly().
-                    GetManifestResourceStream("Stardust_Library_Sample.blazingFire.sde");
+                    GetManifestResourceStream("Stardust_Library_Sample.coinShower.sde");
                 SimLoader loader = new SimLoader();
                 loader.LoadSim(sdeStream);
                 var sim = loader.CreateProjectInstance();
-                player = new SimPlayer(sim, sp);
+                player = new SimPlayer(sim, _simContainer);
                 
             }
             else
             {
                 player.StepSimulation(passedTime);
+                _renderTexture.Draw(_simContainer);
             }
             cnt++;
         }

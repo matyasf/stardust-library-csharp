@@ -6,7 +6,7 @@ namespace Stardust.Clocks
     /// <summary>
     /// This clock can be used to create randomized impulses and has more parameters than SteadyClock
     /// </summary>
-    public class ImpluseClock : Clock
+    public class ImpulseClock : Clock
     {
 
         private RandomBase _impulseInterval;
@@ -62,9 +62,9 @@ namespace Stardust.Clocks
             }
         }
         
-        public ImpluseClock() : this(null, null, null, 1) {}
+        public ImpulseClock() : this(null, null, null, 1) {}
         
-        public ImpluseClock(RandomBase impulseInterval,
+        public ImpulseClock(RandomBase impulseInterval,
                             RandomBase impulseLength,
                             RandomBase initialDelay,
                             float ticksPerCall)
@@ -141,7 +141,7 @@ namespace Stardust.Clocks
         }
 
         [OnDeserialized]
-        public void OnParsingComplete()
+        public void OnParsingComplete(StreamingContext streamingContext)
         {
             Reset();
         }

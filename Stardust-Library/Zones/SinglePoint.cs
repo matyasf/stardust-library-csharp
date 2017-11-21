@@ -15,12 +15,6 @@ namespace Stardust.Zones
             UpdateArea();
         }
         
-        public override bool Contains(float x, float y)
-        {
-            if (_x == x && _y == y) return true;
-            return false;
-        }
-        
         public override Vec2D CalculateMotionData2D()
         {
             return Vec2D.GetFromPool();

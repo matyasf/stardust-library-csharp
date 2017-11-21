@@ -82,20 +82,6 @@ namespace Stardust.Zones
         {
             return Vec2D.GetFromPool(_randomX.Random(), _randomY.Random());
         }
-        
-        public override bool Contains(float xc, float yc)
-        {
-            if (_rotation != 0) {
-                // rotate the point backwards instead, it has the same result
-                Vec2D vec = Vec2D.GetFromPool(xc, yc);
-                vec.Rotate(-_rotation);
-                xc = vec.X;
-                yc = vec.Y;
-            }
-            if ((xc < _x) || (xc > (_x + _width))) return false;
-            else if ((yc < _y) || (yc > (_y + _height))) return false;
-            return true;
-        }
 
     }
 }

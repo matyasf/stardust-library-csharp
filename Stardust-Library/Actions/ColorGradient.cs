@@ -144,7 +144,7 @@ namespace Stardust.Actions
         }
 
         [OnDeserialized]
-        private void OnSerializationComplete(StreamingContext streamingContext)
+        private void OnDeserializationComplete(StreamingContext streamingContext)
         {
             SetGradient(Colors, Ratios, Alphas);
         }

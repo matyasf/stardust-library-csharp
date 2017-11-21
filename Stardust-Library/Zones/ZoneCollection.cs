@@ -39,19 +39,6 @@ namespace Stardust.Zones
             }
             return md2D; // returns null if there are no zones
         }
-
-        public bool Contains(float xc, float yc)
-        {
-            bool contains = false;
-            foreach (Zone zone in Zones)
-            {
-                if (zone.Contains(xc, yc))
-                {
-                    contains = true;
-                    break;
-                }
-            }
-            return contains;
-        }
+        
     }
 }

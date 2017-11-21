@@ -7,6 +7,7 @@ using Newtonsoft.Json.Serialization;
 using Stardust.Fields;
 using Stardust.Initializers;
 using Stardust.Zones;
+using Stardust.Actions.Areas;
 
 namespace Stardust.Serialization
 {
@@ -32,6 +33,8 @@ namespace Stardust.Serialization
             _nameToType.Add("Array.Initializer", typeof(List<Initializer>));
             _nameToType.Add("Array.Zone", typeof(List<Zone>));
             _nameToType.Add("Array.Field", typeof(List<Field>));
+            _nameToType.Add("Array.Area", typeof(List<Area>));
+            // TODO add the other types
 
             _typeToName = _nameToType.ToDictionary(
                 t => t.Value,

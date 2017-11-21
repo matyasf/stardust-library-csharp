@@ -36,11 +36,6 @@ namespace Stardust.Zones
         /// </summary>
         protected abstract void UpdateArea();
 
-        /// <summary>
-        /// Determines if a point is contained in the zone, true if contained.
-        /// </summary>
-        public abstract bool Contains(float x, float y);
-
         public Vec2D GetPoint()
         {
             Vec2D md2D = CalculateMotionData2D();
