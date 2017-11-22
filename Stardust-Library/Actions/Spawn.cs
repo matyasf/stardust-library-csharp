@@ -19,7 +19,6 @@ namespace Stardust.Actions
         public bool InheritDirection;
         public bool InheritVelocity;
         private Emitter _spawnerEmitter;
-        private string _spawnerEmitterId;
         private Trigger _trigger;
         
         public Spawn() : this(true, true, null) {}
@@ -38,12 +37,12 @@ namespace Stardust.Actions
             set
             {
                 _spawnerEmitter = value;
-                _spawnerEmitterId = value?.Name;
+                SpawnerEmitterId = value?.Name;
             }
         }
 
-        public string SpawnerEmitterId => _spawnerEmitterId;
-        
+        public string SpawnerEmitterId { get; set; }
+
         public Trigger Trigger
         {
             get => _trigger;
