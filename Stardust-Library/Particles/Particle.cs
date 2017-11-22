@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Stardust.Particles
 {
@@ -93,8 +94,15 @@ namespace Stardust.Particles
         public float Rotation;
         public float Omega;
         
+        /// <summary>
+        /// Used by Spwn to determine if this particle is being deflected
+        /// </summary>
+        public bool IsDeflected = false;
+        
         // Use PooledParticleFactory to instantiate Particles!
-        internal Particle() {}
+        internal Particle()
+        {
+        }
         
         /// <summary>
         /// Initializes properties to default values.
