@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Stardust.Particles
 {
@@ -7,23 +6,12 @@ namespace Stardust.Particles
     /// This class represents a particle and its properties.
     /// </summary>
     public class Particle : IComparable<Particle>
-// TODO Make its constructor private?
     {
 
         /// <summary>
         /// The initial life upon birth.
         /// </summary>
         public float InitLife;
-
-        /// <summary>
-        /// The normal scale upon birth.
-        /// </summary>
-        public float InitScale;
-
-        /// <summary>
-        /// The alpha value upon birth. Deprecated!
-        /// </summary>
-        public float InitAlpha;
 
         /// <summary>
         /// The remaining life of the particle.
@@ -54,7 +42,7 @@ namespace Stardust.Particles
         public bool IsDead;
 
         /// <summary>
-        /// The collision radius of the particle.
+        /// The collision radius of the particle. Not set currently, but you can set it manually.
         /// </summary>
         public float CollisionRadius;
         
@@ -110,8 +98,8 @@ namespace Stardust.Particles
         public void Init()
         {
             InitLife = Life = CurrentAnimationFrame = 0;
-            InitScale = Scale = 1;
-            InitAlpha = Alpha = 1;
+            Scale = 1;
+            Alpha = 1;
             Mass = 1;
             IsDead = false;
             CollisionRadius = 0;
@@ -128,7 +116,7 @@ namespace Stardust.Particles
             Omega = 0;
         }
 
-        public void Destroy() // TODO is this nedeed?
+        public void Destroy() // is this nedeed?
         {
             Target = null;
         }

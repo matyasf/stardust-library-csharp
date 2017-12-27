@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a7679f33-cccf-4ff6-a8b7-b6ea1b13534a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>StardustShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\AccelerationArea.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Action.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Age.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Areas\Area.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Areas\AreaCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Areas\CircleArea.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Areas\EverythingArea.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Areas\IAreaContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Areas\RectArea.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Areas\SectorArea.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\ColorGradient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\DeathLife.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Deflect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Deflectors\CircleDeflector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Deflectors\Deflector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Deflectors\LineDeflector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Gravity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Move.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\NormalDrift.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Oriented.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\RandomDrift.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\ScaleAnimated.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Spawn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\SpeedLimit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Spin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Triggers\DeathTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Triggers\DeflectorTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Triggers\LifeTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\Triggers\Trigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\VelocityField.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clocks\Clock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clocks\ImpulseClock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clocks\SteadyClock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collections\SortableCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Emitters\Emitter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Fields\Field.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Fields\RadialField.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Fields\UniformField.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Geom\Vec2D.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Geom\Vec4D.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Handlers\ParticleHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Initializers\Alpha.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Initializers\Initializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Initializers\Life.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Initializers\Mass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Initializers\Omega.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Initializers\PositionAnimated.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Initializers\Rotation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Initializers\Scale.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Initializers\Velocity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MathStuff\RandomBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MathStuff\StardustMath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MathStuff\UniformRandom.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectPool.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Particles\Particle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Particles\PooledParticleFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\CustomSerializationBinder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\StardustSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SortableElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\Frame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\ParticleProgram.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\Player\Emitters\EmitterValueObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\Player\Project\ProjectValueObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\Player\SDEConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\Player\SimLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\Player\SimPlayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\SparrowParticleBuffers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\SparrowRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sparrow\StarlingHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StardustElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StardustInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StardustProtos\ParticleSnapshot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\CircleZone.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\Contour.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\IZoneContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\Line.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\RectZone.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\Sector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\SinglePoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\Zone.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zones\ZoneCollection.cs" />
+  </ItemGroup>
+</Project>

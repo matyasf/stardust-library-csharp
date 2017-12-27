@@ -59,8 +59,9 @@ namespace Stardust_Library_Sample
                 var newEm = zer.Deserialize(json);
                 int a = 5;
                 */
+                var loadeds = Assembly.GetExecutingAssembly().GetManifestResourceNames();
                 Stream sdeStream = Assembly.GetExecutingAssembly().
-                    GetManifestResourceStream("Stardust_Library_Sample.coinShower.sde");
+                    GetManifestResourceStream("Stardust-Library-Sample.snapshot.sde");
                 SimLoader loader = new SimLoader();
                 loader.LoadSim(sdeStream);
                 var sim = loader.CreateProjectInstance();

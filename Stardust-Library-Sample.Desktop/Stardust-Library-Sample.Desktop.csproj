@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Stardust-Library-Sample</AssemblyName>
+    <RootNamespace>Stardust-Library-Sample</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="blazingFire.sde" />
+    <None Remove="snapshot.sde" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="blazingFire.sde" />
+    <EmbeddedResource Include="snapshot.sde" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Stardust-Library.Desktop\Stardust-Library.Desktop.csproj" />
+  </ItemGroup>
+
+</Project>

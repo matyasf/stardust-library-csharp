@@ -3,23 +3,20 @@ using Stardust.Particles;
 
 namespace Stardust.Initializers
 {
-    public class Alpha : Initializer
+    /// <summary>
+    /// Sets a particle's initial scale based on the <code>random</code> property.
+    /// </summary>
+    public class Scale : Initializer
     {
-
         private RandomBase _random;
-
-        public Alpha() : this(null) {}
-
-        public Alpha(RandomBase random)
+        
+        public Scale() : this(null) {}
+        
+        public Scale(RandomBase random)
         {
             Random = random;
         }
-
-        public override void Initialize(Particle particle)
-        {
-            particle.InitAlpha = particle.Alpha = _random.Random();
-        }
-
+        
         public RandomBase Random
         {
             get => _random;
@@ -31,6 +28,11 @@ namespace Stardust.Initializers
                 }
                 _random = value;
             }
+        }
+
+        public override void Initialize(Particle particle)
+        {
+            particle.Scale = _random.Random();
         }
     }
 }

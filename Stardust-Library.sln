@@ -1,52 +1,49 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stardust-Library", "Stardust-Library\Stardust-Library.csproj", "{745AE63F-8F06-445B-AE8E-10C75F6B6BC6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stardust-Library-Tests", "Stardust-Library-Tests\Stardust-Library-Tests.csproj", "{B98352A3-4421-4062-AC61-9E5478DE3568}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SparrowShared", "..\sparrow-sharp\SparrowShared\SparrowShared.shproj", "{4D13AB71-77BC-431B-8EB4-54BB69E86F9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stardust-Library-Sample", "Stardust-Library-Sample\Stardust-Library-Sample.csproj", "{7A2F11D4-7CD1-4075-BD70-387F412FE6AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SparrowSharp.Desktop", "..\sparrow-sharp\SparrowSharp.Desktop\SparrowSharp.Desktop.csproj", "{40765B80-9BE8-4A35-80B5-7D5ABE4D6657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SparrowSharp.Desktop", "..\sparrow-sharp\SparrowSharp.Desktop\SparrowSharp.Desktop.csproj", "{40765B80-9BE8-4A35-80B5-7D5ABE4D6657}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "StardustShared", "StardustShared\StardustShared.shproj", "{A7679F33-CCCF-4FF6-A8B7-B6EA1B13534A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stardust-Library.Desktop", "Stardust-Library.Desktop\Stardust-Library.Desktop.csproj", "{67E89437-BF1F-4C2E-ABDE-2CC03586392A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stardust-Library-Sample.Desktop", "Stardust-Library-Sample.Desktop\Stardust-Library-Sample.Desktop.csproj", "{58D1D516-257D-4677-A51B-6EC0D5DFCE6F}"
 EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\sparrow-sharp\SparrowShared\SparrowShared.projitems*{40765b80-9be8-4a35-80b5-7d5abe4d6657}*SharedItemsImports = 4
 		..\sparrow-sharp\SparrowShared\SparrowShared.projitems*{4d13ab71-77bc-431b-8eb4-54bb69e86f9c}*SharedItemsImports = 13
+		StardustShared\StardustShared.projitems*{a7679f33-cccf-4ff6-a8b7-b6ea1b13534a}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{745AE63F-8F06-445B-AE8E-10C75F6B6BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{745AE63F-8F06-445B-AE8E-10C75F6B6BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{745AE63F-8F06-445B-AE8E-10C75F6B6BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{745AE63F-8F06-445B-AE8E-10C75F6B6BC6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B98352A3-4421-4062-AC61-9E5478DE3568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B98352A3-4421-4062-AC61-9E5478DE3568}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B98352A3-4421-4062-AC61-9E5478DE3568}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B98352A3-4421-4062-AC61-9E5478DE3568}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A2F11D4-7CD1-4075-BD70-387F412FE6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A2F11D4-7CD1-4075-BD70-387F412FE6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A2F11D4-7CD1-4075-BD70-387F412FE6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A2F11D4-7CD1-4075-BD70-387F412FE6AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{40765B80-9BE8-4A35-80B5-7D5ABE4D6657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{40765B80-9BE8-4A35-80B5-7D5ABE4D6657}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40765B80-9BE8-4A35-80B5-7D5ABE4D6657}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40765B80-9BE8-4A35-80B5-7D5ABE4D6657}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E89437-BF1F-4C2E-ABDE-2CC03586392A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E89437-BF1F-4C2E-ABDE-2CC03586392A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E89437-BF1F-4C2E-ABDE-2CC03586392A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E89437-BF1F-4C2E-ABDE-2CC03586392A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58D1D516-257D-4677-A51B-6EC0D5DFCE6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58D1D516-257D-4677-A51B-6EC0D5DFCE6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58D1D516-257D-4677-A51B-6EC0D5DFCE6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58D1D516-257D-4677-A51B-6EC0D5DFCE6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD0CA2F1-949F-464D-985F-4D33E6BBE878}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

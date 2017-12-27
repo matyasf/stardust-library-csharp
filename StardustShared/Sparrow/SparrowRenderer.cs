@@ -313,7 +313,7 @@ namespace Stardust.Sparrow
             Gl.Uniform4(uAlpha, RenderAlpha[0], RenderAlpha[1], RenderAlpha[2], RenderAlpha[3]);
             
             int uMvpMatrix = program.Uniforms["uMvpMatrix"];
-            Gl.UniformMatrix4(uMvpMatrix, 1, false, painter.State.MvpMatrix3D.RawData);
+            Gl.UniformMatrix4(uMvpMatrix, false, painter.State.MvpMatrix3D.RawData);
             
             //context.setTextureAt(0, mTexture.Base);
 

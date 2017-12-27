@@ -6,7 +6,6 @@ namespace Stardust.Serialization
 {
     public class StardustSerializer
     {
-
         public JsonSerializerSettings Settings;
         
         public StardustSerializer()

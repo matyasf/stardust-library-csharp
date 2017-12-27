@@ -5,14 +5,14 @@ packages/*
 *.vspx
 *.psess
 
-Stardust-Library/bin/*
-Stardust-Library/obj/*
-Stardust-Library/packages/*
+Stardust-Library.Desktop/bin/*
+Stardust-Library.Desktop/obj/*
+Stardust-Library.Desktop/packages/*
 
 Stardust-Library-Tests/bin/*
 Stardust-Library-Tests/obj/*
 Stardust-Library-Tests/packages/*
 
-Stardust-Library-Sample/bin/*
-Stardust-Library-Sample/obj/*
-Stardust-Library-Sample/packages/*
+Stardust-Library-Sample.Desktop/bin/*
+Stardust-Library-Sample.Desktop/obj/*
+Stardust-Library-Sample.Desktop/packages/*

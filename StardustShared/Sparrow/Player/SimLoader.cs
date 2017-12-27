@@ -12,6 +12,7 @@ using Stardust.Emitters;
 using Stardust.Sparrow.Player.Emitters;
 using Stardust.Sparrow.Player.Project;
 using Stardust.Serialization;
+using StardustProtos;
 
 namespace Stardust.Sparrow.Player
 {
@@ -21,7 +22,7 @@ namespace Stardust.Sparrow.Player
         private TextureAtlas _atlas;
         private bool _projectLoaded;
         private JObject _descJson;
-        private StardustSerializer _stardusSerializer = new StardustSerializer();
+        private readonly StardustSerializer _stardusSerializer = new StardustSerializer();
         
         /// <summary>
         /// Loads a simulation
@@ -46,6 +47,11 @@ namespace Stardust.Sparrow.Player
                     rawData.EmitterId = emitterId;
                     rawData.EmitterString = EntryToString(entry);
                     // + parse snapshot
+                    var snapshot = zip.GetEntry(SDEConstants.GetParticleSnapshotName(emitterId));
+                    if (snapshot != null)
+                    {
+                        rawData.Snapshot = snapshot.Open();
+                    }
                     _rawEmitterDatas.Add(rawData);
                 }
             }
@@ -54,8 +60,7 @@ namespace Stardust.Sparrow.Player
             string atlasXmlString = EntryToString(atlasZipEntry);
             
             var atlasImageEntry = zip.GetEntry(SDEConstants.ATLAS_IMAGE_NAME);
-            var texLoader = new TextureLoader();
-            Texture tex = texLoader.LoadFromStream(atlasImageEntry.Open());
+            Texture tex = SimpleTextureLoader.LoadImageFromStream(atlasImageEntry.Open());
             
             _atlas = new TextureAtlas(atlasXmlString, tex);
             
@@ -74,12 +79,13 @@ namespace Stardust.Sparrow.Player
             {
                 Emitter emitter = _stardusSerializer.Deserialize(rawData.EmitterString);
                 emitter.Name = rawData.EmitterId;
-                //REMOVE Emitter2D emitter = EmitterBuilder.BuidEmitter(rawData.EmitterString, rawData.EmitterId);
                 EmitterValueObject emitterVo = new EmitterValueObject(emitter);
                 project.Emitters.Add(emitterVo);
                 if (rawData.Snapshot != null)
                 {
-                    // not done yet
+                    var snapshots = ParticleSnapshots.Parser.ParseFrom(rawData.Snapshot);
+                    emitterVo.EmitterSnapshot = snapshots.Particles;
+                    emitterVo.AddParticlesFromSnapshot();
                 }
                 var textures = _atlas.GetTextures(SDEConstants.GetSubtexturePrefix(emitterVo.Id));
                 var subTextures = textures.Cast<SubTexture>().ToList();
@@ -127,7 +133,7 @@ namespace Stardust.Sparrow.Player
             _rawEmitterDatas = new List<RawEmitterData>();
         }
 
-        private void ValidateSde(Stream stream)
+        private static void ValidateSde(Stream stream)
         {
             if (stream == null)
             {
@@ -179,6 +185,6 @@ namespace Stardust.Sparrow.Player
     {
         public string EmitterId;
         public string EmitterString;
-        public object Snapshot; // TODO
+        public Stream Snapshot;
     }
 }
